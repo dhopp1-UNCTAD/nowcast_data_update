@@ -16,6 +16,7 @@ months <- c(
   "NOVEMBER",
   "DECEMBER"
 )
+n_files <- 20 # number of files to reget
 prefix <- "https://www.pancanal.com/common/maritime/advisories/"
 url <- str_interp("${prefix}/index.html")
 html <- paste(readLines(url), collapse="\n")
@@ -23,14 +24,13 @@ html <- paste(readLines(url), collapse="\n")
 matched <- str_match_all(html, "<a href=\"(.*?)\"")
 files <- matched[[1]][,2]
 # keeping only PDFs
-files <- files[files %>% sapply(function(x) str_sub(x, -3) == "pdf")]
+files <- files[files %>% sapply(function(x) str_sub(x, -3) == "pdf")] %>% unique
 
 all_data <- data.frame(year=2000, month=1, transit_pa_canal=0)
-# testing
-for (url in files) {
-  test_one <- url
-  test_url <- paste(prefix, test_one, sep="")
-  pdf <- pdf_text(test_url)
+# loop to get info from pdfs
+for (url in files[1:n_files]) {
+  final_url <- paste(prefix, url, sep="")
+  pdf <- pdf_text(final_url)
   
   necessary_text <- "Monthly Canal Operations Summary"
   if (grepl(necessary_text, pdf[1])) {
@@ -51,6 +51,7 @@ for (url in files) {
     all_data <- rbind(all_data, data)
   }
   print(url)
+  Sys.sleep(2)
 }
 
 all_data <- all_data %>% slice(2:n())
