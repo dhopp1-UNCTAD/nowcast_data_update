@@ -36,58 +36,48 @@ log <- cat %>%
   mutate(status=1)
 
 ###
-### Getting monthly OECD data
-# function to get a download group g and column bind to the database
-get_oecd_monthly <- function (url, cat, g, countries) {
-  vars <- cat %>% filter(download_group == g)
-  tmp <- as.data.frame(
-    matrix(NA, 
-           ncol = (nrow(vars) + 1), 
-           nrow = length(seq(from = start_date, to = end_date, by = "month"))
-    )
-  ) %>%
-    rename_at(vars(colnames(.)), ~c("date", vars$code)) %>%
-    mutate(date = seq(from = start_date, to = end_date, by = "month"))
-  
-  status <- tryCatch({
-    rawdata <- readSDMX(url)
-    TRUE },
-    error = function(e) {
-      FALSE })
-  if (status) {
-    data <- as.data.frame(rawdata) %>%
-      left_join(countries, by = c("LOCATION" = "oecd"))
-    for (i in 1:nrow(vars)) {
-      datai <- data %>% filter(country == as.character(vars[i, "country"]))
-      starti <- which(grepl(as.Date(paste0(datai[1, "obsTime"], "-01"), format = "%Y-%m-%d"), tmp$date))
-      tmp[starti:(starti + nrow(datai) - 1), i + 1] <- datai$obsValue
-    }
-    # updating the log
-    # log <<- log %>%
-    #   mutate(status = ifelse(download_group == g, 0, download_group))
-    log[log$download_group == g, "status"] <- 0
-    
-    return(tmp %>% select(-1))
-  }
-}
-monthly_data <- hash()
-gen_url <- function (url) {paste0(url,format(start_date, "%Y-%m"))}
+### Getting data
+source("src/get_api.r")
+data_hash <- hash()
 # Group 1: Merchandise exports, source = OECD (monthly)
-monthly_data[["1"]] <- "https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+NLD+GBR+USA+OECD+CHN+IND+BRIICS.XTEXVA01.CXMLSA.M/all?startTime="
+data_hash[["1"]] <- c("https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+NLD+GBR+USA+OECD+CHN+IND+BRIICS.XTEXVA01.CXMLSA.M/all?startTime=", "monthly", "oecd")
 # Group 2: Industrial production indices, source = OECD (monthly)
-monthly_data[["2"]] <- "https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+MEX+GBR+USA+OECD.PRMNTO01.IXOBSA.M/all?startTime="
+data_hash[["2"]] <- c("https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+MEX+GBR+USA+OECD.PRMNTO01.IXOBSA.M/all?startTime=", "monthly", "oecd")
 # Group 3: Retail trade indices in value, source = OECD (monthly)
-monthly_data[["3"]] <- "https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA.SLRTTO02.IXOBSA.M/all?startTime="
+data_hash[["3"]] <- c("https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA.SLRTTO02.IXOBSA.M/all?startTime=", "monthly", "oecd")
 # Group 4: Retail trade indices in volume, source = OECD (monthly)
-monthly_data[["4"]] <- "https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA+OECD+BRA.SLRTTO01.IXOBSA.M/all?startTime="
+data_hash[["4"]] <- c("https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA+OECD+BRA.SLRTTO01.IXOBSA.M/all?startTime=", "monthly", "oecd")
 # Group 5: Construction indices, source = OECD (monthly)
-monthly_data[["5"]] <- "https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/USA+OECD.PRCNTO01.IXOBSA.M/all?startTime="
+data_hash[["5"]] <- c("https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/USA+OECD.PRCNTO01.IXOBSA.M/all?startTime=", "monthly", "oecd")
+# Group 6: Exports of services, source = OECD (quarterly)
+data_hash[["6"]] <- c("https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI_BOP6/B6CRSE01.OECD.CXCUSA.Q/all?startTime=", "quarterly", "oecd")
+# Group 7: FDI inflows, source = OECD (quarterly)
+data_hash[["7"]] <- c("https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/FDI_AGGR_SUMM/OECD+WLD.USD.DI.T_FA_F/all?startTime=", "quarterly", "oecd")
+# Group 8: Consumer confidence indices, source = OECD (monthly)
+data_hash[["8"]] <- c("https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+JPN+GBR+USA+OECD+CHN.CSCICP03.IXNSA.M/all?startTime=", "monthly", "oecd")
+# Group 9: Business confidence indices, source = OECD (monthly)
+data_hash[["9"]] <- c("https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+JPN+NLD+GBR+USA+OECD+CHN.BSCICP03.IXNSA.M/all?startTime=", "monthly", "oecd")
+# Group 10: Order books, source = OECD (monthly)
+data_hash[["10"]] <- c("https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+NLD+GBR+USA.BSOBLV02.STSA.M/all?startTime=", "monthly", "oecd")
+# Group 11: Exports of services, source = Eurostat (monthly)
+data_hash[["11"]] <- c("http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/bop_c6_m/.MIO_EUR.S.S1.S1.CRE.WRL_REST.DE+FR.?startPeriod=", "monthly", "eurostat")
 
-for (g in 1:length(monthly_data)) {
-  url <- gen_url(monthly_data[[as.character(g)]])
+for (g in 1:length(data_hash)) {
+  print(paste("Fetching group", g))
+  
+  url <-data_hash[[as.character(g)]][1]
+  which_time <-data_hash[[as.character(g)]][2]
+  data_source <- data_hash[[as.character(g)]][3]
+      
+  if (data_source == "oecd") {
+    start_url <- start_date
+  } else if (data_source == "eurostat") {
+    start_url <- start_year
+  }
+  url <- gen_url(url, start_url)
   database <- cbind(
     database,
-    get_oecd_monthly(url, cat, g, countries)  
+    get_api(url, cat, g, countries, which_time, data_source)
   )
   log[log$download_group == g, "status"] <- 0
 }
