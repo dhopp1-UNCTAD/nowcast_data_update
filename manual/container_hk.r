@@ -2,7 +2,7 @@ library(tidyverse)
 library(httr)
 
 # info on the API: https://data.gov.hk/en/help/api-spec#historicalAPI, https://data.gov.hk/en-data/dataset/hk-thb-thb-mpb/resource/a1c00d18-25b4-4f36-8724-a112fd1373e3
-
+months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 # want the "Total ( '000 TEUs)" column
 total_teu_col_num <- 5
 
@@ -19,4 +19,4 @@ data <- data %>%
   filter(month != "All") %>%
   select(c(1:2, total_teu_col_num)) %>%
   rename(container_hk=3, year=Year) %>%
-  mutate(month = sapply(month, function(x) which(x == tmp)))
+  mutate(month = sapply(month, function(x) which(x == months)))
