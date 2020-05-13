@@ -1,134 +1,135 @@
-code,name,country,frequency,units,start_date,source,cumulative,sa,transformation,download_group
-x_cn.sa,"Merchandise exports, China (OECD)",cn,m,,1/1/2002,OECD,n,y,growthr,1
-x_us.sa,"Merchandise exports, United States",us,m,,1/1/2002,OECD,n,y,growthr,1
-x_de.sa,"Merchandise exports, Germany",de,m,,1/1/2002,OECD,n,y,growthr,1
-x_jp.sa,"Merchandise exports, Japan",jp,m,,1/1/2002,OECD,n,y,growthr,1
-x_nl.sa,"Merchandise exports, Netherlands",nl,m,,1/1/2002,OECD,n,y,growthr,1
-x_kr.sa,"Merchandise exports, South Korea",kr,m,,1/1/2002,OECD,n,y,growthr,1
-x_fr.sa,"Merchandise exports, France",fr,m,,1/1/2002,OECD,n,y,growthr,1
-x_it.sa,"Merchandise exports, Italy",it,m,,1/1/2002,OECD,n,y,growthr,1
-x_uk.sa,"Merchandise exports, United Kingdom",uk,m,,1/1/2002,OECD,n,y,growthr,1
-x_in.sa,"Merchandise exports, India",in,m,,1/1/2002,OECD,n,y,growthr,1
-x_oecd.sa,"Merchandise exports, OECD",oecd,m,,1/1/2002,OECD,n,y,growthr,1
-x_briics.sa,"Merchandise exports, BRIICS",briics,m,,1/1/2002,OECD,n,y,growthr,1
-ipi_us.sa,"Industrial production index, United States",us,m,,1/1/2002,OECD,n,y,growthr,2
-ipi_jp.sa,"Industrial production index, Japan",jp,m,,1/1/2002,OECD,n,y,growthr,2
-ipi_de.sa,"Industrial production index, Germany",de,m,,1/1/2002,OECD,n,y,growthr,2
-ipi_kr.sa,"Industrial production index, South Korea",kr,m,,1/1/2002,OECD,n,y,growthr,2
-ipi_it.sa,"Industrial production index, Italy",it,m,,1/1/2002,OECD,n,y,growthr,2
-ipi_fr.sa,"Industrial production index, France",fr,m,,1/1/2002,OECD,n,y,growthr,2
-ipi_uk.sa,"Industrial production index, United Kingdom",uk,m,,1/1/2002,OECD,n,y,growthr,2
-ipi_mx.sa,"Industrial production index, Mexico",mx,m,,1/1/2002,OECD,n,y,growthr,2
-ipi_oecd.sa,"Industrial production index, OECD",oecd,m,,1/1/2002,OECD,n,y,growthr,2
-rti_val_us.sa,"Retail trade index, values, United States",us,m,,1/1/2002,OECD,n,y,growthr,3
-rti_val_jp.sa,"Retail trade index, values, Japan",jp,m,,1/1/2002,OECD,n,y,growthr,3
-rti_val_de.sa,"Retail trade index, values, Germany",de,m,,1/1/2002,OECD,n,y,growthr,3
-rti_val_uk.sa,"Retail trade index, values, United Kingdom",uk,m,,1/1/2002,OECD,n,y,growthr,3
-rti_val_fr.sa,"Retail trade index, values, France",fr,m,,1/1/2002,OECD,n,y,growthr,3
-rti_val_it.sa,"Retail trade index, values, Italy",it,m,,1/1/2002,OECD,n,y,growthr,3
-rti_val_ca.sa,"Retail trade index, values, Canada",ca,m,,1/1/2002,OECD,n,y,growthr,3
-rti_vol_us.sa,"Retail trade index, volumes, United States",us,m,,1/1/2002,OECD,n,y,growthr,4
-rti_vol_jp.sa,"Retail trade index, volumes, Japan",jp,m,,1/1/2002,OECD,n,y,growthr,4
-rti_vol_de.sa,"Retail trade index, volumes, Germany",de,m,,1/1/2002,OECD,n,y,growthr,4
-rti_vol_uk.sa,"Retail trade index, volumes, United Kingdom",uk,m,,1/1/2002,OECD,n,y,growthr,4
-rti_vol_fr.sa,"Retail trade index, volumes, France",fr,m,,1/1/2002,OECD,n,y,growthr,4
-rti_vol_it.sa,"Retail trade index, volumes, Italy",it,m,,1/1/2002,OECD,n,y,growthr,4
-rti_vol_br.sa,"Retail trade index, volumes, Brazil",br,m,,1/1/2002,OECD,n,y,growthr,4
-rti_vol_ca.sa,"Retail trade index, volumes, Canada",ca,m,,1/1/2002,OECD,n,y,growthr,4
-rti_vol_oecd.sa,"Retail trade index, volumes, OECD",oecd,m,,1/1/2002,OECD,n,y,growthr,4
-constr_us.sa,"Construction index, United States",us,m,,1/1/2002,OECD,n,y,growthr,5
-constr_oecd.sa,"Construction index, OECD",oecd,m,,1/1/2002,OECD,n,y,growthr,5
-x_servs_oecd.sa,"Exports of services, OECD",oecd,q,,3/1/2005,OECD,n,y,growthr,6
-fdi_world,"FDI financial flows, inwards, world",world,q,,3/1/2013,OECD,n,n,growthr,7
-fdi_oecd,"FDI financial flows, inwards, OECD",oecd,q,,3/1/2013,OECD,n,n,growthr,7
-cci_us.sa,"Consumer confidence index, United States",us,m,,1/1/2002,OECD,n,y,growthr,8
-cci_cn.sa,"Consumer confidence index, China",cn,m,,1/1/2002,OECD,n,y,growthr,8
-cci_de.sa,"Consumer confidence index, Germany",de,m,,1/1/2002,OECD,n,y,growthr,8
-cci_jp.sa,"Consumer confidence index, Japan",jp,m,,1/1/2002,OECD,n,y,growthr,8
-cci_uk.sa,"Consumer confidence index, United Kingdom",uk,m,,1/1/2002,OECD,n,y,growthr,8
-cci_oecd.sa,"Consumer confidence index, OECD",oecd,m,,1/1/2002,OECD,n,y,growthr,8
-bci_us.sa,"Business confidence index, United States",us,m,,1/1/2002,OECD,n,y,growthr,9
-bci_cn.sa,"Business confidence index, China",cn,m,,1/1/2002,OECD,n,y,growthr,9
-bci_de.sa,"Business confidence index, Germany",de,m,,1/1/2002,OECD,n,y,growthr,9
-bci_jp.sa,"Business confidence index, Japan",jp,m,,1/1/2002,OECD,n,y,growthr,9
-bci_uk.sa,"Business confidence index, United Kingdom",uk,m,,1/1/2002,OECD,n,y,growthr,9
-bci_nl.sa,"Business confidence index, Netherlands",nl,m,,1/1/2002,OECD,n,y,growthr,9
-bci_oecd.sa,"Business confidence index, OECD",oecd,m,,1/1/2002,OECD,n,y,growthr,9
-manuf_orders_us.sa,"Manufacturing order books, United States",us,m,,1/1/2002,OECD,n,y,50_chg,10
-manuf_orders_de.sa,"Manufacturing order books, Germany",de,m,,1/1/2002,OECD,n,y,50_chg,10
-manuf_orders_uk.sa,"Manufacturing order books, United Kingdom",uk,m,,1/1/2002,OECD,n,y,50_chg,10
-manuf_orders_nl.sa,"Manufacturing order books, Netherlands",nl,m,,1/1/2002,OECD,n,y,50_chg,10
-x_servs_de,"Exports of services, Germany",de,m,,1/1/2002,Eurostat,n,n,growthr,11
-x_servs_fr,"Exports of services, France",fr,m,,1/1/2008,Eurostat,n,n,growthr,11
-x_servs_ie,"Exports of services, Ireland",ie,q,,3/1/2002,Eurostat,n,n,growthr,12
-x_servs_nl,"Exports of services, Netherlands",nl,q,,6/1/2003,Eurostat,n,n,growthr,12
-x_servs_uk,"Exports of services, United Kingdom",uk,q,,3/1/2002,Eurostat,n,n,growthr,12
-mar_freight_de,"Goods volume transported by main ports, Germany",de,q,,3/1/2002,Eurostat,n,n,growthr,13
-mar_freight_nl,"Goods volume transported by main ports, Netherlands",nl,q,,3/1/2002,Eurostat,n,n,growthr,13
-ipi_eu27.sa,"Industrial production index, EU27",eu27,m,,1/1/2002,Eurostat,n,y,growthr,14
-is_fr.sa,"Services production index, France",fr,m,,3/1/2005,Eurostat,n,y,growthr,15
-tourists_de,"Tourist arrivals, Germany",de,m,,1/1/2002,Eurostat,n,n,growthr,16
-tourists_es,"Tourist arrivals, Spain",es,m,,1/1/2002,Eurostat,n,n,growthr,16
-tourists_fr,"Tourist arrivals, France",fr,m,,1/1/2002,Eurostat,n,n,growthr,16
-tourists_it,"Tourist arrivals, Italy",it,m,,1/1/2002,Eurostat,n,n,growthr,16
-tourists_uk,"Tourist arrivals, United Kingdom",uk,m,,1/1/2002,Eurostat,n,n,growthr,16
-x_servs_us.sa,"Exports of services, United States",us,m,,1/1/2002,FRED,n,y,growthr,17
-manuf_orders_us_2.sa,"Manufacturers' new orders, United States",us,m,,1/1/2002,FRED,n,y,growthr,18
-x_servs_cn,"Exports of services, China",cn,q,,3/1/2005,IMF,n,n,growthr,19
-x_servs_sg,"Exports of services, Singapore",sg,q,,3/1/2002,IMF,n,n,growthr,19
-x_cn_2,"Merchandise exports, China",cn,m,,1/1/2002,NSBC,n,n,growthr,20
-constr_cn,"Development and sale of real estate, China",cn,m,10000 sq meters,3/1/2002,NSBC,y,y,growthr-yoy,21
-freight_mar_cn,"Volume of freight handled by main coastal ports, China",cn,m,10000 tons,1/1/2005,NSBC,y,n,growthr,22
-ipi_cn,"Industrial production index, China",cn,m,y-o-y growth rates,1/1/2002,NSBC,n,y,linear,23
-rti_cn,"Retail sales (consumer goods) index, China",cn,m,y-o-y growth rates,1/1/2002,NSBC,n,y,linear,24
-pmi_manuf_cn.sa,"Manufacturing purchaser managers' index, China",cn,m,index,1/1/2005,NSBC,n,y,chg,25
-export_orders_cn.sa,"New export orders, China",cn,m,index,1/1/2005,NSBC,n,y,chg,26
-pmi_nm_cn2.sa,"Non-manufacturing purchaser managers' index, China",cn,m,index,1/1/2007,NSBC,n,y,chg,27
-x_hk,"Merchandise exports, Hong Kong",hk,m,million HK$,1/1/2012,HK NSO,n,n,growthr,28
-x_servs_jp,"Exports of services, Japon",jp,m,100 million JPY,1/1/2002,BOJ,n,n,growthr,29
-ind_orders_ez.sa,"Industial new orders, euro area",ez,m,index,1/1/2002,ECB,n,y,growthr,30
-p_manuf,Export prices of manufactures,world,m,index,1/1/2005,WTO,n,n,growthr,31
-x_world,Total merchandise exports,world,q,million US$,1/1/2005,WTO,n,n,growthr,32
-x_vol_world.sa,"Export volumes, world",world,m,index,1/1/2002,CPB,n,y,growthr,33
-x_vol_us.sa,"Export volumes, United States",us,m,index,1/1/2002,CPB,n,y,growthr,33
-x_vol_jp.sa,"Export volumes, Japan",jp,m,index,1/1/2002,CPB,n,y,growthr,33
-x_vol_ez.sa,"Export volumes, euro area",ez,m,index,1/1/2002,CPB,n,y,growthr,33
-x_vol_cn.sa,"Export volumes, China",cn,m,index,1/1/2002,CPB,n,y,growthr,33
-x_vol_ema.sa,"Export volumes, emerging Asia",ema,m,index,1/1/2002,CPB,n,y,growthr,33
-x_vol_cis.sa,"Export volumes, Easter Europe and CIS",cis,m,index,1/1/2002,CPB,n,y,growthr,33
-x_vol_lac.sa,"Export volumes, Latin America",lac,m,index,1/1/2002,CPB,n,y,growthr,33
-x_vol_afr.sa,"Export volumes, Africa and Middle East",afr,m,index,1/1/2002,CPB,n,y,growthr,33
-x_uv_world.sa,Unit value of exports,world,m,index,1/1/2002,CPB,n,y,growthr,33
-tourists_mx,"International tourist arrivals, Mexico",mx,m,1000 persons,1/1/2002,Banxico,n,n,growthr,34
-bci_servs_eu.sa,"Business confidence index, services, EU27",eu27,m,index,1/1/2002,EC,n,y,50_chg,35
-container_index.sa,Container throughput index,world,m,index,1/1/2007,RWI/ISL,n,y,growthr,36
-is_jp.sa,"Services production index, Japan",jp,m,index,1/1/2008,METI,n,y,growthr,37
-is_uk.sa,"Services production index, United Kingdom",uk,m,index,1/1/2002,ONS,n,y,growthr,38
-is_br.sa,"Services production index, Brazil",br,m,index,1/1/2011,IBGE,n,y,growthr,39
-tourists_tk,"Departing foreign visitors, Turkey",tr,q,persons,3/1/2003,NSO TR,n,n,growthr,40
-container_sg,Total container throughput,sg,m,1000 TEUs,1/1/2002,NSO SG,n,n,growthr,41
-air_freight_total_lhr,"Total air freight, Heathrow airport",uk,m,metric tonnes,1/1/2005,LHR,n,n,growthr,42
-air_freight_intl_lhr,"International air freight, Heathrow airport",uk,m,metric tonnes,1/1/2005,LHR,n,n,growthr,42
-air_freight_hkg,"Total air freight, Hong Kong airport",hk,m,metric tonnes,1/1/2002,HKG,n,n,growthr,43
-p_comm,Free market commodity price index,world,m,index,1/1/2002,UNCTAD,n,n,growthr,44
-x_vol_world2,"Export volumes, world (UNCTAD)",world,q,index,1/1/2002,UNCTAD,n,n,growthr,45
-x_servs_uk2.sa,"Exports of services, United Kingdom (Eikon)",uk,m,GBP,1/1/2002,Eikon,n,y,growthr,46
-fdi_cn,"Foreign direct investment, capital used, China",cn,m,USD,1/1/2002,Eikon,n,n,growthr,46
-fdi_in,"Overseas direct investment, India",in,m,USD,7/1/2007,Eikon,n,n,growthr,46
-baltic,Baltic dry index,world,m,index,1/1/2002,Eikon,n,n,growthr,46
-harpex,Harpex charter rate index,world,m,index,1/1/2002,Eikon,n,n,growthr,46
-pmi_manuf_us.sa,"Manufacturing purchasing managers' index, United States",us,m,index,1/1/2002,Eikon,n,y,chg,46
-pmi_nm_us.sa,"Non-manufacturing purchaser managers' index, United States",us,m,index,1/1/2002,Eikon,n,y,chg,46
-pmi_nm_cn.sa,"Non-manufacturing purchaser managers' index, China (Eikon)",cn,m,index,1/1/2007,Eikon,n,y,chg,46
-tourists_th,"International tourist arrivals, Thailand",th,m,persons,1/1/2002,Eikon,n,n,growthr,46
-tourists_us,"Tourism receipts, United States",us,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,47
-tourists_neasia,"Tourist arrivals, North-East Asia",nea,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,47
-tourists_seasia,"Tourist arrivals, South-East Asia",sea,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,47
-tourists_world,"Tourist arrivals, world",world,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,47
-container_hk,"Container throughput, Hong Kong port",hk,m,1000 TEUs,1/1/2002,HK Ports,n,n,growthr,48
-transit_pa_canal,Oceangoing transit through Panama Canal,pa,m,number of ships,1/1/2006,PA Canal,n,n,growthr,48
-transit_suez_canal,Net tonnage transiting through Suez Canal,eg,m,1000 tonnes,1/1/2007,Suez Canal,n,n,growthr,48
-air_freight_mem,"Total air freight, Memphis airport",us,m,kg,1/1/2002,MEM,n,n,growthr,48
-container_exports_la,"Container throughput total, Los Angeles port",us,m,TEUs,1/1/2002,LA Port,n,n,growthr,48
-container_total_la,"Container throughput exports, Los Angeles port",us,m,TEUs,1/1/2002,LA Port,n,n,growthr,48
-x_servs_world,"Exports of services, world",world,q,million US$,1/1/2005,UNCTAD,n,n,growthr,48
+code,name,country,frequency,units,start_date,source,cumulative,sa,transformation,url,download_group
+x_cn.sa,"Merchandise exports, China (OECD)",cn,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+NLD+GBR+USA+OECD+CHN+IND+BRIICS.XTEXVA01.CXMLSA.M/all?startTime=,1
+x_us.sa,"Merchandise exports, United States",us,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+NLD+GBR+USA+OECD+CHN+IND+BRIICS.XTEXVA01.CXMLSA.M/all?startTime=,1
+x_de.sa,"Merchandise exports, Germany",de,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+NLD+GBR+USA+OECD+CHN+IND+BRIICS.XTEXVA01.CXMLSA.M/all?startTime=,1
+x_jp.sa,"Merchandise exports, Japan",jp,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+NLD+GBR+USA+OECD+CHN+IND+BRIICS.XTEXVA01.CXMLSA.M/all?startTime=,1
+x_nl.sa,"Merchandise exports, Netherlands",nl,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+NLD+GBR+USA+OECD+CHN+IND+BRIICS.XTEXVA01.CXMLSA.M/all?startTime=,1
+x_kr.sa,"Merchandise exports, South Korea",kr,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+NLD+GBR+USA+OECD+CHN+IND+BRIICS.XTEXVA01.CXMLSA.M/all?startTime=,1
+x_fr.sa,"Merchandise exports, France",fr,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+NLD+GBR+USA+OECD+CHN+IND+BRIICS.XTEXVA01.CXMLSA.M/all?startTime=,1
+x_it.sa,"Merchandise exports, Italy",it,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+NLD+GBR+USA+OECD+CHN+IND+BRIICS.XTEXVA01.CXMLSA.M/all?startTime=,1
+x_uk.sa,"Merchandise exports, United Kingdom",uk,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+NLD+GBR+USA+OECD+CHN+IND+BRIICS.XTEXVA01.CXMLSA.M/all?startTime=,1
+x_in.sa,"Merchandise exports, India",in,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+NLD+GBR+USA+OECD+CHN+IND+BRIICS.XTEXVA01.CXMLSA.M/all?startTime=,1
+x_oecd.sa,"Merchandise exports, OECD",oecd,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+NLD+GBR+USA+OECD+CHN+IND+BRIICS.XTEXVA01.CXMLSA.M/all?startTime=,1
+x_briics.sa,"Merchandise exports, BRIICS",briics,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+NLD+GBR+USA+OECD+CHN+IND+BRIICS.XTEXVA01.CXMLSA.M/all?startTime=,1
+ipi_us.sa,"Industrial production index, United States",us,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+MEX+GBR+USA+OECD.PRMNTO01.IXOBSA.M/all?startTime=,2
+ipi_jp.sa,"Industrial production index, Japan",jp,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+MEX+GBR+USA+OECD.PRMNTO01.IXOBSA.M/all?startTime=,2
+ipi_de.sa,"Industrial production index, Germany",de,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+MEX+GBR+USA+OECD.PRMNTO01.IXOBSA.M/all?startTime=,2
+ipi_kr.sa,"Industrial production index, South Korea",kr,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+MEX+GBR+USA+OECD.PRMNTO01.IXOBSA.M/all?startTime=,2
+ipi_it.sa,"Industrial production index, Italy",it,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+MEX+GBR+USA+OECD.PRMNTO01.IXOBSA.M/all?startTime=,2
+ipi_fr.sa,"Industrial production index, France",fr,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+MEX+GBR+USA+OECD.PRMNTO01.IXOBSA.M/all?startTime=,2
+ipi_uk.sa,"Industrial production index, United Kingdom",uk,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+MEX+GBR+USA+OECD.PRMNTO01.IXOBSA.M/all?startTime=,2
+ipi_mx.sa,"Industrial production index, Mexico",mx,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+MEX+GBR+USA+OECD.PRMNTO01.IXOBSA.M/all?startTime=,2
+ipi_oecd.sa,"Industrial production index, OECD",oecd,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/FRA+DEU+ITA+JPN+KOR+MEX+GBR+USA+OECD.PRMNTO01.IXOBSA.M/all?startTime=,2
+rti_val_us.sa,"Retail trade index, values, United States",us,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA.SLRTTO02.IXOBSA.M/all?startTime=,3
+rti_val_jp.sa,"Retail trade index, values, Japan",jp,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA.SLRTTO02.IXOBSA.M/all?startTime=,3
+rti_val_de.sa,"Retail trade index, values, Germany",de,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA.SLRTTO02.IXOBSA.M/all?startTime=,3
+rti_val_uk.sa,"Retail trade index, values, United Kingdom",uk,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA.SLRTTO02.IXOBSA.M/all?startTime=,3
+rti_val_fr.sa,"Retail trade index, values, France",fr,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA.SLRTTO02.IXOBSA.M/all?startTime=,3
+rti_val_it.sa,"Retail trade index, values, Italy",it,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA.SLRTTO02.IXOBSA.M/all?startTime=,3
+rti_val_ca.sa,"Retail trade index, values, Canada",ca,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA.SLRTTO02.IXOBSA.M/all?startTime=,3
+rti_vol_us.sa,"Retail trade index, volumes, United States",us,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA+OECD+BRA.SLRTTO01.IXOBSA.M/all?startTime=,4
+rti_vol_jp.sa,"Retail trade index, volumes, Japan",jp,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA+OECD+BRA.SLRTTO01.IXOBSA.M/all?startTime=,4
+rti_vol_de.sa,"Retail trade index, volumes, Germany",de,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA+OECD+BRA.SLRTTO01.IXOBSA.M/all?startTime=,4
+rti_vol_uk.sa,"Retail trade index, volumes, United Kingdom",uk,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA+OECD+BRA.SLRTTO01.IXOBSA.M/all?startTime=,4
+rti_vol_fr.sa,"Retail trade index, volumes, France",fr,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA+OECD+BRA.SLRTTO01.IXOBSA.M/all?startTime=,4
+rti_vol_it.sa,"Retail trade index, volumes, Italy",it,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA+OECD+BRA.SLRTTO01.IXOBSA.M/all?startTime=,4
+rti_vol_br.sa,"Retail trade index, volumes, Brazil",br,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA+OECD+BRA.SLRTTO01.IXOBSA.M/all?startTime=,4
+rti_vol_ca.sa,"Retail trade index, volumes, Canada",ca,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA+OECD+BRA.SLRTTO01.IXOBSA.M/all?startTime=,4
+rti_vol_oecd.sa,"Retail trade index, volumes, OECD",oecd,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/CAN+FRA+DEU+ITA+JPN+GBR+USA+OECD+BRA.SLRTTO01.IXOBSA.M/all?startTime=,4
+constr_us.sa,"Construction index, United States",us,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/USA+OECD.PRCNTO01.IXOBSA.M/all?startTime=,5
+constr_oecd.sa,"Construction index, OECD",oecd,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/USA+OECD.PRCNTO01.IXOBSA.M/all?startTime=,5
+x_servs_oecd.sa,"Exports of services, OECD",oecd,q,,3/1/2005,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI_BOP6/B6CRSE01.OECD.CXCUSA.Q/all?startTime=,6
+fdi_world,"FDI financial flows, inwards, world",world,q,,3/1/2013,oecd,n,n,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/FDI_AGGR_SUMM/OECD+WLD.USD.DI.T_FA_F/all?startTime=,7
+fdi_oecd,"FDI financial flows, inwards, OECD",oecd,q,,3/1/2013,oecd,n,n,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/FDI_AGGR_SUMM/OECD+WLD.USD.DI.T_FA_F/all?startTime=,7
+cci_us.sa,"Consumer confidence index, United States",us,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+JPN+GBR+USA+OECD+CHN.CSCICP03.IXNSA.M/all?startTime=,8
+cci_cn.sa,"Consumer confidence index, China",cn,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+JPN+GBR+USA+OECD+CHN.CSCICP03.IXNSA.M/all?startTime=,8
+cci_de.sa,"Consumer confidence index, Germany",de,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+JPN+GBR+USA+OECD+CHN.CSCICP03.IXNSA.M/all?startTime=,8
+cci_jp.sa,"Consumer confidence index, Japan",jp,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+JPN+GBR+USA+OECD+CHN.CSCICP03.IXNSA.M/all?startTime=,8
+cci_uk.sa,"Consumer confidence index, United Kingdom",uk,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+JPN+GBR+USA+OECD+CHN.CSCICP03.IXNSA.M/all?startTime=,8
+cci_oecd.sa,"Consumer confidence index, OECD",oecd,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+JPN+GBR+USA+OECD+CHN.CSCICP03.IXNSA.M/all?startTime=,8
+bci_us.sa,"Business confidence index, United States",us,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+JPN+NLD+GBR+USA+OECD+CHN.BSCICP03.IXNSA.M/all?startTime=,9
+bci_cn.sa,"Business confidence index, China",cn,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+JPN+NLD+GBR+USA+OECD+CHN.BSCICP03.IXNSA.M/all?startTime=,9
+bci_de.sa,"Business confidence index, Germany",de,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+JPN+NLD+GBR+USA+OECD+CHN.BSCICP03.IXNSA.M/all?startTime=,9
+bci_jp.sa,"Business confidence index, Japan",jp,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+JPN+NLD+GBR+USA+OECD+CHN.BSCICP03.IXNSA.M/all?startTime=,9
+bci_uk.sa,"Business confidence index, United Kingdom",uk,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+JPN+NLD+GBR+USA+OECD+CHN.BSCICP03.IXNSA.M/all?startTime=,9
+bci_nl.sa,"Business confidence index, Netherlands",nl,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+JPN+NLD+GBR+USA+OECD+CHN.BSCICP03.IXNSA.M/all?startTime=,9
+bci_oecd.sa,"Business confidence index, OECD",oecd,m,,1/1/2002,oecd,n,y,growthr,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+JPN+NLD+GBR+USA+OECD+CHN.BSCICP03.IXNSA.M/all?startTime=,9
+manuf_orders_us.sa,"Manufacturing order books, United States",us,m,,1/1/2002,oecd,n,y,50_chg,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+NLD+GBR+USA.BSOBLV02.STSA.M/all?startTime=,10
+manuf_orders_de.sa,"Manufacturing order books, Germany",de,m,,1/1/2002,oecd,n,y,50_chg,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+NLD+GBR+USA.BSOBLV02.STSA.M/all?startTime=,10
+manuf_orders_uk.sa,"Manufacturing order books, United Kingdom",uk,m,,1/1/2002,oecd,n,y,50_chg,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+NLD+GBR+USA.BSOBLV02.STSA.M/all?startTime=,10
+manuf_orders_nl.sa,"Manufacturing order books, Netherlands",nl,m,,1/1/2002,oecd,n,y,50_chg,https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+NLD+GBR+USA.BSOBLV02.STSA.M/all?startTime=,10
+x_servs_de,"Exports of services, Germany",de,m,,1/1/2002,eurostat,n,n,growthr,http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/bop_c6_m/.MIO_EUR.S.S1.S1.CRE.WRL_REST.DE+FR.?startPeriod=,11
+x_servs_fr,"Exports of services, France",fr,m,,1/1/2008,eurostat,n,n,growthr,http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/bop_c6_m/.MIO_EUR.S.S1.S1.CRE.WRL_REST.DE+FR.?startPeriod=,11
+x_servs_ie,"Exports of services, Ireland",ie,q,,3/1/2002,eurostat,n,n,growthr,http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/bop_c6_q/.MIO_EUR.S.S1.S1.CRE.WRL_REST.IE+NL+UK.?startPeriod=,12
+x_servs_nl,"Exports of services, Netherlands",nl,q,,6/1/2003,eurostat,n,n,growthr,http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/bop_c6_q/.MIO_EUR.S.S1.S1.CRE.WRL_REST.IE+NL+UK.?startPeriod=,12
+x_servs_uk,"Exports of services, United Kingdom",uk,q,,3/1/2002,eurostat,n,n,growthr,http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/bop_c6_q/.MIO_EUR.S.S1.S1.CRE.WRL_REST.IE+NL+UK.?startPeriod=,12
+mar_freight_de,"Goods volume transported by main ports, Germany",de,q,,3/1/2002,eurostat,n,n,growthr,http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/mar_go_qm/.TOTAL.TOTAL.THS_T.DE+NL?startPeriod=,13
+mar_freight_nl,"Goods volume transported by main ports, Netherlands",nl,q,,3/1/2002,eurostat,n,n,growthr,http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/mar_go_qm/.TOTAL.TOTAL.THS_T.DE+NL?startPeriod=,13
+ipi_eu27.sa,"Industrial production index, EU27",eu27,m,,1/1/2002,eurostat,n,y,growthr,http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/sts_inpr_m/.PROD.C.SCA.I15.EU27_2020?startPeriod=,14
+is_fr.sa,"Services production index, France",fr,m,,3/1/2005,eurostat,n,y,growthr,http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/sts_sepr_m/.PROD.G-N_STS.SCA.I15.FR?startPeriod=,15
+tourists_de,"Tourist arrivals, Germany",de,m,,1/1/2002,eurostat,n,n,growthr,http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/tour_occ_arm/.FOR.NR.I551-I553.DE+ES+FR+IT+UK?startPeriod=,16
+tourists_es,"Tourist arrivals, Spain",es,m,,1/1/2002,eurostat,n,n,growthr,http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/tour_occ_arm/.FOR.NR.I551-I553.DE+ES+FR+IT+UK?startPeriod=,16
+tourists_fr,"Tourist arrivals, France",fr,m,,1/1/2002,eurostat,n,n,growthr,http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/tour_occ_arm/.FOR.NR.I551-I553.DE+ES+FR+IT+UK?startPeriod=,16
+tourists_it,"Tourist arrivals, Italy",it,m,,1/1/2002,eurostat,n,n,growthr,http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/tour_occ_arm/.FOR.NR.I551-I553.DE+ES+FR+IT+UK?startPeriod=,16
+tourists_uk,"Tourist arrivals, United Kingdom",uk,m,,1/1/2002,eurostat,n,n,growthr,http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/tour_occ_arm/.FOR.NR.I551-I553.DE+ES+FR+IT+UK?startPeriod=,16
+x_servs_us.sa,"Exports of services, United States",us,m,,1/1/2002,fred,n,y,growthr,https://api.stlouisfed.org/fred/series/observations?series_id=BOPSEXP&api_key=2de1403493a03c96c5af253fca05abd2&file_type=json,17
+manuf_orders_us_2.sa,"Manufacturers' new orders, United States",us,m,,1/1/2002,fred,n,y,growthr,https://api.stlouisfed.org/fred/series/observations?series_id=AMXDNO&api_key=2de1403493a03c96c5af253fca05abd2&file_type=json,18
+x_servs_cn,"Exports of services, China",cn,q,,3/1/2005,imf,n,n,growthr,BXS_BP6_USD,19
+x_servs_sg,"Exports of services, Singapore",sg,q,,3/1/2002,imf,n,n,growthr,BXS_BP6_USD,19
+x_cn_2,"Merchandise exports, China",cn,m,,1/1/2002,nbs,n,n,growthr,"http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{""wdcode"":""sj"",""valuecode"":""START_YEAR-2030""},{""wdcode"":""zb"",""valuecode"":""A0801""}]-FILTER-A080105",20
+constr_cn,"Development and sale of real estate, China",cn,m,10000 sq meters,3/1/2002,nbs,y,y,growthr-yoy,"http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{""wdcode"":""sj"",""valuecode"":""START_YEAR-2030""},{""wdcode"":""zb"",""valuecode"":""A0603""}]-FILTER-A060301",21
+freight_mar_cn,"Volume of freight handled by main coastal ports, China",cn,m,10000 tons,1/1/2005,nbs,y,n,growthr,"http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{""wdcode"":""sj"",""valuecode"":""START_YEAR-2030""},{""wdcode"":""zb"",""valuecode"":""A0906""}]-FILTER-A09060A",22
+freight_mar_cn,"Volume of freight handled by main coastal ports, China",cn,m,10000 tons,1/1/2005,nbs,y,n,growthr,"http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{""wdcode"":""sj"",""valuecode"":""START_YEAR-2030""},{""wdcode"":""zb"",""valuecode"":""A0905""}]-FILTER-A090502",22b
+ipi_cn,"Industrial production index, China",cn,m,y-o-y growth rates,1/1/2002,nbs,n,y,linear,"http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{""wdcode"":""sj"",""valuecode"":""START_YEAR-2030""},{""wdcode"":""zb"",""valuecode"":""A0201""}]-FILTER-A020101",23
+rti_cn,"Retail sales (consumer goods) index, China",cn,m,y-o-y growth rates,1/1/2002,nbs,n,y,linear,"http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{""wdcode"":""sj"",""valuecode"":""START_YEAR-2030""},{""wdcode"":""zb"",""valuecode"":""A0701""}]-FILTER-A070103",24
+pmi_manuf_cn.sa,"Manufacturing purchaser managers' index, China",cn,m,index,1/1/2005,nbs,n,y,chg,"http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{""wdcode"":""sj"",""valuecode"":""START_YEAR-2030""},{""wdcode"":""zb"",""valuecode"":""A0B01""}]-FILTER-A0B0101",25
+export_orders_cn.sa,"New export orders, China",cn,m,index,1/1/2005,nbs,n,y,chg,"http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{""wdcode"":""sj"",""valuecode"":""START_YEAR-2030""},{""wdcode"":""zb"",""valuecode"":""A0B01""}]-FILTER-A0B0104",26
+pmi_nm_cn2.sa,"Non-manufacturing purchaser managers' index, China",cn,m,index,1/1/2007,nbs,n,y,chg,"http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{""wdcode"":""sj"",""valuecode"":""START_YEAR-2030""},{""wdcode"":""zb"",""valuecode"":""A0B02""}]-FILTER-A0B0201",27
+x_hk,"Merchandise exports, Hong Kong",hk,m,million HK$,1/1/2012,HK NSO,n,n,growthr,,28
+x_servs_jp,"Exports of services, Japon",jp,m,100 million JPY,1/1/2002,BOJ,n,n,growthr,,29
+ind_orders_ez.sa,"Industial new orders, euro area",ez,m,index,1/1/2002,ECB,n,y,growthr,,30
+p_manuf,Export prices of manufactures,world,m,index,1/1/2005,WTO,n,n,growthr,,31
+x_world,Total merchandise exports,world,q,million US$,1/1/2005,WTO,n,n,growthr,,32
+x_vol_world.sa,"Export volumes, world",world,m,index,1/1/2002,CPB,n,y,growthr,,33
+x_vol_us.sa,"Export volumes, United States",us,m,index,1/1/2002,CPB,n,y,growthr,,33
+x_vol_jp.sa,"Export volumes, Japan",jp,m,index,1/1/2002,CPB,n,y,growthr,,33
+x_vol_ez.sa,"Export volumes, euro area",ez,m,index,1/1/2002,CPB,n,y,growthr,,33
+x_vol_cn.sa,"Export volumes, China",cn,m,index,1/1/2002,CPB,n,y,growthr,,33
+x_vol_ema.sa,"Export volumes, emerging Asia",ema,m,index,1/1/2002,CPB,n,y,growthr,,33
+x_vol_cis.sa,"Export volumes, Easter Europe and CIS",cis,m,index,1/1/2002,CPB,n,y,growthr,,33
+x_vol_lac.sa,"Export volumes, Latin America",lac,m,index,1/1/2002,CPB,n,y,growthr,,33
+x_vol_afr.sa,"Export volumes, Africa and Middle East",afr,m,index,1/1/2002,CPB,n,y,growthr,,33
+x_uv_world.sa,Unit value of exports,world,m,index,1/1/2002,CPB,n,y,growthr,,33
+tourists_mx,"International tourist arrivals, Mexico",mx,m,1000 persons,1/1/2002,Banxico,n,n,growthr,,34
+bci_servs_eu.sa,"Business confidence index, services, EU27",eu27,m,index,1/1/2002,EC,n,y,50_chg,,35
+container_index.sa,Container throughput index,world,m,index,1/1/2007,RWI/ISL,n,y,growthr,,36
+is_jp.sa,"Services production index, Japan",jp,m,index,1/1/2008,METI,n,y,growthr,,37
+is_uk.sa,"Services production index, United Kingdom",uk,m,index,1/1/2002,ONS,n,y,growthr,,38
+is_br.sa,"Services production index, Brazil",br,m,index,1/1/2011,IBGE,n,y,growthr,,39
+tourists_tk,"Departing foreign visitors, Turkey",tr,q,persons,3/1/2003,NSO TR,n,n,growthr,,40
+container_sg,Total container throughput,sg,m,1000 TEUs,1/1/2002,NSO SG,n,n,growthr,,41
+air_freight_total_lhr,"Total air freight, Heathrow airport",uk,m,metric tonnes,1/1/2005,LHR,n,n,growthr,,42
+air_freight_intl_lhr,"International air freight, Heathrow airport",uk,m,metric tonnes,1/1/2005,LHR,n,n,growthr,,42
+air_freight_hkg,"Total air freight, Hong Kong airport",hk,m,metric tonnes,1/1/2002,HKG,n,n,growthr,,43
+p_comm,Free market commodity price index,world,m,index,1/1/2002,UNCTAD,n,n,growthr,,44
+x_vol_world2,"Export volumes, world (UNCTAD)",world,q,index,1/1/2002,UNCTAD,n,n,growthr,,45
+x_servs_uk2.sa,"Exports of services, United Kingdom (Eikon)",uk,m,GBP,1/1/2002,Eikon,n,y,growthr,,46
+fdi_cn,"Foreign direct investment, capital used, China",cn,m,USD,1/1/2002,Eikon,n,n,growthr,,46
+fdi_in,"Overseas direct investment, India",in,m,USD,7/1/2007,Eikon,n,n,growthr,,46
+baltic,Baltic dry index,world,m,index,1/1/2002,Eikon,n,n,growthr,,46
+harpex,Harpex charter rate index,world,m,index,1/1/2002,Eikon,n,n,growthr,,46
+pmi_manuf_us.sa,"Manufacturing purchasing managers' index, United States",us,m,index,1/1/2002,Eikon,n,y,chg,,46
+pmi_nm_us.sa,"Non-manufacturing purchaser managers' index, United States",us,m,index,1/1/2002,Eikon,n,y,chg,,46
+pmi_nm_cn.sa,"Non-manufacturing purchaser managers' index, China (Eikon)",cn,m,index,1/1/2007,Eikon,n,y,chg,,46
+tourists_th,"International tourist arrivals, Thailand",th,m,persons,1/1/2002,Eikon,n,n,growthr,,46
+tourists_us,"Tourism receipts, United States",us,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,,47
+tourists_neasia,"Tourist arrivals, North-East Asia",nea,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,,47
+tourists_seasia,"Tourist arrivals, South-East Asia",sea,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,,47
+tourists_world,"Tourist arrivals, world",world,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,,47
+container_hk,"Container throughput, Hong Kong port",hk,m,1000 TEUs,1/1/2002,HK Ports,n,n,growthr,,48
+transit_pa_canal,Oceangoing transit through Panama Canal,pa,m,number of ships,1/1/2006,PA Canal,n,n,growthr,,48
+transit_suez_canal,Net tonnage transiting through Suez Canal,eg,m,1000 tonnes,1/1/2007,Suez Canal,n,n,growthr,,48
+air_freight_mem,"Total air freight, Memphis airport",us,m,kg,1/1/2002,MEM,n,n,growthr,,48
+container_exports_la,"Container throughput total, Los Angeles port",us,m,TEUs,1/1/2002,LA Port,n,n,growthr,,48
+container_total_la,"Container throughput exports, Los Angeles port",us,m,TEUs,1/1/2002,LA Port,n,n,growthr,,48
+x_servs_world,"Exports of services, world",world,q,million US$,1/1/2005,UNCTAD,n,n,growthr,,48

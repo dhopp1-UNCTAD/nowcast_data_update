@@ -48,7 +48,7 @@ get_api <- function (url, cat, g, countries, which_time, data_source) {
     orig_value_col <- "X.OBS_VALUE"
   }
   # date needs to be converted if it's quarterly
-  if (which_time == "quarterly") {
+  if (which_time == "q") {
     date_transform <- function(x){as.Date(paste(substr(x, 1, 4), as.integer(substr(x, 7, 7)) * 3, "01", sep = "-"), format = "%Y-%m-%d")}
   } else {
     date_transform <- function(x){as.Date(paste0(x, "-01"), format = "%Y-%m-%d")}
@@ -81,9 +81,9 @@ get_api <- function (url, cat, g, countries, which_time, data_source) {
       datai <- data %>% 
         filter(country == as.character(vars[i, "country"]))
       starti <- which(grepl(datai[1, orig_time_col], tmp$date))
-      if (which_time == "quarterly") {
+      if (which_time == "q") {
         tmp[seq(from = starti, to = starti + nrow(datai)*3 - 1, by = 3), i + 1] <- datai[, orig_value_col]
-      } else if (which_time == "monthly") {
+      } else if (which_time == "m") {
         tmp[starti:(starti + nrow(datai) - 1), i + 1] <- datai[, orig_value_col]
       }
     }
