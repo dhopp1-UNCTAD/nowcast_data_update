@@ -148,3 +148,17 @@ get_nbs <- function(url, cat, g) {
   }
   return(tmp %>% select(-1))
 }
+
+# nbs for series where the data is split in 2 places
+get_nbs_double <- function (url1, url2, cat, g) {
+  take_non_na <- function (a, b) { if(is.na(a)) {b} else{a} }
+  data1 <- get_nbs(url1, cat, g)
+  data2 <- get_nbs(url2, cat, g)
+  names <- colnames(data1)
+  # keep the non-na one
+  final <- data1 %>% 
+    mutate(z=ifelse(is.na(.[[1]]), data2[,1], .[[1]])) %>%
+    select(2)
+  colnames(final) <- names
+  return(final)
+}

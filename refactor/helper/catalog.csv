@@ -82,53 +82,53 @@ freight_mar_cn,"Volume of freight handled by main coastal ports, China",cn,m,100
 ipi_cn,"Industrial production index, China",cn,m,y-o-y growth rates,1/1/2002,NSBC,n,y,linear,23
 rti_cn,"Retail sales (consumer goods) index, China",cn,m,y-o-y growth rates,1/1/2002,NSBC,n,y,linear,24
 pmi_manuf_cn.sa,"Manufacturing purchaser managers' index, China",cn,m,index,1/1/2005,NSBC,n,y,chg,25
-export_orders_cn.sa,"New export orders, China",cn,m,index,1/1/2005,NSBC,n,y,chg,25
-pmi_nm_cn2.sa,"Non-manufacturing purchaser managers' index, China",cn,m,index,1/1/2007,NSBC,n,y,chg,26
-x_hk,"Merchandise exports, Hong Kong",hk,m,million HK$,1/1/2012,HK NSO,n,n,growthr,27
-x_servs_jp,"Exports of services, Japon",jp,m,100 million JPY,1/1/2002,BOJ,n,n,growthr,28
-ind_orders_ez.sa,"Industial new orders, euro area",ez,m,index,1/1/2002,ECB,n,y,growthr,29
-p_manuf,Export prices of manufactures,world,m,index,1/1/2005,WTO,n,n,growthr,30
-x_world,Total merchandise exports,world,q,million US$,1/1/2005,WTO,n,n,growthr,31
-x_vol_world.sa,"Export volumes, world",world,m,index,1/1/2002,CPB,n,y,growthr,32
-x_vol_us.sa,"Export volumes, United States",us,m,index,1/1/2002,CPB,n,y,growthr,32
-x_vol_jp.sa,"Export volumes, Japan",jp,m,index,1/1/2002,CPB,n,y,growthr,32
-x_vol_ez.sa,"Export volumes, euro area",ez,m,index,1/1/2002,CPB,n,y,growthr,32
-x_vol_cn.sa,"Export volumes, China",cn,m,index,1/1/2002,CPB,n,y,growthr,32
-x_vol_ema.sa,"Export volumes, emerging Asia",ema,m,index,1/1/2002,CPB,n,y,growthr,32
-x_vol_cis.sa,"Export volumes, Easter Europe and CIS",cis,m,index,1/1/2002,CPB,n,y,growthr,32
-x_vol_lac.sa,"Export volumes, Latin America",lac,m,index,1/1/2002,CPB,n,y,growthr,32
-x_vol_afr.sa,"Export volumes, Africa and Middle East",afr,m,index,1/1/2002,CPB,n,y,growthr,32
-x_uv_world.sa,Unit value of exports,world,m,index,1/1/2002,CPB,n,y,growthr,32
-tourists_mx,"International tourist arrivals, Mexico",mx,m,1000 persons,1/1/2002,Banxico,n,n,growthr,33
-bci_servs_eu.sa,"Business confidence index, services, EU27",eu27,m,index,1/1/2002,EC,n,y,50_chg,34
-container_index.sa,Container throughput index,world,m,index,1/1/2007,RWI/ISL,n,y,growthr,35
-is_jp.sa,"Services production index, Japan",jp,m,index,1/1/2008,METI,n,y,growthr,36
-is_uk.sa,"Services production index, United Kingdom",uk,m,index,1/1/2002,ONS,n,y,growthr,37
-is_br.sa,"Services production index, Brazil",br,m,index,1/1/2011,IBGE,n,y,growthr,38
-tourists_tk,"Departing foreign visitors, Turkey",tr,q,persons,3/1/2003,NSO TR,n,n,growthr,39
-container_sg,Total container throughput,sg,m,1000 TEUs,1/1/2002,NSO SG,n,n,growthr,40
-air_freight_total_lhr,"Total air freight, Heathrow airport",uk,m,metric tonnes,1/1/2005,LHR,n,n,growthr,41
-air_freight_intl_lhr,"International air freight, Heathrow airport",uk,m,metric tonnes,1/1/2005,LHR,n,n,growthr,41
-air_freight_hkg,"Total air freight, Hong Kong airport",hk,m,metric tonnes,1/1/2002,HKG,n,n,growthr,42
-p_comm,Free market commodity price index,world,m,index,1/1/2002,UNCTAD,n,n,growthr,43
-x_vol_world2,"Export volumes, world (UNCTAD)",world,q,index,1/1/2002,UNCTAD,n,n,growthr,44
-x_servs_uk2.sa,"Exports of services, United Kingdom (Eikon)",uk,m,GBP,1/1/2002,Eikon,n,y,growthr,45
-fdi_cn,"Foreign direct investment, capital used, China",cn,m,USD,1/1/2002,Eikon,n,n,growthr,45
-fdi_in,"Overseas direct investment, India",in,m,USD,7/1/2007,Eikon,n,n,growthr,45
-baltic,Baltic dry index,world,m,index,1/1/2002,Eikon,n,n,growthr,45
-harpex,Harpex charter rate index,world,m,index,1/1/2002,Eikon,n,n,growthr,45
-pmi_manuf_us.sa,"Manufacturing purchasing managers' index, United States",us,m,index,1/1/2002,Eikon,n,y,chg,45
-pmi_nm_us.sa,"Non-manufacturing purchaser managers' index, United States",us,m,index,1/1/2002,Eikon,n,y,chg,45
-pmi_nm_cn.sa,"Non-manufacturing purchaser managers' index, China (Eikon)",cn,m,index,1/1/2007,Eikon,n,y,chg,45
-tourists_th,"International tourist arrivals, Thailand",th,m,persons,1/1/2002,Eikon,n,n,growthr,45
-tourists_us,"Tourism receipts, United States",us,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,46
-tourists_neasia,"Tourist arrivals, North-East Asia",nea,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,46
-tourists_seasia,"Tourist arrivals, South-East Asia",sea,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,46
-tourists_world,"Tourist arrivals, world",world,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,46
-container_hk,"Container throughput, Hong Kong port",hk,m,1000 TEUs,1/1/2002,HK Ports,n,n,growthr,47
-transit_pa_canal,Oceangoing transit through Panama Canal,pa,m,number of ships,1/1/2006,PA Canal,n,n,growthr,47
-transit_suez_canal,Net tonnage transiting through Suez Canal,eg,m,1000 tonnes,1/1/2007,Suez Canal,n,n,growthr,47
-air_freight_mem,"Total air freight, Memphis airport",us,m,kg,1/1/2002,MEM,n,n,growthr,47
-container_exports_la,"Container throughput total, Los Angeles port",us,m,TEUs,1/1/2002,LA Port,n,n,growthr,47
-container_total_la,"Container throughput exports, Los Angeles port",us,m,TEUs,1/1/2002,LA Port,n,n,growthr,47
-x_servs_world,"Exports of services, world",world,q,million US$,1/1/2005,UNCTAD,n,n,growthr,47
+export_orders_cn.sa,"New export orders, China",cn,m,index,1/1/2005,NSBC,n,y,chg,26
+pmi_nm_cn2.sa,"Non-manufacturing purchaser managers' index, China",cn,m,index,1/1/2007,NSBC,n,y,chg,27
+x_hk,"Merchandise exports, Hong Kong",hk,m,million HK$,1/1/2012,HK NSO,n,n,growthr,28
+x_servs_jp,"Exports of services, Japon",jp,m,100 million JPY,1/1/2002,BOJ,n,n,growthr,29
+ind_orders_ez.sa,"Industial new orders, euro area",ez,m,index,1/1/2002,ECB,n,y,growthr,30
+p_manuf,Export prices of manufactures,world,m,index,1/1/2005,WTO,n,n,growthr,31
+x_world,Total merchandise exports,world,q,million US$,1/1/2005,WTO,n,n,growthr,32
+x_vol_world.sa,"Export volumes, world",world,m,index,1/1/2002,CPB,n,y,growthr,33
+x_vol_us.sa,"Export volumes, United States",us,m,index,1/1/2002,CPB,n,y,growthr,33
+x_vol_jp.sa,"Export volumes, Japan",jp,m,index,1/1/2002,CPB,n,y,growthr,33
+x_vol_ez.sa,"Export volumes, euro area",ez,m,index,1/1/2002,CPB,n,y,growthr,33
+x_vol_cn.sa,"Export volumes, China",cn,m,index,1/1/2002,CPB,n,y,growthr,33
+x_vol_ema.sa,"Export volumes, emerging Asia",ema,m,index,1/1/2002,CPB,n,y,growthr,33
+x_vol_cis.sa,"Export volumes, Easter Europe and CIS",cis,m,index,1/1/2002,CPB,n,y,growthr,33
+x_vol_lac.sa,"Export volumes, Latin America",lac,m,index,1/1/2002,CPB,n,y,growthr,33
+x_vol_afr.sa,"Export volumes, Africa and Middle East",afr,m,index,1/1/2002,CPB,n,y,growthr,33
+x_uv_world.sa,Unit value of exports,world,m,index,1/1/2002,CPB,n,y,growthr,33
+tourists_mx,"International tourist arrivals, Mexico",mx,m,1000 persons,1/1/2002,Banxico,n,n,growthr,34
+bci_servs_eu.sa,"Business confidence index, services, EU27",eu27,m,index,1/1/2002,EC,n,y,50_chg,35
+container_index.sa,Container throughput index,world,m,index,1/1/2007,RWI/ISL,n,y,growthr,36
+is_jp.sa,"Services production index, Japan",jp,m,index,1/1/2008,METI,n,y,growthr,37
+is_uk.sa,"Services production index, United Kingdom",uk,m,index,1/1/2002,ONS,n,y,growthr,38
+is_br.sa,"Services production index, Brazil",br,m,index,1/1/2011,IBGE,n,y,growthr,39
+tourists_tk,"Departing foreign visitors, Turkey",tr,q,persons,3/1/2003,NSO TR,n,n,growthr,40
+container_sg,Total container throughput,sg,m,1000 TEUs,1/1/2002,NSO SG,n,n,growthr,41
+air_freight_total_lhr,"Total air freight, Heathrow airport",uk,m,metric tonnes,1/1/2005,LHR,n,n,growthr,42
+air_freight_intl_lhr,"International air freight, Heathrow airport",uk,m,metric tonnes,1/1/2005,LHR,n,n,growthr,42
+air_freight_hkg,"Total air freight, Hong Kong airport",hk,m,metric tonnes,1/1/2002,HKG,n,n,growthr,43
+p_comm,Free market commodity price index,world,m,index,1/1/2002,UNCTAD,n,n,growthr,44
+x_vol_world2,"Export volumes, world (UNCTAD)",world,q,index,1/1/2002,UNCTAD,n,n,growthr,45
+x_servs_uk2.sa,"Exports of services, United Kingdom (Eikon)",uk,m,GBP,1/1/2002,Eikon,n,y,growthr,46
+fdi_cn,"Foreign direct investment, capital used, China",cn,m,USD,1/1/2002,Eikon,n,n,growthr,46
+fdi_in,"Overseas direct investment, India",in,m,USD,7/1/2007,Eikon,n,n,growthr,46
+baltic,Baltic dry index,world,m,index,1/1/2002,Eikon,n,n,growthr,46
+harpex,Harpex charter rate index,world,m,index,1/1/2002,Eikon,n,n,growthr,46
+pmi_manuf_us.sa,"Manufacturing purchasing managers' index, United States",us,m,index,1/1/2002,Eikon,n,y,chg,46
+pmi_nm_us.sa,"Non-manufacturing purchaser managers' index, United States",us,m,index,1/1/2002,Eikon,n,y,chg,46
+pmi_nm_cn.sa,"Non-manufacturing purchaser managers' index, China (Eikon)",cn,m,index,1/1/2007,Eikon,n,y,chg,46
+tourists_th,"International tourist arrivals, Thailand",th,m,persons,1/1/2002,Eikon,n,n,growthr,46
+tourists_us,"Tourism receipts, United States",us,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,47
+tourists_neasia,"Tourist arrivals, North-East Asia",nea,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,47
+tourists_seasia,"Tourist arrivals, South-East Asia",sea,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,47
+tourists_world,"Tourist arrivals, world",world,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,47
+container_hk,"Container throughput, Hong Kong port",hk,m,1000 TEUs,1/1/2002,HK Ports,n,n,growthr,48
+transit_pa_canal,Oceangoing transit through Panama Canal,pa,m,number of ships,1/1/2006,PA Canal,n,n,growthr,48
+transit_suez_canal,Net tonnage transiting through Suez Canal,eg,m,1000 tonnes,1/1/2007,Suez Canal,n,n,growthr,48
+air_freight_mem,"Total air freight, Memphis airport",us,m,kg,1/1/2002,MEM,n,n,growthr,48
+container_exports_la,"Container throughput total, Los Angeles port",us,m,TEUs,1/1/2002,LA Port,n,n,growthr,48
+container_total_la,"Container throughput exports, Los Angeles port",us,m,TEUs,1/1/2002,LA Port,n,n,growthr,48
+x_servs_world,"Exports of services, world",world,q,million US$,1/1/2005,UNCTAD,n,n,growthr,48

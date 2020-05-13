@@ -86,15 +86,20 @@ data_hash[["20"]] <- c(paste0('http://data.stats.gov.cn/english/easyquery.htm?m=
 # Group 21: Development and sale of real estate, source = NSBC (monthly)
 data_hash[["21"]] <- c(paste0('http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{"wdcode":"sj","valuecode":"', start_year, '-2030"},{"wdcode":"zb","valuecode":"A0603"}]-FILTER-A060301'), "monthly", "nbs")
 # Group 22: Volume of freight handled by main coastal ports, source = NSBC (monthly) !!! come back to this one
+data_hash[["22"]] <- c(paste0('http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{"wdcode":"sj","valuecode":"', start_year, '-2030"},{"wdcode":"zb","valuecode":"A0906"}]-FILTER-A09060A'), "monthly", "nbs")
+data_hash[["22b"]] <- c(paste0('http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{"wdcode":"sj","valuecode":"', start_year, '-2030"},{"wdcode":"zb","valuecode":"A0905"}]-FILTER-A090502'), "monthly", "nbs")
 # Group 23: Industrial production index, source = NSBC (monthly)
 data_hash[["23"]] <- c(paste0('http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{"wdcode":"sj","valuecode":"', start_year, '-2030"},{"wdcode":"zb","valuecode":"A0201"}]-FILTER-A020101'), "monthly", "nbs")
 # Group 24: Retails sales index, source = NSBC (monthly)
 data_hash[["24"]] <- c(paste0('http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{"wdcode":"sj","valuecode":"', start_year, '-2030"},{"wdcode":"zb","valuecode":"A0701"}]-FILTER-A070103'), "monthly", "nbs")
-# Group 25: Manufacturing PMI, source = NSBC (monthly) !! come back to this one
-# Group 26: Non-manufacturing PMI, source = NSBC (monthly)
-data_hash[["26"]] <- c(paste0('http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{"wdcode":"sj","valuecode":"', start_year, '-2030"},{"wdcode":"zb","valuecode":"A0B02"}]-FILTER-A0B0201'), "monthly", "nbs")
+# Group 25: Manufacturing PMI, source = NSBC (monthly) part 1
+data_hash[["25"]] <- c(paste0('http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{"wdcode":"sj","valuecode":"', start_year, '-2030"},{"wdcode":"zb","valuecode":"A0B01"}]-FILTER-A0B0101'), "monthly", "nbs")
+# Group 26: Manufacturing PMI, source = NSBC (monthly) part 2
+data_hash[["26"]] <- c(paste0('http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{"wdcode":"sj","valuecode":"', start_year, '-2030"},{"wdcode":"zb","valuecode":"A0B01"}]-FILTER-A0B0104'), "monthly", "nbs")
+# Group 27: Non-manufacturing PMI, source = NSBC (monthly)
+data_hash[["27"]] <- c(paste0('http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{"wdcode":"sj","valuecode":"', start_year, '-2030"},{"wdcode":"zb","valuecode":"A0B02"}]-FILTER-A0B0201'), "monthly", "nbs")
 
-for (g in 26){#1:length(data_hash)) {
+for (g in 20:27){#1:length(data_hash)) {
   print(paste("Fetching group", g))
   
   url <-data_hash[[as.character(g)]][1]
@@ -117,7 +122,13 @@ for (g in 26){#1:length(data_hash)) {
   } else if (data_source == "fred") {
     tmp <- get_fred(url, cat, g)
   } else if (data_source == "nbs") {
-    tmp <- get_nbs(url, cat, g)
+    # if nbs is split in 2 tables, get the 2nd too
+    if (has.key(paste0(as.character(g),"b"), data_hash)) {
+      url2 <- data_hash[[paste0(as.character(g),"b")]][1]
+      tmp <- get_nbs_double(url, url2, cat, g)
+    } else {
+      tmp <- get_nbs(url, cat, g)
+    }
   }
   
   database <- cbind(database,tmp)
