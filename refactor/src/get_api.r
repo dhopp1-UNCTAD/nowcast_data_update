@@ -27,7 +27,17 @@ gen_tmp <- function(vars, start_date, end_date) {
 }
 
 # oecd, eurostat, imf api
-get_api <- function (url, cat, g, countries, which_time, data_source) {
+get_api <- function (url, cat, g, countries, which_time, data_source, start_date, end_date) {
+  # getting necessary dates
+  start_year <- format(start_date, "%Y")
+  end_year <- format(end_date, "%Y")
+  end_month <- format(end_date, "%m")
+  start_quarter <- paste0(start_year, "-Q", max(1, floor(as.integer(format(start_date, "%m")) / 3)))
+  if(as.integer(end_month) >= 3) {
+    end_quarter <- paste0(end_year, "-Q", floor(as.integer(format(end_date, "%m")) / 3))
+  } else {
+    end_quarter <- paste0(format(end_date %m-% months(12), "%Y"), "-Q4")
+  }
   # differing things between data sources
   if (data_source == "oecd") {
     # Group 7: FDI inflows, source = OECD (quarterly) has a different matching key
@@ -93,7 +103,7 @@ get_api <- function (url, cat, g, countries, which_time, data_source) {
 }
 
 # fred api
-get_fred <- function (url, cat, g) {
+get_fred <- function (url, cat, g, start_date, end_date) {
   # which variables are being updated
   vars <- gen_vars(cat, g)
   tmp <- gen_tmp(vars, start_date, end_date)
@@ -119,7 +129,7 @@ get_fred <- function (url, cat, g) {
 }
 
 # nbs api
-get_nbs <- function(url, cat, g) {
+get_nbs <- function(url, cat, g, start_date, end_date) {
   filter_url <- strsplit(url, "-FILTER-")[[1]][2]
   url <- strsplit(url, "-FILTER-")[[1]][1]
   
@@ -150,10 +160,10 @@ get_nbs <- function(url, cat, g) {
 }
 
 # nbs for series where the data is split in 2 places
-get_nbs_double <- function (url1, url2, cat, g) {
+get_nbs_double <- function (url1, url2, cat, g, start_date, end_date) {
   take_non_na <- function (a, b) { if(is.na(a)) {b} else{a} }
-  data1 <- get_nbs(url1, cat, g)
-  data2 <- get_nbs(url2, cat, g)
+  data1 <- get_nbs(url1, cat, g, start_date, end_date)
+  data2 <- get_nbs(url2, cat, g, start_date, end_date)
   names <- colnames(data1)
   # keep the non-na one
   final <- data1 %>% 

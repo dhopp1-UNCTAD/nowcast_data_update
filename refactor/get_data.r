@@ -11,7 +11,7 @@ helper_directory <- "helper/"
 start <- as.Date("2002-01-01")
 end <- as.Date("2020-04-01")
 
-cat <- read_csv(paste0(helper_directory,"catalog.csv"))
+catalog <- read_csv(paste0(helper_directory,"catalog.csv"))
 countries <- read_csv(paste0(helper_directory, "country_codes.csv"))
 
 # getting dates/quarters from start/end date
@@ -35,7 +35,7 @@ database <- seq(from = start_date, to = end_date, by = "month") %>%
   rename(date=1)
 
 # initializing a log to keep track of download status
-log <- cat %>%
+log <- catalog %>%
   select(code, download_group) %>%
   mutate(status=1)
 
@@ -45,11 +45,11 @@ source("src/get_api.r")
 data_hash <- hash()
 # generating dictionary from catalog of api calls
 # only do below 27 for now (where i have done)
-for (i in unique(cat$download_group)) {
+for (i in unique(catalog$download_group)) {
   if (i == "22b" | as.numeric(i) <= 27) {
-    which_time <- cat %>% filter(download_group == i) %>% select(frequency) %>% slice(1) %>% pull
-    source <- cat %>% filter(download_group == i) %>% select(source) %>% slice(1) %>% pull
-    url <- cat %>% filter(download_group == i) %>% select(url) %>% slice(1) %>% pull
+    which_time <- catalog %>% filter(download_group == i) %>% select(frequency) %>% slice(1) %>% pull
+    source <- catalog %>% filter(download_group == i) %>% select(source) %>% slice(1) %>% pull
+    url <- catalog %>% filter(download_group == i) %>% select(url) %>% slice(1) %>% pull
     if (source == "nbs") { url <- str_replace(url, "START_YEAR", start_year) }
     data_hash[[i]] <- c(url, which_time, source)
   }
@@ -75,16 +75,16 @@ for (g in 1:(length(data_hash)-1)) {
   
   # getting api data
   if (data_source %in% c("oecd", "eurostat", "imf")) {
-    tmp <- get_api(url, cat, g, countries, which_time, data_source)
+    tmp <- get_api(url, catalog, g, countries, which_time, data_source, start_date, end_date)
   } else if (data_source == "fred") {
-    tmp <- get_fred(url, cat, g)
+    tmp <- get_fred(url, catalog, g, start_date, end_date)
   } else if (data_source == "nbs") {
     # if nbs is split in 2 tables, get the 2nd too
     if (has.key(paste0(as.character(g),"b"), data_hash)) {
       url2 <- data_hash[[paste0(as.character(g),"b")]][1]
-      tmp <- get_nbs_double(url, url2, cat, g)
+      tmp <- get_nbs_double(url, url2, catalog, g, start_date, end_date)
     } else {
-      tmp <- get_nbs(url, cat, g)
+      tmp <- get_nbs(url, catalog, g, start_date, end_date)
     }
   }
   
