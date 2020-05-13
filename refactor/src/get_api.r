@@ -117,3 +117,34 @@ get_fred <- function (url, cat, g) {
     return(tmp %>% select(-1))
   }
 }
+
+# nbs api
+get_nbs <- function(url, cat, g) {
+  filter_url <- strsplit(url, "-FILTER-")[[1]][2]
+  url <- strsplit(url, "-FILTER-")[[1]][1]
+  
+  vars <- gen_vars(cat, g)
+  tmp <- gen_tmp(vars, start_date, end_date)
+  
+  # api call
+  status <- tryCatch({
+    rawdata <- fromJSON(url)
+    TRUE },
+    error = function(e) {
+      FALSE })
+  
+  # processing api data
+  if (status) {
+    data <- cbind(rawdata$returndata$datanodes$data,
+                  data.frame(matrix(unlist(rawdata$returndata$datanodes$wds), ncol = 4, byrow = T))) %>%
+      as_tibble() %>%
+      filter(X1 == filter_url) %>%
+      rowwise() %>%
+      mutate(date = as.Date(paste(substr(X2, 1, 4), substr(X2, 5, 6), "01", sep = "-"), format = "%Y-%m-%d")) %>%
+      arrange(date) %>%
+      mutate(data = ifelse(hasdata == FALSE, NA, data))
+    starti <- which(grepl(pull(data[1, "date"]), tmp$date))
+    tmp[starti:(starti + nrow(data) - 1), 2] <- data$data
+  }
+  return(tmp %>% select(-1))
+}

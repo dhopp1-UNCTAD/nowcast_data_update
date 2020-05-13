@@ -81,9 +81,20 @@ data_hash[["17"]] <- c("https://api.stlouisfed.org/fred/series/observations?seri
 data_hash[["18"]] <- c("https://api.stlouisfed.org/fred/series/observations?series_id=AMXDNO&api_key=2de1403493a03c96c5af253fca05abd2&file_type=json", "monthly", "fred")
 # Group 19: Exports of services, source = IMF (quarterly)
 data_hash[["19"]] <- c("BXS_BP6_USD", "quarterly", "imf")
+# Group 20: Merchandise exports, source = NSBC (monthly). -FILTER-A080105 is which variable to filter in the API results
+data_hash[["20"]] <- c(paste0('http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{"wdcode":"sj","valuecode":"', start_year, '-2030"},{"wdcode":"zb","valuecode":"A0801"}]-FILTER-A080105'), "monthly", "nbs")
+# Group 21: Development and sale of real estate, source = NSBC (monthly)
+data_hash[["21"]] <- c(paste0('http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{"wdcode":"sj","valuecode":"', start_year, '-2030"},{"wdcode":"zb","valuecode":"A0603"}]-FILTER-A060301'), "monthly", "nbs")
+# Group 22: Volume of freight handled by main coastal ports, source = NSBC (monthly) !!! come back to this one
+# Group 23: Industrial production index, source = NSBC (monthly)
+data_hash[["23"]] <- c(paste0('http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{"wdcode":"sj","valuecode":"', start_year, '-2030"},{"wdcode":"zb","valuecode":"A0201"}]-FILTER-A020101'), "monthly", "nbs")
+# Group 24: Retails sales index, source = NSBC (monthly)
+data_hash[["24"]] <- c(paste0('http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{"wdcode":"sj","valuecode":"', start_year, '-2030"},{"wdcode":"zb","valuecode":"A0701"}]-FILTER-A070103'), "monthly", "nbs")
+# Group 25: Manufacturing PMI, source = NSBC (monthly) !! come back to this one
+# Group 26: Non-manufacturing PMI, source = NSBC (monthly)
+data_hash[["26"]] <- c(paste0('http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{"wdcode":"sj","valuecode":"', start_year, '-2030"},{"wdcode":"zb","valuecode":"A0B02"}]-FILTER-A0B0201'), "monthly", "nbs")
 
-
-for (g in 1:length(data_hash)) {
+for (g in 26){#1:length(data_hash)) {
   print(paste("Fetching group", g))
   
   url <-data_hash[[as.character(g)]][1]
@@ -103,8 +114,10 @@ for (g in 1:length(data_hash)) {
   # getting api data
   if (data_source %in% c("oecd", "eurostat", "imf")) {
     tmp <- get_api(url, cat, g, countries, which_time, data_source)
-  } else if (data_source == "fred"){
+  } else if (data_source == "fred") {
     tmp <- get_fred(url, cat, g)
+  } else if (data_source == "nbs") {
+    tmp <- get_nbs(url, cat, g)
   }
   
   database <- cbind(database,tmp)
