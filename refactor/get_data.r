@@ -1,5 +1,8 @@
 library(tidyverse)
 library(hash)
+library(rsdmx)
+library(jsonlite)
+rm(list=ls())
 
 # potential function parameters
 helper_directory <- "helper/"
@@ -61,6 +64,19 @@ data_hash[["9"]] <- c("https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU
 data_hash[["10"]] <- c("https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/MEI/DEU+NLD+GBR+USA.BSOBLV02.STSA.M/all?startTime=", "monthly", "oecd")
 # Group 11: Exports of services, source = Eurostat (monthly)
 data_hash[["11"]] <- c("http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/bop_c6_m/.MIO_EUR.S.S1.S1.CRE.WRL_REST.DE+FR.?startPeriod=", "monthly", "eurostat")
+# Group 12: Exports of services, source = Eurostat (quarterly)
+data_hash[["12"]] <- c("http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/bop_c6_q/.MIO_EUR.S.S1.S1.CRE.WRL_REST.IE+NL+UK.?startPeriod=", "quarterly", "eurostat")
+# Group 13: Maritime freight, source = Eurostat (quarterly)
+data_hash[["13"]] <- c("http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/mar_go_qm/.TOTAL.TOTAL.THS_T.DE+NL?startPeriod=", "quarterly", "eurostat")
+# Group 14: Industrial production index, source = Eurostat (monthly)
+data_hash[["14"]] <- c("http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/sts_inpr_m/.PROD.C.SCA.I15.EU27_2020?startPeriod=", "monthly", "eurostat")
+# Group 15: Services production index, source = Eurostat (monthly)
+data_hash[["15"]] <- c("http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/sts_sepr_m/.PROD.G-N_STS.SCA.I15.FR?startPeriod=", "monthly", "eurostat")
+# Group 16: Tourist arrivals, source = Eurostat (monthly)
+data_hash[["16"]] <- c("http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/tour_occ_arm/.FOR.NR.I551-I553.DE+ES+FR+IT+UK?startPeriod=", "monthly", "eurostat")
+# Group 17: Exports of services, source = FRED (monthly)
+#data_hash[["17"]] <- c("https://api.stlouisfed.org/fred/series/observations?series_id=BOPSEXP&api_key=2de1403493a03c96c5af253fca05abd2&file_type=json", "monthly", "fred")
+
 
 for (g in 1:length(data_hash)) {
   print(paste("Fetching group", g))
@@ -73,6 +89,8 @@ for (g in 1:length(data_hash)) {
     start_url <- start_date
   } else if (data_source == "eurostat") {
     start_url <- start_year
+  } else {
+    start_url <- ""
   }
   url <- gen_url(url, start_url)
   database <- cbind(
