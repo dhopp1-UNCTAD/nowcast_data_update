@@ -2,6 +2,7 @@ library(tidyverse)
 library(hash)
 library(rsdmx)
 library(jsonlite)
+library(IMFData)
 rm(list=ls())
 
 # potential function parameters
@@ -78,6 +79,8 @@ data_hash[["16"]] <- c("http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/tou
 data_hash[["17"]] <- c("https://api.stlouisfed.org/fred/series/observations?series_id=BOPSEXP&api_key=2de1403493a03c96c5af253fca05abd2&file_type=json", "monthly", "fred")
 # Group 18: Manufacturers' new orders, source = FRED (monthly)
 data_hash[["18"]] <- c("https://api.stlouisfed.org/fred/series/observations?series_id=AMXDNO&api_key=2de1403493a03c96c5af253fca05abd2&file_type=json", "monthly", "fred")
+# Group 19: Exports of services, source = IMF (quarterly)
+data_hash[["19"]] <- c("BXS_BP6_USD", "quarterly", "imf")
 
 
 for (g in 1:length(data_hash)) {
@@ -98,7 +101,7 @@ for (g in 1:length(data_hash)) {
   url <- gen_url(url, start_url)
   
   # getting api data
-  if (data_source %in% c("oecd", "eurostat")) {
+  if (data_source %in% c("oecd", "eurostat", "imf")) {
     tmp <- get_api(url, cat, g, countries, which_time, data_source)
   } else if (data_source == "fred"){
     tmp <- get_fred(url, cat, g)

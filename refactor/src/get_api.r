@@ -26,7 +26,7 @@ gen_tmp <- function(vars, start_date, end_date) {
     mutate(date = seq(from = start_date, to = end_date, by = "month"))
 }
 
-# oecd and eurostat api
+# oecd, eurostat, imf api
 get_api <- function (url, cat, g, countries, which_time, data_source) {
   # differing things between data sources
   if (data_source == "oecd") {
@@ -41,6 +41,11 @@ get_api <- function (url, cat, g, countries, which_time, data_source) {
     match_country_col <- "eurostat"
     orig_time_col <- "obsTime"
     orig_value_col <- "obsValue"
+  } else if (data_source == "imf") {
+    orig_country_col <- "X.REF_AREA"
+    match_country_col <- "imf"
+    orig_time_col <- "X.TIME_PERIOD"
+    orig_value_col <- "X.OBS_VALUE"
   }
   # date needs to be converted if it's quarterly
   if (which_time == "quarterly") {
@@ -55,10 +60,11 @@ get_api <- function (url, cat, g, countries, which_time, data_source) {
   
   # try api call
   status <- tryCatch({
-    rawdata <- readSDMX(url) 
-    TRUE },
-    error = function(e) {
-      FALSE })
+    if (data_source %in% c("oecd", "eurostat")) {rawdata <- readSDMX(url)
+    } else if (data_source == "imf") {rawdata <- CompactDataMethod("IFS", list(CL_FREQ = "Q", CL_AREA_IFS = c("CN", "SG"),CL_INDICATORS_IFS = url), startdate = start_quarter, enddate = end_quarter, verbose = F, tidy = T)}
+    TRUE},
+    error = function(e) {FALSE}
+  )
   
   if (status) {
     # set up api data
@@ -66,6 +72,7 @@ get_api <- function (url, cat, g, countries, which_time, data_source) {
       merge(countries, by.x=orig_country_col, by.y=match_country_col, all.x=T)
     data <- data[sapply(data[,orig_time_col], nchar) > 4,]
     data[orig_time_col] <- lapply(data[orig_time_col], date_transform)
+    data[orig_value_col] <- lapply(data[orig_value_col], as.numeric)
     # data expected oldest to newest
     data <- data[order(data[,orig_time_col], data$country),]
     
