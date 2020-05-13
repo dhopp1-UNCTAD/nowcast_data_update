@@ -75,7 +75,9 @@ data_hash[["15"]] <- c("http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/sts
 # Group 16: Tourist arrivals, source = Eurostat (monthly)
 data_hash[["16"]] <- c("http://ec.europa.eu/eurostat/SDMX/diss-web/rest/data/tour_occ_arm/.FOR.NR.I551-I553.DE+ES+FR+IT+UK?startPeriod=", "monthly", "eurostat")
 # Group 17: Exports of services, source = FRED (monthly)
-#data_hash[["17"]] <- c("https://api.stlouisfed.org/fred/series/observations?series_id=BOPSEXP&api_key=2de1403493a03c96c5af253fca05abd2&file_type=json", "monthly", "fred")
+data_hash[["17"]] <- c("https://api.stlouisfed.org/fred/series/observations?series_id=BOPSEXP&api_key=2de1403493a03c96c5af253fca05abd2&file_type=json", "monthly", "fred")
+# Group 18: Manufacturers' new orders, source = FRED (monthly)
+data_hash[["18"]] <- c("https://api.stlouisfed.org/fred/series/observations?series_id=AMXDNO&api_key=2de1403493a03c96c5af253fca05abd2&file_type=json", "monthly", "fred")
 
 
 for (g in 1:length(data_hash)) {
@@ -84,7 +86,8 @@ for (g in 1:length(data_hash)) {
   url <-data_hash[[as.character(g)]][1]
   which_time <-data_hash[[as.character(g)]][2]
   data_source <- data_hash[[as.character(g)]][3]
-      
+  
+  # getting url    
   if (data_source == "oecd") {
     start_url <- start_date
   } else if (data_source == "eurostat") {
@@ -93,9 +96,14 @@ for (g in 1:length(data_hash)) {
     start_url <- ""
   }
   url <- gen_url(url, start_url)
-  database <- cbind(
-    database,
-    get_api(url, cat, g, countries, which_time, data_source)
-  )
+  
+  # getting api data
+  if (data_source %in% c("oecd", "eurostat")) {
+    tmp <- get_api(url, cat, g, countries, which_time, data_source)
+  } else if (data_source == "fred"){
+    tmp <- get_fred(url, cat, g)
+  }
+  
+  database <- cbind(database,tmp)
   log[log$download_group == g, "status"] <- 0
 }
