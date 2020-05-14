@@ -14,7 +14,7 @@ gen_url <- function (url, start) {
 gen_data_hash <- function (catalog) {
   data_hash <- hash()
   for (i in unique(catalog$download_group)) {
-    if (i == "22b" | as.numeric(i) <= 30) {
+    if (i == "22b" | as.numeric(i) <= 32) {
       which_time <- catalog %>% filter(download_group == i) %>% select(frequency) %>% slice(1) %>% pull
       source <- catalog %>% filter(download_group == i) %>% select(source) %>% slice(1) %>% pull
       url <- catalog %>% filter(download_group == i) %>% select(url) %>% slice(1) %>% pull

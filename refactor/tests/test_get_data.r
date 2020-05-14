@@ -126,8 +126,22 @@ test_that("boj works", {
 
 # test ecb
 data_hash <- gen_data("ecb", "m")
-data <- get_single_api(data_hash[["url"]], catalog, data_hash[["g"]], data_hash[["which_time"]], start_date, end_date, "obsTime", "obsValue")
+data <- get_single_api(data_hash[["url"]], catalog, data_hash[["g"]], data_hash[["which_time"]], data_hash[["data_source"]], start_date, end_date, "obsTime", "obsValue")
 test_that("ecb works", {
+  expect_gt(nrow(data), 10)
+})
+
+# test wto monthly
+data_hash <- gen_data("wto", "m")
+data <- get_single_api(data_hash[["url"]], catalog, data_hash[["g"]], data_hash[["which_time"]], data_hash[["data_source"]], start_date, end_date, "date", "Dataset.Value")
+test_that("wto monthly works", {
+  expect_gt(nrow(data), 10)
+})
+
+# test wto quarterly
+data_hash <- gen_data("wto", "q")
+data <- get_single_api(data_hash[["url"]], catalog, data_hash[["g"]], data_hash[["which_time"]], data_hash[["data_source"]], start_date, end_date, "date", "Dataset.Value")
+test_that("wto quarterly works", {
   expect_gt(nrow(data), 10)
 })
 

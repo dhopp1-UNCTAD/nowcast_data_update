@@ -35,10 +35,9 @@ sapply(files, source)
 # generating dictionary from catalog of api calls
 data_hash <- gen_data_hash(catalog)
 
-# -1 for the nbs double entry
-for (g in 1:(length(data_hash)-1)) {
+# function to generate the table of a g
+get_group <- function (g) {
   print(paste("Fetching group", g))
-  
   url <-data_hash[[as.character(g)]][1]
   which_time <-data_hash[[as.character(g)]][2]
   data_source <- data_hash[[as.character(g)]][3]
@@ -61,9 +60,28 @@ for (g in 1:(length(data_hash)-1)) {
   } else if (data_source == "boj") {
     tmp <- get_boj(url, catalog, g, start_date, end_date)
   } else if (data_source == "ecb") {
-    tmp <- get_single_api(url, catalog, g, which_time, start_date, end_date, "obsTime", "obsValue")
+    tmp <- get_single_api(url, catalog, g, which_time, data_source, start_date, end_date, "obsTime", "obsValue")
+  } else if (data_source == "wto") {
+    tmp <- get_single_api(url, catalog, g, which_time, data_source, start_date, end_date, "date", "Dataset.Value")
   }
-  
-  database <- cbind(database,tmp)
-  log[log$download_group == g, "status"] <- 0
+}
+# -1 for the nbs double entry, try multiple times
+groups <- 1:(length(data_hash)-1)
+n_tries <- 1
+while (n_tries <= 5) {
+  for (g in groups) {
+    skip <- FALSE
+    # only try if not already updated
+    if (log %>% filter(download_group == g) %>% select(status) %>% slice(1) %>% pull == 1){
+      tmp <- get_group(g)
+      tryCatch({
+        database <- cbind(database,tmp)
+        log[log$download_group == g, "status"] <- 0
+      }, error = function(e) {
+        skip <<- TRUE
+      })
+      if (skip) {next}
+    }
+  }
+  n_tries <- n_tries + 1
 }

@@ -82,8 +82,12 @@ get_api <- function (url, catalog, g, countries, which_time, data_source, start_
   }
 }
 
-# get result of an api that's not by country
-get_single_api <- function (url, catalog, g, which_time, start_date, end_date, date_col, value_col) {
+# get result of an api that's not by country (ecb, wto)
+get_single_api <- function (url, catalog, g, which_time, data_source, start_date, end_date, date_col, value_col) {
+  if (data_source == "wto") {
+    url <- str_replace(url, "START_YEAR", substr(start_date, 1, 4))
+    url <- str_replace(url, "END_YEAR", substr(end_date, 1, 4))
+  }
   # date needs to be converted if it's quarterly
   if (which_time == "q") {
     date_transform <- function(x){as.Date(paste(substr(x, 1, 4), as.integer(substr(x, 7, 7)) * 3, "01", sep = "-"), format = "%Y-%m-%d")}
@@ -95,14 +99,28 @@ get_single_api <- function (url, catalog, g, which_time, start_date, end_date, d
   tmp <- gen_tmp(vars, start_date, end_date)
   
   status <- tryCatch({
-    rawdata <- readSDMX(url)
+    if (data_source == "ecb") { rawdata <- readSDMX(url) 
+    } else { rawdata <- fromJSON(url) }
     TRUE },
     error = function(e) {
       FALSE })
   if (status) {
     data <- as.data.frame(rawdata)
-    data[date_col] <- lapply(data[date_col], date_transform)
+    # WTO has different date structure
+    if (data_source == "wto") {
+      if (which_time == "m") {
+        data[date_col] <- paste0(data$Dataset.Year, "-", substr(data$Dataset.PeriodCode, 2, 3), "-01") %>% as.Date 
+      } else if (which_time == "q") {
+        data[date_col] <- paste0(data$Dataset.Year, "-", as.numeric(substr(data$Dataset.PeriodCode, 2,2)) * 3, "-01") %>% as.Date 
+      }
+    } else {
+      data[date_col] <- lapply(data[date_col], date_transform) 
+    }
     data <- data[data[,date_col] >= start_date & data[,date_col] <= end_date,]
+    data[value_col] <- lapply(data[value_col], as.numeric)
+    # data expected oldest to newest
+    data <- data[order(data[,date_col]),]
+    
     starti <- which(data[1, date_col] == tmp$date)
     i <- 1
     if (which_time == "q") {
