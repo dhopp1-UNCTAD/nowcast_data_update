@@ -90,16 +90,16 @@ x_servs_jp,"Exports of services, Japon",jp,m,100 million JPY,1/1/2002,boj,n,n,gr
 ind_orders_ez.sa,"Industial new orders, euro area",ez,m,index,1/1/2002,ecb,n,y,growthr,https://sdw-wsrest.ecb.europa.eu/service/data/STS/M.I7.Y.ORDT.NSC002.3.000?format=genericdata,30
 p_manuf,Export prices of manufactures,world,m,index,1/1/2005,wto,n,n,growthr,https://api.wto.org/timeseries/v1/data?i=ITS_MTP_MXPM&r=000&pc=MA&ps=START_YEAR-END_YEAR&subscription-key=3af1b3ff4ff04e4c9646ce6e80141a62,31
 x_world,Total merchandise exports,world,q,million US$,1/1/2005,wto,n,n,growthr,https://api.wto.org/timeseries/v1/data?i=ITS_MTV_QX&r=000&p=000&pc=TO&ps=START_YEAR-END_YEAR&subscription-key=3af1b3ff4ff04e4c9646ce6e80141a62,32
-x_vol_world.sa,"Export volumes, world",world,m,index,1/1/2002,CPB,n,y,growthr,,33
-x_vol_us.sa,"Export volumes, United States",us,m,index,1/1/2002,CPB,n,y,growthr,,33
-x_vol_jp.sa,"Export volumes, Japan",jp,m,index,1/1/2002,CPB,n,y,growthr,,33
-x_vol_ez.sa,"Export volumes, euro area",ez,m,index,1/1/2002,CPB,n,y,growthr,,33
-x_vol_cn.sa,"Export volumes, China",cn,m,index,1/1/2002,CPB,n,y,growthr,,33
-x_vol_ema.sa,"Export volumes, emerging Asia",ema,m,index,1/1/2002,CPB,n,y,growthr,,33
-x_vol_cis.sa,"Export volumes, Easter Europe and CIS",cis,m,index,1/1/2002,CPB,n,y,growthr,,33
-x_vol_lac.sa,"Export volumes, Latin America",lac,m,index,1/1/2002,CPB,n,y,growthr,,33
-x_vol_afr.sa,"Export volumes, Africa and Middle East",afr,m,index,1/1/2002,CPB,n,y,growthr,,33
-x_uv_world.sa,Unit value of exports,world,m,index,1/1/2002,CPB,n,y,growthr,,33
+x_vol_world.sa,"Export volumes, world",world,m,index,1/1/2002,cpb,n,y,growthr,https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx,33
+x_vol_us.sa,"Export volumes, United States",us,m,index,1/1/2002,cpb,n,y,growthr,https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx,33
+x_vol_jp.sa,"Export volumes, Japan",jp,m,index,1/1/2002,cpb,n,y,growthr,https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx,33
+x_vol_ez.sa,"Export volumes, euro area",ez,m,index,1/1/2002,cpb,n,y,growthr,https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx,33
+x_vol_cn.sa,"Export volumes, China",cn,m,index,1/1/2002,cpb,n,y,growthr,https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx,33
+x_vol_ema.sa,"Export volumes, emerging Asia",ema,m,index,1/1/2002,cpb,n,y,growthr,https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx,33
+x_vol_cis.sa,"Export volumes, Easter Europe and CIS",cis,m,index,1/1/2002,cpb,n,y,growthr,https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx,33
+x_vol_lac.sa,"Export volumes, Latin America",lac,m,index,1/1/2002,cpb,n,y,growthr,https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx,33
+x_vol_afr.sa,"Export volumes, Africa and Middle East",afr,m,index,1/1/2002,cpb,n,y,growthr,https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx,33
+x_uv_world.sa,Unit value of exports,world,m,index,1/1/2002,cpb,n,y,growthr,https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx,33
 tourists_mx,"International tourist arrivals, Mexico",mx,m,1000 persons,1/1/2002,Banxico,n,n,growthr,,34
 bci_servs_eu.sa,"Business confidence index, services, EU27",eu27,m,index,1/1/2002,EC,n,y,50_chg,,35
 container_index.sa,Container throughput index,world,m,index,1/1/2007,RWI/ISL,n,y,growthr,,36

@@ -5,6 +5,7 @@ library(hash)
 library(rsdmx)
 library(jsonlite)
 library(httr)
+library(readxl)
 library(IMFData)
 
 library(testthat)
@@ -56,49 +57,49 @@ test_that("data hash generated correctly", {
 data_hash <- gen_data("oecd", "m")
 data <- get_api(data_hash[["url"]], catalog, data_hash[["g"]], countries, data_hash[["which_time"]], data_hash[["data_source"]], start_date, end_date)
 test_that("oecd monthly works", {
-  expect_gt(nrow(data), 10)
+  expect_equal(nrow(data), 220)
 })
 
 # test quarterly oecd
 data_hash <- gen_data("oecd", "q")
 data <- get_api(data_hash[["url"]], catalog, data_hash[["g"]], countries, data_hash[["which_time"]], data_hash[["data_source"]], start_date, end_date)
 test_that("oecd quarterly works", {
-  expect_gt(nrow(data), 10)
+  expect_equal(nrow(data), 220)
 })
 
 # test eurostat monthly
 data_hash <- gen_data("eurostat", "m")
 data <- get_api(data_hash[["url"]], catalog, data_hash[["g"]], countries, data_hash[["which_time"]], data_hash[["data_source"]], start_date, end_date)
 test_that("eurostat monthly works", {
-  expect_gt(nrow(data), 10)
+  expect_equal(nrow(data), 220)
 })
 
 # test eurostat quarterly
 data_hash <- gen_data("eurostat", "q")
 data <- get_api(data_hash[["url"]], catalog, data_hash[["g"]], countries, data_hash[["which_time"]], data_hash[["data_source"]], start_date, end_date)
 test_that("eurostat quarterly works", {
-  expect_gt(nrow(data), 10)
+  expect_equal(nrow(data), 220)
 })
 
 # test fred
 data_hash <- gen_data("fred", "m")
 data <- get_fred(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
 test_that("fred works", {
-  expect_gt(nrow(data), 10)
+  expect_equal(nrow(data), 220)
 })
 
 # test imf
 data_hash <- gen_data("imf", "q")
 data <- get_api(data_hash[["url"]], catalog, data_hash[["g"]], countries, data_hash[["which_time"]], data_hash[["data_source"]], start_date, end_date)
 test_that("imf works", {
- expect_gt(nrow(data), 10)
+  expect_equal(nrow(data), 220)
 })
 
 # test nbs single
 data_hash <- gen_data("nbs", "m")
 data <- get_nbs(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
 test_that("nbs single works", {
- expect_gt(nrow(data), 10)
+  expect_equal(nrow(data), 220)
 })
 
 # test nbs double
@@ -107,42 +108,49 @@ url2 <- 'http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&
 g <- 22
 data <- get_nbs_double(url1, url2, catalog, g, start_date, end_date)
 test_that("nbs double works (group 22 hard coded in test)", {
-  expect_gt(nrow(data), 10)
+  expect_equal(nrow(data), 220)
 })
 
 # test hk nso
 data_hash <- gen_data("hk nso", "m")
 data <- get_hk_nso(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date, historical)
 test_that("hk nso works", {
-  expect_gt(nrow(data), 10)
+  expect_equal(nrow(data), 220)
 })
 
 # test boj
 data_hash <- gen_data("boj", "m")
 data <- get_boj(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
 test_that("boj works", {
-  expect_gt(nrow(data), 10)
+  expect_equal(nrow(data), 220)
 })
 
 # test ecb
 data_hash <- gen_data("ecb", "m")
 data <- get_single_api(data_hash[["url"]], catalog, data_hash[["g"]], data_hash[["which_time"]], data_hash[["data_source"]], start_date, end_date, "obsTime", "obsValue")
 test_that("ecb works", {
-  expect_gt(nrow(data), 10)
+  expect_equal(nrow(data), 220)
 })
 
 # test wto monthly
 data_hash <- gen_data("wto", "m")
 data <- get_single_api(data_hash[["url"]], catalog, data_hash[["g"]], data_hash[["which_time"]], data_hash[["data_source"]], start_date, end_date, "date", "Dataset.Value")
 test_that("wto monthly works", {
-  expect_gt(nrow(data), 10)
+  expect_equal(nrow(data), 220)
 })
 
 # test wto quarterly
 data_hash <- gen_data("wto", "q")
 data <- get_single_api(data_hash[["url"]], catalog, data_hash[["g"]], data_hash[["which_time"]], data_hash[["data_source"]], start_date, end_date, "date", "Dataset.Value")
 test_that("wto quarterly works", {
-  expect_gt(nrow(data), 10)
+  expect_equal(nrow(data), 220)
+})
+
+# test cpb
+data_hash <- gen_data("cpb", "m")
+data <- get_cpb(data_hash[["url"]], catalog, data_hash[["g"]], countries, start_date, end_date)
+test_that("cpb works", {
+  expect_equal(nrow(data), 220)
 })
 
 # url <- data_hash[["url"]]

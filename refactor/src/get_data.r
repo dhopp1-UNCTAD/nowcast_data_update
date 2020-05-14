@@ -3,6 +3,7 @@ library(hash)
 library(rsdmx)
 library(jsonlite)
 library(httr)
+library(readxl)
 library(IMFData)
 rm(list=ls())
 
@@ -63,7 +64,10 @@ get_group <- function (g) {
     tmp <- get_single_api(url, catalog, g, which_time, data_source, start_date, end_date, "obsTime", "obsValue")
   } else if (data_source == "wto") {
     tmp <- get_single_api(url, catalog, g, which_time, data_source, start_date, end_date, "date", "Dataset.Value")
+  } else if (data_source == "cbp") {
+    tmp <- get_cpb(url, catalog, g, countries, start_date, end_date)
   }
+  return(tmp)
 }
 # -1 for the nbs double entry, try multiple times
 groups <- 1:(length(data_hash)-1)
