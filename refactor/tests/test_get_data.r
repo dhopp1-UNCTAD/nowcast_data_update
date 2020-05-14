@@ -4,6 +4,7 @@ library(tidyverse)
 library(hash)
 library(rsdmx)
 library(jsonlite)
+library(httr)
 library(IMFData)
 
 library(testthat)
@@ -15,6 +16,7 @@ start_date <- as.Date("2002-01-01")
 end_date <- as.Date("2020-04-01")
 catalog <- read_csv(paste0(helper_directory,"catalog.csv"))
 countries <- read_csv(paste0(helper_directory, "country_codes.csv"))
+historical <- read_csv("../output/historical.csv")
 
 # function to generate the data necessary for an  API call
 gen_data <- function (source_in, frequency_in) {
@@ -102,6 +104,13 @@ url2 <- 'http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&
 g <- 22
 data <- get_nbs_double(url1, url2, catalog, g, start_date, end_date)
 test_that("nbs double works (group 22 hard coded in test)", {
+  expect_gt(nrow(data), 10)
+})
+
+# test hk nso
+data_hash <- gen_data("hk nso", "m")
+data <- get_hk_nso(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date, historical)
+test_that("hk nso works", {
   expect_gt(nrow(data), 10)
 })
 

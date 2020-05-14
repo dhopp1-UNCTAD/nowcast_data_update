@@ -2,6 +2,7 @@ library(tidyverse)
 library(hash)
 library(rsdmx)
 library(jsonlite)
+library(httr)
 library(IMFData)
 rm(list=ls())
 
@@ -13,6 +14,7 @@ end <- as.Date("2020-04-01")
 
 catalog <- read_csv(paste0(helper_directory,"catalog.csv"))
 countries <- read_csv(paste0(helper_directory, "country_codes.csv"))
+historical <- read_csv(paste0("output/historical.csv"))
 
 # getting dates/quarters from start/end date
 start_date <- as.Date(start, format = "%Y-%m-%d")
@@ -55,6 +57,8 @@ for (g in 1:(length(data_hash)-1)) {
     } else {
       tmp <- get_nbs(url, catalog, g, start_date, end_date)
     }
+  } else if (data_source == "hk nso") {
+    tmp <- get_hk_nso(url, catalog, g, start_date, end_date, historical)
   }
   
   database <- cbind(database,tmp)
