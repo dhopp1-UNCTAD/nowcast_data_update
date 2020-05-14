@@ -7,18 +7,14 @@ library(IMFData)
 rm(list=ls())
 
 # potential function parameters
-helper_directory <- "helper/"
+helper_directory <- "../helper/"
 
-start <- as.Date("2002-01-01")
-end <- as.Date("2020-04-01")
+start_date <- as.Date("2002-01-01")
+end_date <- as.Date("2020-04-01")
 
 catalog <- read_csv(paste0(helper_directory,"catalog.csv"))
 countries <- read_csv(paste0(helper_directory, "country_codes.csv"))
-historical <- read_csv(paste0("output/historical.csv"))
-
-# getting dates/quarters from start/end date
-start_date <- as.Date(start, format = "%Y-%m-%d")
-end_date <- as.Date(end, format = "%Y-%m-%d")
+historical <- read_csv(paste0("../output/historical.csv"))
 
 # initializing the database
 database <- seq(from = start_date, to = end_date, by = "month") %>%
@@ -32,7 +28,10 @@ log <- catalog %>%
 
 ###
 ### Getting data
-source("src/get_api.r")
+begin_path <- "get_api/"
+files <- list.files(begin_path)
+files <- sapply(files, function(x) paste0(begin_path, x))
+sapply(files, source)
 # generating dictionary from catalog of api calls
 data_hash <- gen_data_hash(catalog)
 

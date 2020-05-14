@@ -8,7 +8,10 @@ library(httr)
 library(IMFData)
 
 library(testthat)
-source("../src/get_api.r")
+begin_path <- "../src/get_api/"
+files <- list.files(begin_path)
+files <- sapply(files, function(x) paste0(begin_path, x))
+sapply(files, source)
 
 # initializing data
 helper_directory <- "../helper/"
