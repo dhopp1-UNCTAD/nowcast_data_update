@@ -126,7 +126,7 @@ test_that("boj works", {
 
 # test ecb
 data_hash <- gen_data("ecb", "m")
-data <- get_ecb(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
+data <- get_single_api(data_hash[["url"]], catalog, data_hash[["g"]], data_hash[["which_time"]], start_date, end_date, "obsTime", "obsValue")
 test_that("ecb works", {
   expect_gt(nrow(data), 10)
 })

@@ -1,4 +1,4 @@
-# oecd, eurostat, imf api
+# oecd, eurostat, imf api by country
 get_api <- function (url, catalog, g, countries, which_time, data_source, start_date, end_date) {
   # getting necessary dates
   start_year <- format(start_date, "%Y")
@@ -79,5 +79,38 @@ get_api <- function (url, catalog, g, countries, which_time, data_source, start_
     }
     
     return(tmp %>% select(-1))
+  }
+}
+
+# get result of an api that's not by country
+get_single_api <- function (url, catalog, g, which_time, start_date, end_date, date_col, value_col) {
+  # date needs to be converted if it's quarterly
+  if (which_time == "q") {
+    date_transform <- function(x){as.Date(paste(substr(x, 1, 4), as.integer(substr(x, 7, 7)) * 3, "01", sep = "-"), format = "%Y-%m-%d")}
+  } else {
+     date_transform <- function(x){as.Date(paste0(x, "-01"), format = "%Y-%m-%d")}
+  }
+  # which variables are being updated
+  vars <- gen_vars(catalog, g)
+  tmp <- gen_tmp(vars, start_date, end_date)
+  
+  status <- tryCatch({
+    rawdata <- readSDMX(url)
+    TRUE },
+    error = function(e) {
+      FALSE })
+  if (status) {
+    data <- as.data.frame(rawdata)
+    data[date_col] <- lapply(data[date_col], date_transform)
+    data <- data[data[,date_col] >= start_date & data[,date_col] <= end_date,]
+    starti <- which(data[1, date_col] == tmp$date)
+    i <- 1
+    if (which_time == "q") {
+      tmp[seq(from = starti, to = starti + nrow(data)*3 - 1, by = 3), i + 1] <- data[, value_col]
+    } else if (which_time == "m") {
+      tmp[starti:(starti + nrow(data) - 1), i + 1] <- data[, value_col]
+    }
+    
+    return (tmp %>% select(-1))
   }
 }

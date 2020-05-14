@@ -61,7 +61,7 @@ for (g in 1:(length(data_hash)-1)) {
   } else if (data_source == "boj") {
     tmp <- get_boj(url, catalog, g, start_date, end_date)
   } else if (data_source == "ecb") {
-    tmp <- get_ecb(url, catalog, g, start_date, end_date)
+    tmp <- get_single_api(url, catalog, g, which_time, start_date, end_date, "obsTime", "obsValue")
   }
   
   database <- cbind(database,tmp)
