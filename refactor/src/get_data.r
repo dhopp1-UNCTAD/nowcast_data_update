@@ -60,6 +60,8 @@ for (g in 1:(length(data_hash)-1)) {
     tmp <- get_hk_nso(url, catalog, g, start_date, end_date, historical)
   } else if (data_source == "boj") {
     tmp <- get_boj(url, catalog, g, start_date, end_date)
+  } else if (data_source == "ecb") {
+    tmp <- get_ecb(url, catalog, g, start_date, end_date)
   }
   
   database <- cbind(database,tmp)

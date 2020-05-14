@@ -124,6 +124,13 @@ test_that("boj works", {
   expect_gt(nrow(data), 10)
 })
 
+# test ecb
+data_hash <- gen_data("ecb", "m")
+data <- get_ecb(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
+test_that("ecb works", {
+  expect_gt(nrow(data), 10)
+})
+
 # url <- data_hash[["url"]]
 # g <- data_hash[["g"]]
 # which_time <- data_hash[["which_time"]]

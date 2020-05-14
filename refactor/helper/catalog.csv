@@ -87,7 +87,7 @@ export_orders_cn.sa,"New export orders, China",cn,m,index,1/1/2005,nbs,n,y,chg,"
 pmi_nm_cn2.sa,"Non-manufacturing purchaser managers' index, China",cn,m,index,1/1/2007,nbs,n,y,chg,"http://data.stats.gov.cn/english/easyquery.htm?m=QueryData&dbcode=hgyd&rowcode=zb&colcode=sj&wds=[]&dfwds=[{""wdcode"":""sj"",""valuecode"":""START_YEAR-2030""},{""wdcode"":""zb"",""valuecode"":""A0B02""}]-FILTER-A0B0201",27
 x_hk,"Merchandise exports, Hong Kong",hk,m,million HK$,1/1/2012,hk nso,n,n,growthr,"https://tradeidds.censtatd.gov.hk/api/get?lang=EN&sv=VCM&freq=M&period=201201,LAST_DATE&ttype=4",28
 x_servs_jp,"Exports of services, Japon",jp,m,100 million JPY,1/1/2002,boj,n,n,growthr,https://www.stat-search.boj.or.jp/info/bp_m_en.zip,29
-ind_orders_ez.sa,"Industial new orders, euro area",ez,m,index,1/1/2002,ECB,n,y,growthr,,30
+ind_orders_ez.sa,"Industial new orders, euro area",ez,m,index,1/1/2002,ecb,n,y,growthr,https://sdw-wsrest.ecb.europa.eu/service/data/STS/M.I7.Y.ORDT.NSC002.3.000?format=genericdata,30
 p_manuf,Export prices of manufactures,world,m,index,1/1/2005,WTO,n,n,growthr,,31
 x_world,Total merchandise exports,world,q,million US$,1/1/2005,WTO,n,n,growthr,,32
 x_vol_world.sa,"Export volumes, world",world,m,index,1/1/2002,CPB,n,y,growthr,,33
