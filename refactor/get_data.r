@@ -16,18 +16,7 @@ countries <- read_csv(paste0(helper_directory, "country_codes.csv"))
 
 # getting dates/quarters from start/end date
 start_date <- as.Date(start, format = "%Y-%m-%d")
-start_year <- format(start_date, "%Y")
-start_quarter <- paste0(start_year, "-Q", max(1, floor(as.integer(format(start_date, "%m")) / 3)))
-start_month <- format(start_date, "%m")
-
 end_date <- as.Date(end, format = "%Y-%m-%d")
-end_year <- format(end_date, "%Y")
-end_month <- format(end_date, "%m")
-if(as.integer(end_month) >= 3) {
-  end_quarter <- paste0(end_year, "-Q", floor(as.integer(format(end_date, "%m")) / 3))
-} else {
-  end_quarter <- paste0(format(end_date %m-% months(12), "%Y"), "-Q4")
-}
 
 # initializing the database
 database <- seq(from = start_date, to = end_date, by = "month") %>%
@@ -42,18 +31,8 @@ log <- catalog %>%
 ###
 ### Getting data
 source("src/get_api.r")
-data_hash <- hash()
 # generating dictionary from catalog of api calls
-# only do below 27 for now (where i have done)
-for (i in unique(catalog$download_group)) {
-  if (i == "22b" | as.numeric(i) <= 27) {
-    which_time <- catalog %>% filter(download_group == i) %>% select(frequency) %>% slice(1) %>% pull
-    source <- catalog %>% filter(download_group == i) %>% select(source) %>% slice(1) %>% pull
-    url <- catalog %>% filter(download_group == i) %>% select(url) %>% slice(1) %>% pull
-    if (source == "nbs") { url <- str_replace(url, "START_YEAR", start_year) }
-    data_hash[[i]] <- c(url, which_time, source)
-  }
-}
+data_hash <- gen_data_hash(catalog)
 
 # -1 for the nbs double entry
 for (g in 1:(length(data_hash)-1)) {
@@ -62,16 +41,6 @@ for (g in 1:(length(data_hash)-1)) {
   url <-data_hash[[as.character(g)]][1]
   which_time <-data_hash[[as.character(g)]][2]
   data_source <- data_hash[[as.character(g)]][3]
-  
-  # getting url    
-  if (data_source == "oecd") {
-    start_url <- start_date
-  } else if (data_source == "eurostat") {
-    start_url <- start_year
-  } else {
-    start_url <- ""
-  }
-  url <- gen_url(url, start_url)
   
   # getting api data
   if (data_source %in% c("oecd", "eurostat", "imf")) {

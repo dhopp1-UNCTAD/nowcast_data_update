@@ -9,9 +9,24 @@ gen_url <- function (url, start) {
   }
 }
 
+# generate the data hash file from the catalog
+# only do below 27 for now (where i have done)
+gen_data_hash <- function (catalog) {
+  data_hash <- hash()
+  for (i in unique(catalog$download_group)) {
+    if (i == "22b" | as.numeric(i) <= 27) {
+      which_time <- catalog %>% filter(download_group == i) %>% select(frequency) %>% slice(1) %>% pull
+      source <- catalog %>% filter(download_group == i) %>% select(source) %>% slice(1) %>% pull
+      url <- catalog %>% filter(download_group == i) %>% select(url) %>% slice(1) %>% pull
+      data_hash[[i]] <- c(url, which_time, source)
+    }
+  }
+  return(data_hash)
+}
+
 # generate the variables for this group
-gen_vars <- function(cat, g) {
-  cat %>% filter(download_group == g)
+gen_vars <- function(catalog, g) {
+  catalog %>% filter(download_group == g)
 }
 
 # generate empty tmp table
@@ -27,7 +42,7 @@ gen_tmp <- function(vars, start_date, end_date) {
 }
 
 # oecd, eurostat, imf api
-get_api <- function (url, cat, g, countries, which_time, data_source, start_date, end_date) {
+get_api <- function (url, catalog, g, countries, which_time, data_source, start_date, end_date) {
   # getting necessary dates
   start_year <- format(start_date, "%Y")
   end_year <- format(end_date, "%Y")
@@ -38,6 +53,14 @@ get_api <- function (url, cat, g, countries, which_time, data_source, start_date
   } else {
     end_quarter <- paste0(format(end_date %m-% months(12), "%Y"), "-Q4")
   }
+  if (data_source == "oecd") {
+    start_url <- start_date
+  } else if (data_source == "eurostat") {
+    start_url <- start_year
+  } else {
+    start_url <- ""
+  }
+  url <- gen_url(url, start_url)
   # differing things between data sources
   if (data_source == "oecd") {
     # Group 7: FDI inflows, source = OECD (quarterly) has a different matching key
@@ -65,7 +88,7 @@ get_api <- function (url, cat, g, countries, which_time, data_source, start_date
   }
   
   # which variables are being updated
-  vars <- gen_vars(cat, g)
+  vars <- gen_vars(catalog, g)
   tmp <- gen_tmp(vars, start_date, end_date)
   
   # try api call
@@ -103,9 +126,9 @@ get_api <- function (url, cat, g, countries, which_time, data_source, start_date
 }
 
 # fred api
-get_fred <- function (url, cat, g, start_date, end_date) {
+get_fred <- function (url, catalog, g, start_date, end_date) {
   # which variables are being updated
-  vars <- gen_vars(cat, g)
+  vars <- gen_vars(catalog, g)
   tmp <- gen_tmp(vars, start_date, end_date)
   
   # try api call
@@ -129,11 +152,13 @@ get_fred <- function (url, cat, g, start_date, end_date) {
 }
 
 # nbs api
-get_nbs <- function(url, cat, g, start_date, end_date) {
+get_nbs <- function(url, catalog, g, start_date, end_date) {
+  start_year <- substr(start_date, 1, 4)
+  url <- str_replace(url, "START_YEAR", start_year)
   filter_url <- strsplit(url, "-FILTER-")[[1]][2]
   url <- strsplit(url, "-FILTER-")[[1]][1]
   
-  vars <- gen_vars(cat, g)
+  vars <- gen_vars(catalog, g)
   tmp <- gen_tmp(vars, start_date, end_date)
   
   # api call
@@ -160,10 +185,10 @@ get_nbs <- function(url, cat, g, start_date, end_date) {
 }
 
 # nbs for series where the data is split in 2 places
-get_nbs_double <- function (url1, url2, cat, g, start_date, end_date) {
+get_nbs_double <- function (url1, url2, catalog, g, start_date, end_date) {
   take_non_na <- function (a, b) { if(is.na(a)) {b} else{a} }
-  data1 <- get_nbs(url1, cat, g, start_date, end_date)
-  data2 <- get_nbs(url2, cat, g, start_date, end_date)
+  data1 <- get_nbs(url1, catalog, g, start_date, end_date)
+  data2 <- get_nbs(url2, catalog, g, start_date, end_date)
   names <- colnames(data1)
   # keep the non-na one
   final <- data1 %>% 
