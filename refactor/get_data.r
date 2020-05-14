@@ -59,6 +59,8 @@ for (g in 1:(length(data_hash)-1)) {
     }
   } else if (data_source == "hk nso") {
     tmp <- get_hk_nso(url, catalog, g, start_date, end_date, historical)
+  } else if (data_source == "boj") {
+    tmp <- get_boj(url, catalog, g, start_date, end_date)
   }
   
   database <- cbind(database,tmp)

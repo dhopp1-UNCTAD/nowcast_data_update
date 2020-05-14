@@ -114,6 +114,13 @@ test_that("hk nso works", {
   expect_gt(nrow(data), 10)
 })
 
+# test boj
+data_hash <- gen_data("boj", "m")
+data <- get_boj(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
+test_that("boj works", {
+  expect_gt(nrow(data), 10)
+})
+
 # url <- data_hash[["url"]]
 # g <- data_hash[["g"]]
 # which_time <- data_hash[["which_time"]]
