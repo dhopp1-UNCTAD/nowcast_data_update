@@ -49,7 +49,7 @@ get_pa_canal <- function (url, catalog, g, start_date, end_date, historical) {
   all_data <- all_data %>% slice(2:n()) %>% distinct
   all_data["date"] <- as.Date(paste(all_data$year, all_data$month, "01",sep="-"))
   for (row_date in all_data$date) {
-    tmp[tmp$date == row_date,2] <- all_data[all_data$date == row_date,"transit_pa_canal"]
+    tmp[tmp$date == row_date,2] <- all_data[all_data$date == row_date, vars$code]
   }
   
   return(tmp %>% select(-1))

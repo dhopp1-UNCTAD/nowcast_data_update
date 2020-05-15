@@ -94,6 +94,8 @@ get_group <- function (g) {
     tmp <- get_hk_ports(url, catalog, g, start_date, end_date, historical)
   } else if (data_source == "pa_canal") {
     tmp <- get_pa_canal(url, catalog, g, start_date, end_date, historical)
+  } else if (data_source == "suez_canal") {
+    tmp <- get_suez_canal(url, catalog, g, start_date, end_date, historical)
   }
     
   return(tmp)

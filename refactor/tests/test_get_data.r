@@ -245,11 +245,18 @@ gen_data <- function (source_in, frequency_in) {
 # test_that("hk ports works", {
 #   expect_equal(nrow(data), 220)
 # })
+# 
+# # test pa canal
+# data_hash <- gen_data("pa_canal", "m")
+# data <- get_pa_canal(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date, historical)
+# test_that("pa_canal works", {
+#   expect_equal(nrow(data), 220)
+# })
 
-# test pa canal
-data_hash <- gen_data("pa_canal", "m")
-data <- get_pa_canal(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date, historical)
-test_that("pa_canal works", {
+# test suez canal
+data_hash <- gen_data("suez_canal", "m")
+data <- get_suez_canal(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date, historical)
+test_that("suez_canal works", {
   expect_equal(nrow(data), 220)
 })
 
