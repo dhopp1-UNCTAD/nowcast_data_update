@@ -75,6 +75,8 @@ get_group <- function (g) {
     tmp <- get_rwi(url, catalog, g, start_date, end_date)
   } else if (data_source == "meti") {
     tmp <- get_meti(url, catalog, g, start_date, end_date)
+  } else if (data_source == "ons") {
+    tmp <- get_ons(url, catalog, g, start_date, end_date)
   }
   return(tmp)
 }
