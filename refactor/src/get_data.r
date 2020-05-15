@@ -79,6 +79,8 @@ get_group <- function (g) {
     tmp <- get_ons(url, catalog, g, start_date, end_date)
   } else if (data_source == "ibge") {
     tmp <- get_ibge(url, catalog, g, start_date, end_date)
+  } else if (data_source == "nso_tr") {
+    tmp <- get_nso_tr(url, catalog, g, start_date, end_date)
   }
   return(tmp)
 }
