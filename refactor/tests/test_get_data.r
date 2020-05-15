@@ -209,11 +209,18 @@ gen_data <- function (source_in, frequency_in) {
 # test_that("nso_sg works", {
 #   expect_equal(nrow(data), 220)
 # })
+# 
+# # test lhr
+# data_hash <- gen_data("lhr", "m")
+# data <- get_lhr(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
+# test_that("lhr works", {
+#   expect_equal(nrow(data), 220)
+# })
 
-# test lhr
-data_hash <- gen_data("lhr", "m")
-data <- get_lhr(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
-test_that("lhr works", {
+# test hkg
+data_hash <- gen_data("hkg", "m")
+data <- get_hkg(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
+test_that("hkg works", {
   expect_equal(nrow(data), 220)
 })
 

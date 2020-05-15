@@ -109,8 +109,8 @@ is_br.sa,"Services production index, Brazil",br,m,index,1/1/2011,ibge,n,y,growth
 tourists_tk,"Departing foreign visitors, Turkey",tr,q,persons,3/1/2003,nso_tr,n,n,growthr,http://www.turkstat.gov.tr/PreIstatistikTablo.do?istab_id=324,40
 container_sg,Total container throughput,sg,m,1000 TEUs,1/1/2002,nso_sg,n,n,growthr,https://www.tablebuilder.singstat.gov.sg/publicfacing/api/json/title/15317.json,41
 air_freight_total_lhr,"Total air freight, Heathrow airport",uk,m,metric tonnes,1/1/2005,lhr,n,n,growthr,https://www.heathrow.com/content/dam/heathrow/web/common/documents/company/investor/reports-and-presentations/traffic-statistics/Heathrow-Monthly-Traffic-Statistics-Jan-2005-LASTDATE.xlsx,42
-air_freight_intl_lhr,"International air freight, Heathrow airport",uk,m,metric tonnes,1/1/2005,lhr,n,n,growthr,,42
-air_freight_hkg,"Total air freight, Hong Kong airport",hk,m,metric tonnes,1/1/2002,HKG,n,n,growthr,,43
+air_freight_intl_lhr,"International air freight, Heathrow airport",uk,m,metric tonnes,1/1/2005,lhr,n,n,growthr,https://www.heathrow.com/content/dam/heathrow/web/common/documents/company/investor/reports-and-presentations/traffic-statistics/Heathrow-Monthly-Traffic-Statistics-Jan-2005-LASTDATE.xlsx,42
+air_freight_hkg,"Total air freight, Hong Kong airport",hk,m,metric tonnes,1/1/2002,hkg,n,n,growthr,https://www.cad.gov.hk/english/pdf/Stat%20Webpage.xlsx,43
 p_comm,Free market commodity price index,world,m,index,1/1/2002,UNCTAD,n,n,growthr,,44
 x_vol_world2,"Export volumes, world (UNCTAD)",world,q,index,1/1/2002,UNCTAD,n,n,growthr,,45
 x_servs_uk2.sa,"Exports of services, United Kingdom (Eikon)",uk,m,GBP,1/1/2002,Eikon,n,y,growthr,,46
@@ -127,9 +127,9 @@ tourists_neasia,"Tourist arrivals, North-East Asia",nea,m,y-o-y growth rates,1/1
 tourists_seasia,"Tourist arrivals, South-East Asia",sea,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,,47
 tourists_world,"Tourist arrivals, world",world,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,,47
 container_hk,"Container throughput, Hong Kong port",hk,m,1000 TEUs,1/1/2002,HK Ports,n,n,growthr,,48
-transit_pa_canal,Oceangoing transit through Panama Canal,pa,m,number of ships,1/1/2006,PA Canal,n,n,growthr,,48
-transit_suez_canal,Net tonnage transiting through Suez Canal,eg,m,1000 tonnes,1/1/2007,Suez Canal,n,n,growthr,,48
-air_freight_mem,"Total air freight, Memphis airport",us,m,kg,1/1/2002,MEM,n,n,growthr,,48
-container_exports_la,"Container throughput total, Los Angeles port",us,m,TEUs,1/1/2002,LA Port,n,n,growthr,,48
-container_total_la,"Container throughput exports, Los Angeles port",us,m,TEUs,1/1/2002,LA Port,n,n,growthr,,48
-x_servs_world,"Exports of services, world",world,q,million US$,1/1/2005,UNCTAD,n,n,growthr,,48
+transit_pa_canal,Oceangoing transit through Panama Canal,pa,m,number of ships,1/1/2006,PA Canal,n,n,growthr,,49
+transit_suez_canal,Net tonnage transiting through Suez Canal,eg,m,1000 tonnes,1/1/2007,Suez Canal,n,n,growthr,,50
+air_freight_mem,"Total air freight, Memphis airport",us,m,kg,1/1/2002,MEM,n,n,growthr,,51
+container_exports_la,"Container throughput total, Los Angeles port",us,m,TEUs,1/1/2002,LA Port,n,n,growthr,,52
+container_total_la,"Container throughput exports, Los Angeles port",us,m,TEUs,1/1/2002,LA Port,n,n,growthr,,52
+x_servs_world,"Exports of services, world",world,q,million US$,1/1/2005,UNCTAD,n,n,growthr,,53

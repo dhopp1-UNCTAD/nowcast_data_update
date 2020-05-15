@@ -85,6 +85,8 @@ get_group <- function (g) {
     tmp <- get_nso_sg(url, catalog, g, start_date, end_date)
   } else if (data_source == "lhr") {
     tmp <- get_lhr(url, catalog, g, start_date, end_date)
+  } else if (data_source == "hkg") {
+    tmp <- get_hkg(url, catalog, g, start_date, end_date)
   }
     
   return(tmp)
@@ -103,6 +105,7 @@ while (n_tries <= 5) {
         log[log$download_group == g, "status"] <- 0
       }, error = function(e) {
         skip <<- TRUE
+        print(paste0("Error getting group ", g, ", try ", n_tries))
       })
       if (skip) {next}
     }
