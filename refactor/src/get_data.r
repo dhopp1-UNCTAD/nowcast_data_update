@@ -69,6 +69,8 @@ get_group <- function (g) {
     tmp <- get_cpb(url, catalog, g, countries, start_date, end_date)
   } else if (data_source == "banxico")  {
     tmp <- get_banxico(url, catalog, g, start_date, end_date)
+  } else if (data_source == "ec") {
+    tmp <- get_ec(url, catalog, g, start_date, end_date)
   }
   return(tmp)
 }

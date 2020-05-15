@@ -101,7 +101,7 @@ x_vol_lac.sa,"Export volumes, Latin America",lac,m,index,1/1/2002,cpb,n,y,growth
 x_vol_afr.sa,"Export volumes, Africa and Middle East",afr,m,index,1/1/2002,cpb,n,y,growthr,https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx,33
 x_uv_world.sa,Unit value of exports,world,m,index,1/1/2002,cpb,n,y,growthr,https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx,33
 tourists_mx,"International tourist arrivals, Mexico",mx,m,1000 persons,1/1/2002,banxico,n,n,growthr,token:3a03947310e12f4de4cc5ac5f42e41e445bbdbec7825a4b84f1610d5200e1743:series:SE5830,34
-bci_servs_eu.sa,"Business confidence index, services, EU27",eu27,m,index,1/1/2002,EC,n,y,50_chg,,35
+bci_servs_eu.sa,"Business confidence index, services, EU27",eu27,m,index,1/1/2002,ec,n,y,50_chg,https://ec.europa.eu/economy_finance/db_indicators/surveys/documents/series/nace2_ecfin_2003/services_total_sa_nace2.zip,35
 container_index.sa,Container throughput index,world,m,index,1/1/2007,RWI/ISL,n,y,growthr,,36
 is_jp.sa,"Services production index, Japan",jp,m,index,1/1/2008,METI,n,y,growthr,,37
 is_uk.sa,"Services production index, United Kingdom",uk,m,index,1/1/2002,ONS,n,y,growthr,,38
