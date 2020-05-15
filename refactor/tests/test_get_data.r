@@ -216,11 +216,25 @@ gen_data <- function (source_in, frequency_in) {
 # test_that("lhr works", {
 #   expect_equal(nrow(data), 220)
 # })
+# 
+# # test hkg
+# data_hash <- gen_data("hkg", "m")
+# data <- get_hkg(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
+# test_that("hkg works", {
+#   expect_equal(nrow(data), 220)
+# })
 
-# test hkg
-data_hash <- gen_data("hkg", "m")
-data <- get_hkg(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
-test_that("hkg works", {
+# test unctad monthly
+data_hash <- gen_data("unctad", "m")
+data <- get_unctad(data_hash[["url"]], catalog, data_hash[["g"]], data_hash[["which_time"]], start_date, end_date)
+test_that("unctad monthly works", {
+  expect_equal(nrow(data), 220)
+})
+
+# test unctad quarterly
+data_hash <- gen_data("unctad", "q")
+data <- get_unctad(data_hash[["url"]], catalog, data_hash[["g"]], data_hash[["which_time"]], start_date, end_date)
+test_that("unctad quarterly works", {
   expect_equal(nrow(data), 220)
 })
 

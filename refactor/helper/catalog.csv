@@ -111,8 +111,8 @@ container_sg,Total container throughput,sg,m,1000 TEUs,1/1/2002,nso_sg,n,n,growt
 air_freight_total_lhr,"Total air freight, Heathrow airport",uk,m,metric tonnes,1/1/2005,lhr,n,n,growthr,https://www.heathrow.com/content/dam/heathrow/web/common/documents/company/investor/reports-and-presentations/traffic-statistics/Heathrow-Monthly-Traffic-Statistics-Jan-2005-LASTDATE.xlsx,42
 air_freight_intl_lhr,"International air freight, Heathrow airport",uk,m,metric tonnes,1/1/2005,lhr,n,n,growthr,https://www.heathrow.com/content/dam/heathrow/web/common/documents/company/investor/reports-and-presentations/traffic-statistics/Heathrow-Monthly-Traffic-Statistics-Jan-2005-LASTDATE.xlsx,42
 air_freight_hkg,"Total air freight, Hong Kong airport",hk,m,metric tonnes,1/1/2002,hkg,n,n,growthr,https://www.cad.gov.hk/english/pdf/Stat%20Webpage.xlsx,43
-p_comm,Free market commodity price index,world,m,index,1/1/2002,UNCTAD,n,n,growthr,,44
-x_vol_world2,"Export volumes, world (UNCTAD)",world,q,index,1/1/2002,UNCTAD,n,n,growthr,,45
+p_comm,Free market commodity price index,world,m,index,1/1/2002,unctad,n,n,growthr,https://unctadstat.unctad.org/7zip/US_CommodityPriceIndices_M.csv.7z,44
+x_vol_world2,"Export volumes, world (UNCTAD)",world,q,index,1/1/2002,unctad,n,n,growthr,https://unctadstat.unctad.org/7zip/US_MerchVolumeQuarterly.csv.7z,45
 x_servs_uk2.sa,"Exports of services, United Kingdom (Eikon)",uk,m,GBP,1/1/2002,Eikon,n,y,growthr,,46
 fdi_cn,"Foreign direct investment, capital used, China",cn,m,USD,1/1/2002,Eikon,n,n,growthr,,46
 fdi_in,"Overseas direct investment, India",in,m,USD,7/1/2007,Eikon,n,n,growthr,,46

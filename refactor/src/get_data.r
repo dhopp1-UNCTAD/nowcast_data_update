@@ -87,6 +87,8 @@ get_group <- function (g) {
     tmp <- get_lhr(url, catalog, g, start_date, end_date)
   } else if (data_source == "hkg") {
     tmp <- get_hkg(url, catalog, g, start_date, end_date)
+  } else if (data_source == "unctad") {
+    tmp <- get_unctad(url, catalog, g, which_time, start_date, end_date)
   }
     
   return(tmp)
