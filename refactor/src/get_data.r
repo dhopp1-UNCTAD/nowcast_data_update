@@ -83,7 +83,10 @@ get_group <- function (g) {
     tmp <- get_nso_tr(url, catalog, g, start_date, end_date)
   } else if (data_source == "nso_sg") {
     tmp <- get_nso_sg(url, catalog, g, start_date, end_date)
+  } else if (data_source == "lhr") {
+    tmp <- get_lhr(url, catalog, g, start_date, end_date)
   }
+    
   return(tmp)
 }
 # -1 for the nbs double entry, try multiple times
