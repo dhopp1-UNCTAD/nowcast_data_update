@@ -195,11 +195,18 @@ gen_data <- function (source_in, frequency_in) {
 # test_that("ons works", {
 #   expect_equal(nrow(data), 220)
 # })
+# 
+# # test nso_tr
+# data_hash <- gen_data("nso_tr", "q")
+# data <- get_nso_tr(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
+# test_that("nso_tr works", {
+#   expect_equal(nrow(data), 220)
+# })
 
-# test nso_tr
-data_hash <- gen_data("nso_tr", "q")
-data <- get_nso_tr(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
-test_that("ons works", {
+# test nso_sg
+data_hash <- gen_data("nso_sg", "m")
+data <- get_nso_sg(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
+test_that("nso_sg works", {
   expect_equal(nrow(data), 220)
 })
 

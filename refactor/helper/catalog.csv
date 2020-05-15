@@ -107,7 +107,7 @@ is_jp.sa,"Services production index, Japan",jp,m,index,1/1/2008,meti,n,y,growthr
 is_uk.sa,"Services production index, United Kingdom",uk,m,index,1/1/2002,ons,n,y,growthr,https://www.ons.gov.uk/generator?format=xls&uri=/economy/economicoutputandproductivity/output/timeseries/s2ku/ios1,38
 is_br.sa,"Services production index, Brazil",br,m,index,1/1/2011,ibge,n,y,growthr,"https://sidra.ibge.gov.br/geratabela?format=xlsx&name=tabela6442.xlsx&terr=N&rank=-&query=t/6442/n1/all/v/all/p/all/c11046/40312/d/v8676%201,v8677%201/l/v,p%2Bc11046,t",39
 tourists_tk,"Departing foreign visitors, Turkey",tr,q,persons,3/1/2003,nso_tr,n,n,growthr,http://www.turkstat.gov.tr/PreIstatistikTablo.do?istab_id=324,40
-container_sg,Total container throughput,sg,m,1000 TEUs,1/1/2002,NSO SG,n,n,growthr,,41
+container_sg,Total container throughput,sg,m,1000 TEUs,1/1/2002,nso_sg,n,n,growthr,https://www.tablebuilder.singstat.gov.sg/publicfacing/api/json/title/15317.json,41
 air_freight_total_lhr,"Total air freight, Heathrow airport",uk,m,metric tonnes,1/1/2005,LHR,n,n,growthr,,42
 air_freight_intl_lhr,"International air freight, Heathrow airport",uk,m,metric tonnes,1/1/2005,LHR,n,n,growthr,,42
 air_freight_hkg,"Total air freight, Hong Kong airport",hk,m,metric tonnes,1/1/2002,HKG,n,n,growthr,,43
