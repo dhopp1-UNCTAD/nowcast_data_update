@@ -126,7 +126,7 @@ tourists_us,"Tourism receipts, United States",us,m,y-o-y growth rates,1/1/2007,U
 tourists_neasia,"Tourist arrivals, North-East Asia",nea,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,,47
 tourists_seasia,"Tourist arrivals, South-East Asia",sea,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,,47
 tourists_world,"Tourist arrivals, world",world,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,,47
-container_hk,"Container throughput, Hong Kong port",hk,m,1000 TEUs,1/1/2002,HK Ports,n,n,growthr,,48
+container_hk,"Container throughput, Hong Kong port",hk,m,1000 TEUs,1/1/2002,hk_ports,n,n,growthr,https://www.hkmpb.gov.hk/document/HKP_KTCT-stat_csv1(EN).csv,48
 transit_pa_canal,Oceangoing transit through Panama Canal,pa,m,number of ships,1/1/2006,PA Canal,n,n,growthr,,49
 transit_suez_canal,Net tonnage transiting through Suez Canal,eg,m,1000 tonnes,1/1/2007,Suez Canal,n,n,growthr,,50
 air_freight_mem,"Total air freight, Memphis airport",us,m,kg,1/1/2002,MEM,n,n,growthr,,51

@@ -89,6 +89,8 @@ get_group <- function (g) {
     tmp <- get_hkg(url, catalog, g, start_date, end_date)
   } else if (data_source == "unctad") {
     tmp <- get_unctad(url, catalog, g, which_time, start_date, end_date)
+  } else if (data_source == "hk_ports") {
+    tmp <- get_hk_ports(url, catalog, g, start_date, end_date, historical)
   }
     
   return(tmp)
