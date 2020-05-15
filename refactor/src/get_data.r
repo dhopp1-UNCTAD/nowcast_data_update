@@ -5,6 +5,7 @@ library(jsonlite)
 library(httr)
 library(readxl)
 library(siebanxicor)
+library(pdftools)
 library(IMFData)
 rm(list=ls())
 
@@ -91,6 +92,8 @@ get_group <- function (g) {
     tmp <- get_unctad(url, catalog, g, which_time, start_date, end_date)
   } else if (data_source == "hk_ports") {
     tmp <- get_hk_ports(url, catalog, g, start_date, end_date, historical)
+  } else if (data_source == "pa_canal") {
+    tmp <- get_pa_canal(url, catalog, g, start_date, end_date, historical)
   }
     
   return(tmp)
@@ -103,8 +106,8 @@ while (n_tries <= 5) {
     skip <- FALSE
     # only try if not already updated
     if (log %>% filter(download_group == g) %>% select(status) %>% slice(1) %>% pull == 1){
-      tmp <- get_group(g)
       tryCatch({
+        tmp <- get_group(g)
         database <- cbind(database,tmp)
         log[log$download_group == g, "status"] <- 0
       }, error = function(e) {
