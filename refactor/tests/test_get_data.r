@@ -167,11 +167,18 @@ gen_data <- function (source_in, frequency_in) {
 # test_that("ec works", {
 #   expect_equal(nrow(data), 220)
 # })
+# 
+# # test rwi
+# data_hash <- gen_data("rwi/isl", "m")
+# data <- get_rwi(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
+# test_that("rwi/isl works", {
+#   expect_equal(nrow(data), 220)
+# })
 
-# test rwi
-data_hash <- gen_data("rwi/isl", "m")
-data <- get_rwi(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
-test_that("rwi/isl works", {
+# test meti
+data_hash <- gen_data("meti", "m")
+data <- get_meti(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date)
+test_that("meti works", {
   expect_equal(nrow(data), 220)
 })
 
