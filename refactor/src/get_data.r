@@ -4,6 +4,7 @@ library(rsdmx)
 library(jsonlite)
 library(httr)
 library(readxl)
+library(siebanxicor)
 library(IMFData)
 rm(list=ls())
 
@@ -66,6 +67,8 @@ get_group <- function (g) {
     tmp <- get_single_api(url, catalog, g, which_time, data_source, start_date, end_date, "date", "Dataset.Value")
   } else if (data_source == "cbp") {
     tmp <- get_cpb(url, catalog, g, countries, start_date, end_date)
+  } else if (data_source == "banxico")  {
+    tmp <- get_banxico(url, catalog, g, start_date, end_date)
   }
   return(tmp)
 }
