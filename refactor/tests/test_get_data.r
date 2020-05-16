@@ -8,6 +8,7 @@ library(httr)
 library(readxl)
 library(siebanxicor)
 library(pdftools)
+library(rvest)
 library(IMFData)
 
 library(testthat)
@@ -259,11 +260,18 @@ gen_data <- function (source_in, frequency_in) {
 # test_that("suez_canal works", {
 #   expect_equal(nrow(data), 220)
 # })
+# 
+# # test memphis airport
+# data_hash <- gen_data("mem", "m")
+# data <- get_mem(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date, historical)
+# test_that("mem works", {
+#   expect_equal(nrow(data), 220)
+# })
 
-# test memphis airport
-data_hash <- gen_data("mem", "m")
-data <- get_mem(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date, historical)
-test_that("mem works", {
+# test la port
+data_hash <- gen_data("la_port", "m")
+data <- get_la_port(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date, historical)
+test_that("la_port works", {
   expect_equal(nrow(data), 220)
 })
 

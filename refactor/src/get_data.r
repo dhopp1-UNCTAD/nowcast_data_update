@@ -6,6 +6,7 @@ library(httr)
 library(readxl)
 library(siebanxicor)
 library(pdftools)
+library(rvest)
 library(IMFData)
 rm(list=ls())
 
@@ -98,6 +99,8 @@ get_group <- function (g) {
     tmp <- get_suez_canal(url, catalog, g, start_date, end_date, historical)
   } else if (data_source == "mem") {
     tmp <- get_mem(url, catalog, g, start_date, end_date, historical)
+  } else if (data_source == "la_port") {
+    tmp <- get_la_port(url, catalog, g, start_date, end_date, historical)
   }
     
   return(tmp)

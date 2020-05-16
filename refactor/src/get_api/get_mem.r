@@ -1,6 +1,5 @@
 get_mem <- function (url, catalog, g, start_date, end_date, historical) {
 
-  months <- c("Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec.")
   year <- substr(as.Date(end_date), 1, 4) %>% as.numeric
   vars <- gen_vars(catalog, g)
   tmp <- gen_tmp(vars, start_date, end_date)
