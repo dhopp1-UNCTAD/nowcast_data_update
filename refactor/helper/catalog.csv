@@ -113,15 +113,15 @@ air_freight_intl_lhr,"International air freight, Heathrow airport",uk,m,metric t
 air_freight_hkg,"Total air freight, Hong Kong airport",hk,m,metric tonnes,1/1/2002,hkg,n,n,growthr,https://www.cad.gov.hk/english/pdf/Stat%20Webpage.xlsx,43
 p_comm,Free market commodity price index,world,m,index,1/1/2002,unctad,n,n,growthr,https://unctadstat.unctad.org/7zip/US_CommodityPriceIndices_M.csv.7z,44
 x_vol_world2,"Export volumes, world (UNCTAD)",world,q,index,1/1/2002,unctad,n,n,growthr,https://unctadstat.unctad.org/7zip/US_MerchVolumeQuarterly.csv.7z,45
-x_servs_uk2.sa,"Exports of services, United Kingdom (Eikon)",uk,m,GBP,1/1/2002,Eikon,n,y,growthr,,46
-fdi_cn,"Foreign direct investment, capital used, China",cn,m,USD,1/1/2002,Eikon,n,n,growthr,,46
-fdi_in,"Overseas direct investment, India",in,m,USD,7/1/2007,Eikon,n,n,growthr,,46
-baltic,Baltic dry index,world,m,index,1/1/2002,Eikon,n,n,growthr,,46
-harpex,Harpex charter rate index,world,m,index,1/1/2002,Eikon,n,n,growthr,,46
-pmi_manuf_us.sa,"Manufacturing purchasing managers' index, United States",us,m,index,1/1/2002,Eikon,n,y,chg,,46
-pmi_nm_us.sa,"Non-manufacturing purchaser managers' index, United States",us,m,index,1/1/2002,Eikon,n,y,chg,,46
-pmi_nm_cn.sa,"Non-manufacturing purchaser managers' index, China (Eikon)",cn,m,index,1/1/2007,Eikon,n,y,chg,,46
-tourists_th,"International tourist arrivals, Thailand",th,m,persons,1/1/2002,Eikon,n,n,growthr,,46
+x_servs_uk2.sa,"Exports of services, United Kingdom (Eikon)",uk,m,GBP,1/1/2002,eikon,n,y,growthr,,46
+fdi_cn,"Foreign direct investment, capital used, China",cn,m,USD,1/1/2002,eikon,n,n,growthr,,46
+fdi_in,"Overseas direct investment, India",in,m,USD,7/1/2007,eikon,n,n,growthr,,46
+baltic,Baltic dry index,world,m,index,1/1/2002,eikon,n,n,growthr,,46
+harpex,Harpex charter rate index,world,m,index,1/1/2002,eikon,n,n,growthr,,46
+pmi_manuf_us.sa,"Manufacturing purchasing managers' index, United States",us,m,index,1/1/2002,eikon,n,y,chg,,46
+pmi_nm_us.sa,"Non-manufacturing purchaser managers' index, United States",us,m,index,1/1/2002,eikon,n,y,chg,,46
+pmi_nm_cn.sa,"Non-manufacturing purchaser managers' index, China (Eikon)",cn,m,index,1/1/2007,eikon,n,y,chg,,46
+tourists_th,"International tourist arrivals, Thailand",th,m,persons,1/1/2002,eikon,n,n,growthr,,46
 tourists_us,"Tourism receipts, United States",us,m,y-o-y growth rates,1/1/2007,unwto,n,y,linear,,47
 tourists_neasia,"Tourist arrivals, North-East Asia",nea,m,y-o-y growth rates,1/1/2007,unwto,n,y,linear,,47
 tourists_seasia,"Tourist arrivals, South-East Asia",sea,m,y-o-y growth rates,1/1/2007,unwto,n,y,linear,,47

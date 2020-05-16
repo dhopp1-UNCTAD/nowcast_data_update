@@ -18,7 +18,8 @@ end_date <- as.Date("2020-04-01")
 
 catalog <- read_csv(paste0(helper_directory,"catalog.csv"))
 countries <- read_csv(paste0(helper_directory, "country_codes.csv"))
-historical <- read_csv(paste0("../output/historical.csv"))
+historical <- read_csv(paste0(helper_directory, "historical.csv"))
+eikon <- read_excel(paste0(helper_directory, "Eikon.xlsx"), skip=1)
 
 # initializing the database
 database <- seq(from = start_date, to = end_date, by = "month") %>%
@@ -91,6 +92,8 @@ get_group <- function (g) {
     tmp <- get_hkg(url, catalog, g, start_date, end_date)
   } else if (data_source == "unctad") {
     tmp <- get_unctad(url, catalog, g, which_time, start_date, end_date)
+  } else if (data_source == "eikon") {
+    tmp <- get_eikon(catalog, g, which_time, start_date, end_date, eikon)
   } else if (data_source == "hk_ports") {
     tmp <- get_hk_ports(url, catalog, g, start_date, end_date, historical)
   } else if (data_source == "pa_canal") {
