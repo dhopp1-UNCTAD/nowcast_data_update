@@ -122,14 +122,14 @@ pmi_manuf_us.sa,"Manufacturing purchasing managers' index, United States",us,m,i
 pmi_nm_us.sa,"Non-manufacturing purchaser managers' index, United States",us,m,index,1/1/2002,Eikon,n,y,chg,,46
 pmi_nm_cn.sa,"Non-manufacturing purchaser managers' index, China (Eikon)",cn,m,index,1/1/2007,Eikon,n,y,chg,,46
 tourists_th,"International tourist arrivals, Thailand",th,m,persons,1/1/2002,Eikon,n,n,growthr,,46
-tourists_us,"Tourism receipts, United States",us,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,,47
-tourists_neasia,"Tourist arrivals, North-East Asia",nea,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,,47
-tourists_seasia,"Tourist arrivals, South-East Asia",sea,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,,47
-tourists_world,"Tourist arrivals, world",world,m,y-o-y growth rates,1/1/2007,UNWTO,n,y,linear,,47
+tourists_us,"Tourism receipts, United States",us,m,y-o-y growth rates,1/1/2007,unwto,n,y,linear,,47
+tourists_neasia,"Tourist arrivals, North-East Asia",nea,m,y-o-y growth rates,1/1/2007,unwto,n,y,linear,,47
+tourists_seasia,"Tourist arrivals, South-East Asia",sea,m,y-o-y growth rates,1/1/2007,unwto,n,y,linear,,47
+tourists_world,"Tourist arrivals, world",world,m,y-o-y growth rates,1/1/2007,unwto,n,y,linear,,47
 container_hk,"Container throughput, Hong Kong port",hk,m,1000 TEUs,1/1/2002,hk_ports,n,n,growthr,https://www.hkmpb.gov.hk/document/HKP_KTCT-stat_csv1(EN).csv,48
 transit_pa_canal,Oceangoing transit through Panama Canal,pa,m,number of ships,1/1/2006,pa_canal,n,n,growthr,https://www.pancanal.com/common/maritime/advisories/,49
 transit_suez_canal,Net tonnage transiting through Suez Canal,eg,m,1000 tonnes,1/1/2007,suez_canal,n,n,growthr,https://www.suezcanal.gov.eg/English/Downloads/DownloadsDocLibrary/Navigation Reports/Monthly Reports/,50
 air_freight_mem,"Total air freight, Memphis airport",us,m,kg,1/1/2002,mem,n,n,growthr,https://www.flymemphis.com/Areas/Admin/Images/Upload_2020055092924.pdf,51
 container_exports_la,"Container throughput total, Los Angeles port",us,m,TEUs,1/1/2002,la_port,n,n,growthr,https://www.portoflosangeles.org/business/statistics/container-statistics/historical-teu-statistics-,52
 container_total_la,"Container throughput exports, Los Angeles port",us,m,TEUs,1/1/2002,la_port,n,n,growthr,https://www.portoflosangeles.org/business/statistics/container-statistics/historical-teu-statistics-,52
-x_servs_world,"Exports of services, world",world,q,million US$,1/1/2005,UNCTAD,n,n,growthr,,53
+x_servs_world,"Exports of services, world",world,q,million US$,1/1/2005,unctad_services,n,n,growthr,,53

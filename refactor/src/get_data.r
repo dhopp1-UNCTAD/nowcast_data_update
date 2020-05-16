@@ -101,6 +101,8 @@ get_group <- function (g) {
     tmp <- get_mem(url, catalog, g, start_date, end_date, historical)
   } else if (data_source == "la_port") {
     tmp <- get_la_port(url, catalog, g, start_date, end_date, historical)
+  } else {
+    tmp <- get_manual(catalog, g, start_date, end_date, historical)
   }
     
   return(tmp)

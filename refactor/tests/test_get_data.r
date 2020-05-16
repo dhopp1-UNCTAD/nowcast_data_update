@@ -267,11 +267,23 @@ gen_data <- function (source_in, frequency_in) {
 # test_that("mem works", {
 #   expect_equal(nrow(data), 220)
 # })
+# 
+# # test la port
+# data_hash <- gen_data("la_port", "m")
+# data <- get_la_port(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date, historical)
+# test_that("la_port works", {
+#   expect_equal(nrow(data), 220)
+# })
 
-# test la port
-data_hash <- gen_data("la_port", "m")
-data <- get_la_port(data_hash[["url"]], catalog, data_hash[["g"]], start_date, end_date, historical)
-test_that("la_port works", {
+# test manual/historical ones
+data_hash <- gen_data("unctad_services", "q")
+data <- get_manual(catalog, data_hash[["g"]], start_date, end_date, historical)
+test_that("manual/historical ones one column works", {
+  expect_equal(nrow(data), 220)
+})
+data_hash <- gen_data("unwto", "m")
+data <- get_manual(catalog, data_hash[["g"]], start_date, end_date, historical)
+test_that("manual/historical ones multiple column works", {
   expect_equal(nrow(data), 220)
 })
 
