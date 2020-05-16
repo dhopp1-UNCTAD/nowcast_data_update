@@ -12,6 +12,7 @@ rm(list=ls())
 
 # potential function parameters
 helper_directory <- "../helper/"
+output_directory <- "../output/"
 
 start_date <- as.Date("2002-01-01")
 end_date <- as.Date("2020-04-01")
@@ -20,6 +21,7 @@ catalog <- read_csv(paste0(helper_directory,"catalog.csv"))
 countries <- read_csv(paste0(helper_directory, "country_codes.csv"))
 historical <- read_csv(paste0(helper_directory, "historical.csv"))
 eikon <- read_excel(paste0(helper_directory, "Eikon.xlsx"), skip=1)
+most_recent_database <- read_csv(paste0(output_directory, "most_recent_database.csv"))
 
 # initializing the database
 database <- seq(from = start_date, to = end_date, by = "month") %>%
@@ -121,7 +123,7 @@ while (n_tries <= 5) {
       tryCatch({
         tmp <- get_group(g)
         database <- cbind(database,tmp)
-        log[log$download_group == g, "status"] <- 0
+        log[log$download_group == g, "status"] <- end_date
       }, error = function(e) {
         skip <<- TRUE
         print(paste0("Error getting group ", g, ", try ", n_tries))
@@ -131,3 +133,14 @@ while (n_tries <= 5) {
   }
   n_tries <- n_tries + 1
 }
+
+# merging with most_recent_database in case some columns weren't successfuly gotten, or only a subset is gotten
+cols_in_current_db <- colnames(database)[2:length(colnames(database))]
+cols_in_most_recent_db <- colnames(most_recent_database)
+final_database <- most_recent_database[, !cols_in_most_recent_db %in% cols_in_current_db] %>%
+  left_join(database, by="date")
+
+# writing final new database
+write.csv(final_database, paste0(output_directory,"most_recent_database.csv"), row.names=F)
+write.csv(final_database, paste0(output_directory,end_date,"_database.csv"), row.names=F)
+write.csv(log, paste0(output_directory,end_date,"_log.csv"), row.names=F)
