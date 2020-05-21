@@ -24,4 +24,8 @@ get_api_directory <- "src/get_api/"
 get_data(start_date, end_date, helper_directory, output_directory, get_api_directory, "All")
 
 
+### compare to old data (revisions, etc.)
+source("src/compare_data.r")
+compare_data(end_date, output_directory, sensitivity=0.02)
+
 options(warn=0)
