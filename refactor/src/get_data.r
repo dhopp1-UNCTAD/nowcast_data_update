@@ -145,6 +145,9 @@ get_data <- function (start_date, end_date, helper_directory, output_directory, 
   write.csv(tmp, paste0(helper_directory, "historical.csv"), row.names=F)
   
   # success message
-  output_text <- str_interp("Succesfull! Got new data ending on ${end_date}. New database file written to: ${paste0(output_directory,end_date,'_database.csv')}. View log at: ${paste0(output_directory,end_date,'_log.csv')}.")
+  output_text <- str_interp("Success! Got new data ending on ${end_date}. New database file written to: ${paste0(output_directory,end_date,'_database.csv')}. View log at: ${paste0(output_directory,end_date,'_log.csv')}.")
   cat(str_interp("\033[0;32m${output_text}\033[0m\n"))
+  failures <- read_csv(paste0(output_directory, end_date, "_log.csv")) %>% filter(status == "Not run") %>% select(download_group) %>% unique %>% as.character %>% str_replace('[c|"]', "")
+  failures <- paste0("Groups ", failures, " were not successfully updated.")
+  cat(str_interp("\033[0;33m${failures}\033[0m\n"))  
 }
