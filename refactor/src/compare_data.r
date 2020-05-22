@@ -7,6 +7,8 @@ compare_value <- function (old, new, sensitivity) {
     return (3)
   } else if (old == 0 & new == 0) {
     return (0)
+  } else if(old == 0 & new != 0) {
+    return (1)
   } else if (abs(new - old) / old <= sensitivity) {
     return (0)
   } else if (abs(new - old) / old > sensitivity) {
