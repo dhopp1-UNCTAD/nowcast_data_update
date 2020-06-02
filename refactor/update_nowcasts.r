@@ -23,7 +23,8 @@ end_date <- as.Date("2020-04-01")
 print("Getting new data...")
 source("src/get_data.r")
 get_api_directory <- "src/get_api/"
-get_data(start_date, end_date, helper_directory, output_directory, get_api_directory, "All")
+groups <- "All" # 1:4 etc. for a different group
+get_data(start_date, end_date, helper_directory, output_directory, get_api_directory, groups)
 
 
 ### compare to old data (revisions, etc.)
@@ -35,5 +36,10 @@ compare_data(end_date, output_directory, sensitivity=0.02)
 print("Transforming data...")
 source("src/transform_data.r")
 transform_data(end_date, output_directory)
+
+### prepare data for matlab
+# print("Finalizing/preparing data...")
+# source("src/prepare_data.r")
+# prepare_data(start_date, end_date, output_directory)
 
 options(warn=0)

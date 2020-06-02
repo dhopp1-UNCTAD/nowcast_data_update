@@ -77,7 +77,7 @@ get_data <- function (start_date, end_date, helper_directory, output_directory, 
     } else if (data_source == "unctad") {
       tmp <- get_unctad(url, catalog, g, which_time, start_date, end_date)
     } else if (data_source == "eikon") {
-      tmp <- get_eikon(catalog, g, which_time, start_date, end_date, eikon)
+      tmp <- get_eikon(catalog, g, start_date, end_date, eikon)
     } else if (data_source == "hk_ports") {
       tmp <- get_hk_ports(url, catalog, g, start_date, end_date, historical)
     } else if (data_source == "pa_canal") {

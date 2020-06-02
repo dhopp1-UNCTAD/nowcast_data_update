@@ -3,6 +3,13 @@ get_eikon <- function (catalog, g, start_date, end_date, eikon) {
   tmp <- gen_tmp(vars, start_date, end_date)
   
   rawdata <- eikon
+  counter <- 1
+  for (i in 1:length(colnames(rawdata))) {
+    if (colnames(rawdata)[i] == "") {
+      colnames(rawdata)[i] <- paste0("x", as.character(counter)) 
+    }
+    counter <- counter + 1
+  }
   for(i in 1:nrow(vars)){
     datai <- rawdata %>%
       select(((i - 1) * 4 + 1):((i * 4) - 1)) %>%
