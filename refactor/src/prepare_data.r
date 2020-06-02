@@ -19,8 +19,8 @@ prepare_data <- function(start_date, end_date, output_directory) {
   ### This version: Fernando Cantu, 2020-04-28
   ###
   
-  ### Global merchandise trade in value
-  data <- read_csv(paste0(output_directory, end_date, "_database.csv"))
+  # Global merchandise trade in value
+  data <- read_csv(paste0(output_directory, end_date, "_database_tf.csv"))
   
   vars <- c("date", "x_world.sa", "x_cn.sa", "x_us.sa", "x_kr.sa", "x_hk.sa", "ipi_us.sa", "ipi_jp.sa", "ipi_kr.sa",
             "p_comm.sa", "p_manuf.sa",	"x_uv_world.sa",	"x_vol_world.sa",	"freight_mar_cn.sa",
@@ -30,7 +30,7 @@ prepare_data <- function(start_date, end_date, output_directory) {
     select(vars) %>%
     mutate(date = as.Date(date)) %>%
     filter(date >= start_date)
-  if(db[nrow(db), "date"] < end) {
+  if (db[nrow(db), "date"] < end_date) {
     db <- rbind(db, matrix(NA, ncol = ncol(db), 
                            nrow = length(seq.Date(from = db[nrow(db), "date"], to = end, by = "month")) - 1, 
                            dimnames = list(NULL, names(db))))
@@ -40,7 +40,7 @@ prepare_data <- function(start_date, end_date, output_directory) {
     replace(is.na(.), -99999)
   data_nowcast_goods_value <- db
   
-  ### Global merchandise trade in volume
+  # Global merchandise trade in volume
   vars <- c("date", "x_vol_world2.sa", "x_vol_world.sa", "x_vol_ez.sa", "x_vol_ema.sa", "x_vol_lac.sa",
             "ipi_jp.sa", "ipi_de.sa", "ipi_kr.sa", "ipi_oecd.sa", "ind_orders_ez.sa",
             "manuf_orders_us_2.sa", "rti_vol_fr.sa", "rti_vol_oecd.sa", "freight_mar_cn.sa",
@@ -49,8 +49,8 @@ prepare_data <- function(start_date, end_date, output_directory) {
   db <- data %>%
     select(vars) %>%
     mutate(date = as.Date(date)) %>%
-    filter(date >= start)
-  if(db[nrow(db), "date"] < end) {
+    filter(date >= start_date)
+  if(db[nrow(db), "date"] < end_date) {
     db <- rbind(db, matrix(NA, ncol = ncol(db), 
                            nrow = length(seq.Date(from = db[nrow(db), "date"], to = end, by = "month")) - 1, 
                            dimnames = list(NULL, names(db))))
@@ -69,8 +69,8 @@ prepare_data <- function(start_date, end_date, output_directory) {
   db <- data %>%
     select(vars) %>%
     mutate(date = as.Date(date)) %>%
-    filter(date >= start)
-  if(db[nrow(db), "date"] < end) {
+    filter(date >= start_date)
+  if(db[nrow(db), "date"] < end_date) {
     db <- rbind(db, matrix(NA, ncol = ncol(db), 
                            nrow = length(seq.Date(from = db[nrow(db), "date"], to = end, by = "month")) - 1, 
                            dimnames = list(NULL, names(db))))

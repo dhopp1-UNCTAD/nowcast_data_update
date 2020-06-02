@@ -47,6 +47,9 @@ compare_data <- function (end_date, output_directory, sensitivity=0.2) {
   comparison <- compare_dfs(two_ago, most_recent, c("date"), sensitivity)
   
   write.csv(comparison, paste0(output_directory,end_date,"_comparison.csv"), row.names=F)
+  # writing to history too to see when variables updated
+  write.csv(comparison, paste0(output_directory, "comparison_history/", Sys.Date(),"_comparison.csv"), row.names=F)
+  
   # success message
   output_text <- str_interp("Success! Compared data ending on ${end_date}. New comparison file written to: ${paste0(output_directory,end_date,'_comparison.csv')}.")
   cat(str_interp("\033[0;32m${output_text}\033[0m\n"))
