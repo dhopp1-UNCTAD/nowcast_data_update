@@ -52,7 +52,7 @@ get_data <- function (start_date, end_date, helper_directory, output_directory, 
       tmp <- get_single_api(url, catalog, g, which_time, data_source, start_date, end_date, "obsTime", "obsValue")
     } else if (data_source == "wto") {
       tmp <- get_single_api(url, catalog, g, which_time, data_source, start_date, end_date, "date", "Dataset.Value")
-    } else if (data_source == "cbp") {
+    } else if (data_source == "cpb") {
       tmp <- get_cpb(url, catalog, g, countries, start_date, end_date)
     } else if (data_source == "banxico")  {
       tmp <- get_banxico(url, catalog, g, start_date, end_date)
@@ -127,8 +127,8 @@ get_data <- function (start_date, end_date, helper_directory, output_directory, 
   if (ncol(database) > 1) {
     cols_in_current_db <- colnames(database)[2:length(colnames(database))]
     cols_in_most_recent_db <- colnames(most_recent_database)
-    final_database <- most_recent_database[, !cols_in_most_recent_db %in% cols_in_current_db] %>%
-    left_join(database, by="date")  
+    final_database <- database %>%
+    left_join(most_recent_database[, !cols_in_most_recent_db %in% cols_in_current_db], by="date")
   } else {
     return("No data was updated")
   }

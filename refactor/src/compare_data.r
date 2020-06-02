@@ -16,7 +16,7 @@ compare_value <- function (old, new, sensitivity) {
   }
 }
 
-compare_dfs <- function (df1, df2, exclude_cols) {
+compare_dfs <- function (df1, df2, exclude_cols, sensitivity) {
   comparison <- df2
   for (col in (colnames(df2))) {
     if (!(col %in% exclude_cols)) {
@@ -37,18 +37,17 @@ compare_data <- function (end_date, output_directory, sensitivity=0.2) {
   # database file from two ago (i.e. not most recent) is file with _database -2, one for "most_recent", one for dated most recent
   two_ago_file <- list.files(output_directory) %>%
     .[sapply(., function (x) grepl("_database", x))] %>%
+    .[sapply(., function (x) !grepl("_tf", x))] %>%
+    .[sapply(., function (x) !grepl("_sa", x))] %>%
     sort() %>%
     .[length(.)-2]
   two_ago <- read.csv(paste0(output_directory, two_ago_file)) %>% mutate(date=as.Date(date))
   two_ago <- data.frame(date=most_recent$date) %>%
     left_join(two_ago, on="date")
-  comparison <- compare_dfs(two_ago, most_recent, c("date"))
+  comparison <- compare_dfs(two_ago, most_recent, c("date"), sensitivity)
   
   write.csv(comparison, paste0(output_directory,end_date,"_comparison.csv"), row.names=F)
   # success message
   output_text <- str_interp("Success! Compared data ending on ${end_date}. New comparison file written to: ${paste0(output_directory,end_date,'_comparison.csv')}.")
   cat(str_interp("\033[0;32m${output_text}\033[0m\n"))
 }
-
-mapply(function (x, y) compare_value(x, y, sensitivity), two_ago["fdi_world"], most_recent["fdi_world"])
-colnames(most_recent)[21]
