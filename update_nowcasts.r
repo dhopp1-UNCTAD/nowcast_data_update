@@ -53,7 +53,7 @@ cat("\033[0;32mTransformation successful\033[0m\n")
 ### prepare data for matlab
 print("Finalizing/preparing data...")
 source("src/prepare_data.r")
-prepare_data(start_date, end_date, output_directory)
+prepare_data(start_date, end_date, helper_directory, output_directory)
 cat("\033[0;32mPreparation successful\033[0m\n")
 
 cat("\033[0;32mUpdate successful\033[0m\n")
