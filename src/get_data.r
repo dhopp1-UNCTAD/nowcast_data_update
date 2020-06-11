@@ -138,6 +138,9 @@ get_data <- function (start_date, end_date, helper_directory, output_directory, 
   write.csv(final_database, paste0(output_directory,end_date,"_database.csv"), row.names=F)
   write.csv(log, paste0(output_directory,end_date,"_log.csv"), row.names=F)
   
+  # writing to history too to see what variables were in the past
+  write.csv(final_database, paste0(output_directory, "comparison_history/", Sys.Date(),"_database.csv"), row.names=F)
+  
   # udpating historical.csv for necessary series
   historical_cols <- colnames(historical)[3:length(colnames(historical))]
   tmp <- data.frame(year=as.numeric(substr(final_database$date, 1, 4)), month=as.numeric(substr(final_database$date, 6, 7)))
