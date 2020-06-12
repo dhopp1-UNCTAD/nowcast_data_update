@@ -4,3 +4,4 @@ output/*
 helper/*
 nowcast_targets/un_big_data/*
 nowcast_targets/.ipynb_checkpoints/*
+nowcast_targets/vintage_x_world/*.csv
