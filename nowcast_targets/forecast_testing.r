@@ -78,7 +78,7 @@ gen_forecast <- function (data, target, start_list, end_list) {
 target <- "x_world.sa"
 path <- "vintage_x_world/"
 h <- hash()
-which_list <- c(2010,1)
+which_list <- c(2018,1)
 while (as.Date(paste0(paste(which_list, collapse="-"), "-1")) <= end_date) {
   print(which_list)
   h[[paste(which_list, collapse="-")]] <- gen_forecast(data, target, c(2002, 1), which_list)
