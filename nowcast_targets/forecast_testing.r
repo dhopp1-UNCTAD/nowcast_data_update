@@ -73,7 +73,6 @@ gen_forecast <- function (data, target, start_list, end_list) {
   return (forecast)
 }
 
-
 # vintage forecast performance through time
 target <- "x_world.sa"
 path <- "vintage_x_world/"
