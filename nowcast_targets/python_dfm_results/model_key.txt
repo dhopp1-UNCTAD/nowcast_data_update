@@ -1,0 +1,2 @@
+model_1: k_factors=1, factor_order=1, error_order=1, linearly interpolated missing, NAs at ragged end
+model_2: same as model 1, without initial powell fit
