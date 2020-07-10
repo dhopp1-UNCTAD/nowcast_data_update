@@ -1,5 +1,5 @@
 # UNCTAD Nowcasts
-All files relating to the UNCTAD nowcasts. This repo only hosts the code, for datafiles see the onedrive link below.
+All files relating to the UNCTAD nowcasts. This repo only hosts the code, for datafiles see the onedrive link below. `misc.` directory contains other tangentially related projects, like experimenting with making the nowcast monthly, etc.
 
 ## Links:
 - [Git repo](https://github.com/dhopp1-UNCTAD/nowcasts)
