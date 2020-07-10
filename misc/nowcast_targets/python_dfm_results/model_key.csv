@@ -1,4 +1,0 @@
-model,factor_order,error_order,shock_order,missing_data,ragged_end,pretrain,mae_three_after,mae_two_after,mae_one_after,mae_current,mae_one_before,mae_two_before,mae_insample
-1,1,1,random (default),linearly interpolated,NA,powell,0.0036,0.01101,0.00948,0.011,0.01228,0.0122,0.01064
-2,1,1,random (default),linearly interpolated,NA,none,0.00415,0.00996,0.01071,0.02343,0.01378,0.01329,0.01485
-3,1,1,random (default),NA,NA,powell,0.00617,0.00612,0.00601,0.0114,0.01141,0.01313,0.02881
