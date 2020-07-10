@@ -23,6 +23,11 @@ initial_res = mod.fit(method='powell', disp=False)
 res = mod.fit(initial_res.params, disp=False)
 pred = res.predict().append(res.forecast(5))
 
+# results
+perf = pd.DataFrame(x[target][~pd.isna(x[target])]).merge(pred[target], left_index=True, right_index=True)
+perf.columns = ["actual", "pred"]
+mae = np.abs(perf.actual - perf.pred).mean()
+
 
 ### running model vintage
 # # params
