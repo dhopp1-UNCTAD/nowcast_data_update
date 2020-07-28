@@ -1,8 +1,8 @@
-# UNCTAD Nowcasts
-All files relating to the UNCTAD nowcasts. This repo only hosts the code, for datafiles see the onedrive link below. `misc.` directory contains other tangentially related projects, like experimenting with making the nowcast monthly, etc.
+# UNCTAD Nowcast data update
+All files relating to the UNCTAD nowcast data update. This repo only hosts the code, for datafiles see the onedrive link below.
 
 ## Links:
-- [Git repo](https://github.com/dhopp1-UNCTAD/nowcasts)
+- [Git repo](https://github.com/dhopp1-UNCTAD/nowcast_data_update)
 - [OneDrive](https://unitednations-my.sharepoint.com/personal/daniel_hopp_un_org/_layouts/15/onedrive.aspx?id=/personal/daniel_hopp_un_org/Documents/nowcasts)
 
 ## Setup instructions
@@ -11,7 +11,7 @@ All files relating to the UNCTAD nowcasts. This repo only hosts the code, for da
 
 ## Update instructions
 - Update `helper/Eikon.xlsx` from the source and place in the `helper` directory
-- Run `Rscript update_nowcasts.r YYYY-mm-dd` from the project directory to get info until that end date. Run `Rscript update_nowcasts.r 2020-05-01 [groups]` where `[groups]` e.g. is `24:26` to reget data just for groups 24-26. This will run:
+- Run `Rscript update_data.r YYYY-mm-dd` from the project directory to get info until that end date. Run `Rscript update_data.r 2020-05-01 [groups]` where `[groups]` e.g. is `24:26` to reget data just for groups 24-26. This will run:
 	- `src/get_data.r`: this will update data sources via API and web scraping. The console will output which group is being gotten, and at the end will display which groups failed to update. Refer to the `catalog.csv` in the `helper` directory for which data sources are updated. Outputs `output/YYYY-mm-dd_database.csv` and `output/YYYY-mm-dd_log.csv`, which tells which data sources were succesfully updated and how long they took.
 	- `src/compare_data.r`: compares newly created database file to `output/most_recent_database.csv`. Outputs `output/YYYY-mm-dd_comparison.csv`, which is a file mirroring the database file except with:
 		- `NA` for no data in old or new file
