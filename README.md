@@ -3,7 +3,7 @@ All files relating to the UNCTAD nowcast data update. This repo only hosts the c
 
 ## Links:
 - [Git repo](https://github.com/dhopp1-UNCTAD/nowcast_data_update)
-- [OneDrive](https://unitednations-my.sharepoint.com/personal/daniel_hopp_un_org/_layouts/15/onedrive.aspx?id=/personal/daniel_hopp_un_org/Documents/nowcasts)
+- [OneDrive](https://unitednations-my.sharepoint.com/personal/daniel_hopp_un_org/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdaniel%5Fhopp%5Fun%5Forg%2FDocuments%2Fnowcasts%2Fnowcast%5Fdata%5Fupdate)
 
 ## Setup instructions
 - Clone this repo, then copy the `helper` and `output` directories from OneDrive to the root directory of the repo.
