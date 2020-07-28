@@ -1,4 +1,4 @@
-get_data <- function (start_date, end_date, helper_directory, output_directory, get_api_directory, groups="All") {
+get_data <- function (start_date, end_date, run_date, helper_directory, output_directory, get_api_directory, groups="All") {
   catalog <- read_csv(paste0(helper_directory,"catalog.csv"), col_types=cols())
   countries <- read_csv(paste0(helper_directory, "country_codes.csv"), col_types=cols())
   historical <- read_csv(paste0(helper_directory, "historical.csv"), col_types=cols())
@@ -112,7 +112,7 @@ get_data <- function (start_date, end_date, helper_directory, output_directory, 
           
           end_time <- Sys.time()
           time_took <- difftime(end_time, start_time, units='mins')[[1]]
-          log[log$download_group == g, "status"] <- str_interp("Took ${round(time_took, 2)} minutes for ${end_date}")
+          log[log$download_group == g, "status"] <- str_interp("Took ${round(time_took, 2)} minutes on ${run_date}")
         }, error = function(e) {
           skip <<- TRUE
           print(paste0("Error getting group ", g, ", try ", n_tries))
@@ -135,11 +135,8 @@ get_data <- function (start_date, end_date, helper_directory, output_directory, 
   
   # writing final new database
   write.csv(final_database, paste0(output_directory,"most_recent_database.csv"), row.names=F)
-  write.csv(final_database, paste0(output_directory,end_date,"_database.csv"), row.names=F)
-  write.csv(log, paste0(output_directory,end_date,"_log.csv"), row.names=F)
-  
-  # writing to history too to see what variables were in the past
-  write.csv(final_database, paste0(output_directory, "comparison_history/", Sys.Date(),"_database.csv"), row.names=F)
+  write.csv(final_database, paste0(output_directory, run_date,"_database.csv"), row.names=F)
+  write.csv(log, paste0(output_directory,run_date,"_log.csv"), row.names=F)
   
   # udpating historical.csv for necessary series
   historical_cols <- colnames(historical)[3:length(colnames(historical))]
@@ -148,9 +145,9 @@ get_data <- function (start_date, end_date, helper_directory, output_directory, 
   write.csv(tmp, paste0(helper_directory, "historical.csv"), row.names=F)
   
   # success message
-  output_text <- str_interp("Success! Got new data ending on ${end_date}. New database file written to: ${paste0(output_directory,end_date,'_database.csv')}. View log at: ${paste0(output_directory,end_date,'_log.csv')}.")
+  output_text <- str_interp("Success! Got new data ending on ${end_date}. New database file written to: ${paste0(output_directory,run_date,'_database.csv')}. View log at: ${paste0(output_directory,run_date,'_log.csv')}.")
   cat(str_interp("\033[0;32m${output_text}\033[0m\n"))
-  failures <- read_csv(paste0(output_directory, end_date, "_log.csv")) %>% filter(status == "Not run") %>% select(download_group) %>% unique %>% as.character %>% str_replace('[c|"]', "")
+  failures <- read_csv(paste0(output_directory, run_date, "_log.csv")) %>% filter(status == "Not run") %>% select(download_group) %>% unique %>% as.character %>% str_replace('[c|"]', "")
   failures <- paste0("Groups ", failures, " were not successfully updated.")
   cat(str_interp("\033[0;33m${failures}\033[0m\n"))  
 }

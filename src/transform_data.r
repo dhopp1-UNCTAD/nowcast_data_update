@@ -1,9 +1,9 @@
 month <- function (x) {sapply(x, function (x) as.numeric(substr(x, 6, 7)))}
 year <- function (x) {sapply(x, function (x) as.numeric(substr(x, 1, 4)))}
 
-transform_data <- function (end_date, output_directory) {
+transform_data <- function (run_date, output_directory) {
   catalog <- read_csv(paste0(helper_directory,"catalog.csv"), col_types=cols())
-  data <- read_csv(paste0(output_directory, end_date, "_database.csv"))
+  data <- read_csv(paste0(output_directory, run_date, "_database.csv"))
   
   # For data expressed in cumulative terms, transform to current period data
   for (i in 2:ncol(data)){
@@ -72,6 +72,6 @@ transform_data <- function (end_date, output_directory) {
     data_tf[, i] <- temp
   }
   
-  write_csv(data_sa, paste0(output_directory, end_date, "_database_sa.csv"))
-  write_csv(data_tf, paste0(output_directory, end_date, "_database_tf.csv"))
+  write_csv(data_sa, paste0(output_directory, run_date, "_database_sa.csv"))
+  write_csv(data_tf, paste0(output_directory, run_date, "_database_tf.csv"))
 }
