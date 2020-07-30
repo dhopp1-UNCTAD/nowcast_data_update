@@ -6,7 +6,7 @@ All files relating to the UNCTAD nowcast data update. This repo only hosts the c
 - [OneDrive](https://unitednations-my.sharepoint.com/personal/daniel_hopp_un_org/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdaniel%5Fhopp%5Fun%5Forg%2FDocuments%2Fnowcasts%2Fnowcast%5Fdata%5Fupdate)
 
 ## Setup instructions
-- Clone this repo, then copy the `helper` and `output` directories from OneDrive to the root directory of the repo.
+- Clone this repo, then copy the `output` directories from OneDrive to the root directory of the repo.
 - Run `bash install_packages.sh` to install necessary libraries. Any failures resolve specific to your system.
 
 ## Update instructions
