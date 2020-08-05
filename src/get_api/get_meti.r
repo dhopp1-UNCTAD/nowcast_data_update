@@ -22,7 +22,7 @@ get_meti <- function (url, catalog, g, start_date, end_date) {
     colnames(data) <- c("date", "value")
     data <- data %>%
       mutate(date = as.Date(paste(substr(date, 1, 4), substr(date, 5, 6), "01", sep = "-"), format = "%Y-%m-%d")) %>%
-      mutate(value = as.numeric(value))
+      mutate(value = as.numeric(str_replace(str_trim(value), ",", ".")))
     starti <- which(grepl(pull(data[1, "date"]), tmp$date))
     tmp[starti:(starti + nrow(data) - 1), 2] <- data$value
     

@@ -6,6 +6,8 @@ suppressPackageStartupMessages({
   library(jsonlite)
   library(httr)
   library(readxl)
+  library(stringr)
+  library(RCurl)
   library(siebanxicor)
   library(pdftools)
   library(rvest)

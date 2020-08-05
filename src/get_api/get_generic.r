@@ -1,5 +1,9 @@
 # oecd, eurostat, imf api by country
 get_api <- function (url, catalog, g, countries, which_time, data_source, start_date, end_date) {
+  # which variables are being updated
+  vars <- gen_vars(catalog, g)
+  tmp <- gen_tmp(vars, start_date, end_date)
+  
   # getting necessary dates
   start_year <- format(start_date, "%Y")
   end_year <- format(end_date, "%Y")
@@ -20,14 +24,14 @@ get_api <- function (url, catalog, g, countries, which_time, data_source, start_
   url <- gen_url(url, start_url)
   # differing things between data sources
   if (data_source == "oecd") {
-    # Group 7: FDI inflows, source = OECD (quarterly) has a different matching key
-    if (g == 7) {orig_country_col <- "COU"} else {orig_country_col <- "LOCATION"}
+    # Group FDI inflows, source = OECD (quarterly) has a different matching key
+    if (vars$name[1] == "FDI financial flows, inwards, world") {orig_country_col <- "COU"} else {orig_country_col <- "LOCATION"}
     match_country_col <- "oecd"
     orig_time_col <- "obsTime"
     orig_value_col <- "obsValue"
   } else if (data_source == "eurostat") {
-    # Group 13: Maritime freight, source = Eurostat (quarterly) has a different matching key
-    if (g == 13) {orig_country_col <- "REP_MAR"} else {orig_country_col <- "GEO"}
+    # Maritime freight, source = Eurostat (quarterly) has a different matching key
+    if (vars$name[1] == "Goods volume transported by main ports, Germany") {orig_country_col <- "REP_MAR"} else {orig_country_col <- "GEO"}
     match_country_col <- "eurostat"
     orig_time_col <- "obsTime"
     orig_value_col <- "obsValue"
@@ -44,10 +48,6 @@ get_api <- function (url, catalog, g, countries, which_time, data_source, start_
     date_transform <- function(x){as.Date(paste0(x, "-01"), format = "%Y-%m-%d")}
   }
   
-  # which variables are being updated
-  vars <- gen_vars(catalog, g)
-  tmp <- gen_tmp(vars, start_date, end_date)
-  
   # try api call
   status <- tryCatch({
     if (data_source %in% c("oecd", "eurostat")) {rawdata <- readSDMX(url)
@@ -59,7 +59,8 @@ get_api <- function (url, catalog, g, countries, which_time, data_source, start_
   if (status) {
     # set up api data
     data <- data.frame(rawdata) %>%
-      merge(countries, by.x=orig_country_col, by.y=match_country_col, all.x=T)
+      merge(countries, by.x=orig_country_col, by.y=match_country_col, all.x=T) %>% 
+      mutate(country = ifelse(is.na(country), "oecd", country))
     data <- data[sapply(data[,orig_time_col], nchar) > 4,]
     data[orig_time_col] <- lapply(data[orig_time_col], date_transform)
     data[orig_value_col] <- lapply(data[orig_value_col], as.numeric)
@@ -77,6 +78,8 @@ get_api <- function (url, catalog, g, countries, which_time, data_source, start_
         tmp[starti:(starti + nrow(datai) - 1), i + 1] <- datai[, orig_value_col]
       }
     }
+    
+    tmp <- tmp %>% filter(date <= end_date)
     
     return(tmp %>% select(-1))
   }
@@ -131,4 +134,24 @@ get_single_api <- function (url, catalog, g, which_time, data_source, start_date
     
     return (tmp %>% select(-1))
   }
+}
+
+
+# function to convert a eurostat df that's having problems with readsdmx %>% data.frame
+rdsmx_problem <- function (x) {
+  tmp <- xmlToList(slot(x, "xmlObj")) %>% 
+    .$DataSet %>% 
+    .$Series %>% 
+    data.frame %>% 
+    gather(key="key", value="value") %>% 
+    distinct(key, value) %>% 
+    filter(grepl("Obs.Obs", key)) %>% 
+    mutate(key = ifelse(nchar(value) == 7, "date", "value"))
+  
+  final <- tmp %>% 
+    filter(key == "date") %>% 
+    rename(date=value)
+  final$value <- tmp %>% filter(key=="value") %>% select(value) %>% pull
+  final <- final %>% select(-key)
+  return (final)
 }

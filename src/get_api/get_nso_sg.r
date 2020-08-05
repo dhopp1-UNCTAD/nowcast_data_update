@@ -1,13 +1,18 @@
 get_nso_sg <- function (url, catalog, g, start_date, end_date) {
   vars <- gen_vars(catalog, g)
   tmp <- gen_tmp(vars, start_date, end_date)
+  if (vars$code[1] == "container_sg") {
+    level_name <- "Level1d"
+  } else {
+    level_name <- "Level1"
+  }
   
   status <- tryCatch({
       rawdata <- fromJSON(url)
     TRUE },
     error = function(e) { FALSE })
   if (status) {
-    data <- rawdata$Level1d %>%
+    data <- rawdata[[level_name]] %>%
       as_tibble() %>%
       mutate(date = as.Date(paste(month, "01", sep = "-"), format = "%Y-%m-%d")) %>%
       filter(date >= start_date) %>%
@@ -28,7 +33,7 @@ get_nso_sg <- function (url, catalog, g, start_date, end_date) {
       TRUE },
       error = function(e) {FALSE})
     if (status2) {
-      data <- rawdata$Level1d %>%
+      data <- rawdata[[level_name]] %>%
         as_tibble() %>%
         mutate(date = as.Date(paste(month, "01", sep = "-"), format = "%Y-%m-%d")) %>%
         filter(date >= start_date) %>%

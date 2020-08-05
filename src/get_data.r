@@ -5,6 +5,7 @@ get_data <- function (start_date, end_date, run_date, helper_directory, output_d
   eikon <- read_excel(paste0(helper_directory, "Eikon.xlsx"), skip=1, .name_repair = "minimal")
   most_recent_database <- read_csv(paste0(output_directory, "most_recent_database.csv"), col_types=cols())
   
+  
   # initializing the database
   database <- seq(from = start_date, to = end_date, by = "month") %>%
     data.frame %>%
@@ -88,7 +89,17 @@ get_data <- function (start_date, end_date, run_date, helper_directory, output_d
       tmp <- get_mem(url, catalog, g, start_date, end_date, historical)
     } else if (data_source == "la_port") {
       tmp <- get_la_port(url, catalog, g, start_date, end_date, historical)
-    } else {
+    } else if (data_source == "rbi") {
+      tmp <- get_rbi(url, catalog, g, start_date, end_date, historical)
+    } else if (data_source == "shipfix") {
+      tmp <- get_shipfix(url, catalog, g, start_date, end_date)
+    } else if (data_source == "mospi") {
+      tmp <- get_mospi(url, catalog, g, start_date, end_date)
+    } else if (data_source == "ita") {
+      tmp <- get_ita(url, catalog, g, start_date, end_date)
+    } else if (data_source == "bi") {
+      tmp <- get_bi(url, catalog, g, start_date, end_date)
+    } else { 
       tmp <- get_manual(catalog, g, start_date, end_date, historical)
     }
       
