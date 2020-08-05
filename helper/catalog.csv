@@ -161,10 +161,9 @@ pmi_nm_cn,"Non-manufacturing purchaser managers' index, China (Eikon)",cn,m,1,in
 oil_x,Oil exports,opec,m,1,kb/d,1/1/2015,eikon,n,n,growthr,manual,54,1,0,1,0,0,1,0,0,1
 oil_prod,Oil production,opec,m,1,mb/d,1/1/2002,eikon,n,n,growthr,manual,54,1,0,0,0,0,1,0,0,1
 tourists_th,"International tourist arrivals, Thailand",th,m,2,persons,1/1/2002,eikon,n,n,growthr,manual,54,1,0,0,0,1,0,0,0,1
-tourists_rec_us,"Tourism receipts, United States",us,m,3,y-o-y growth rates,1/1/2007,unwto,n,y,linear,manual,55,1,0,0,0,1,0,0,1,0
-tourists_neasia,"Tourist arrivals, North-East Asia",nea,m,3,y-o-y growth rates,1/1/2007,unwto,n,y,linear,manual,55,1,0,0,0,1,0,0,0,1
-tourists_seasia,"Tourist arrivals, South-East Asia",sea,m,3,y-o-y growth rates,1/1/2007,unwto,n,y,linear,manual,55,1,0,0,0,1,0,0,0,1
-tourists_world,"Tourist arrivals, world",world,m,3,y-o-y growth rates,1/1/2007,unwto,n,y,linear,manual,55,1,0,0,0,1,0,0,1,1
+tourists_neasia,"Tourist arrivals, North-East Asia",nea,m,3,y-o-y growth rates,1/1/2007,unwto,n,y,linear,https://www.e-unwto.org/doi/pdf/10.18111/wtobarometereng.,55,1,0,0,0,1,0,0,0,1
+tourists_seasia,"Tourist arrivals, South-East Asia",sea,m,3,y-o-y growth rates,1/1/2007,unwto,n,y,linear,https://www.e-unwto.org/doi/pdf/10.18111/wtobarometereng.,55,1,0,0,0,1,0,0,0,1
+tourists_world,"Tourist arrivals, world",world,m,3,y-o-y growth rates,1/1/2007,unwto,n,y,linear,https://www.e-unwto.org/doi/pdf/10.18111/wtobarometereng.,55,1,0,0,0,1,0,0,1,1
 container_hk,"Container throughput, Hong Kong port",hk,m,1,1000 TEUs,1/1/2002,hk_ports,n,n,growthr,https://www.hkmpb.gov.hk/document/HKP_KTCT-stat_csv1(EN).csv,56,1,0,1,1,1,0,0,0,1
 transit_pa_canal,Oceangoing transit through Panama Canal,pa,m,1,number of ships,1/1/2006,pa_canal,n,n,growthr,https://www.pancanal.com/common/maritime/advisories/,57,1,0,1,1,1,0,0,0,1
 transit_suez_canal,Net tonnage transiting through Suez Canal,eg,m,5,1000 tonnes,1/1/2007,suez_canal,n,n,growthr,https://www.suezcanal.gov.eg/English/Downloads/DownloadsDocLibrary/Navigation Reports/Monthly Reports/,58,1,0,1,1,1,0,0,0,1

@@ -8,6 +8,7 @@ suppressPackageStartupMessages({
   library(readxl)
   library(stringr)
   library(RCurl)
+  library(tabulizer)
   library(siebanxicor)
   library(pdftools)
   library(rvest)

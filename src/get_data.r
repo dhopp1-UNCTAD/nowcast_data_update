@@ -99,6 +99,8 @@ get_data <- function (start_date, end_date, run_date, helper_directory, output_d
       tmp <- get_ita(url, catalog, g, start_date, end_date)
     } else if (data_source == "bi") {
       tmp <- get_bi(url, catalog, g, start_date, end_date)
+    } else if (data_source == "unwto") {
+      tmp <- get_unwto(url, catalog, g, start_date, end_date, historical)
     } else { 
       tmp <- get_manual(catalog, g, start_date, end_date, historical)
     }
