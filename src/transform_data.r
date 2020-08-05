@@ -22,7 +22,7 @@ transform_data <- function (run_date, output_directory) {
     datai <- data %>% select(1, i) %>% mutate(date = as.Date(date)) %>% data.frame
     cati <- catalog %>% filter(code == colnames(datai)[2])
     if (cati$sa == "y") next
-    varname.sa <- paste0(colnames(datai)[2], ".sa")
+    varname.sa <- colnames(datai)[2] # paste0(colnames(datai)[2], ".sa")
     for (j in 1:nrow(datai)) if (!is.na(datai[j, 2])) break; starti <- datai[j, "date"]
     for (j in nrow(datai):1) if (!is.na(datai[j, 2])) break; endi <- datai[j, "date"]
     datai$obs <- ifelse(datai$date >= starti & datai$date <= endi, 1, 0)
