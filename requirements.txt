@@ -1,6 +1,5 @@
 tidyverse 1.2.1
 lubridate 1.7.4
-hash 2.2.6.1
 rsdmx 0.5-14
 jsonlite 1.6
 httr 1.4.0

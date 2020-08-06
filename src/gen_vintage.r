@@ -8,7 +8,7 @@ source("transform_data.r")
 catalog <- read_csv(paste0(helper_directory, "catalog.csv"))
 data <- read_csv(paste0(output_directory, "most_recent_database.csv"))
 
-lag_date <- as.Date("2020-07-01")
+lag_date <- as.Date("2020-03-01")
 
 lag_series <- function(data, col_name, which_date, catalog) {
    n_lag <- catalog %>% 

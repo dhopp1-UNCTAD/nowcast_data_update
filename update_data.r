@@ -1,7 +1,6 @@
 suppressPackageStartupMessages({
   library(tidyverse)
   library(lubridate)
-  library(hash)
   library(rsdmx)
   library(jsonlite)
   library(httr)
