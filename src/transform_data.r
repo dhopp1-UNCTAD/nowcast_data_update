@@ -1,7 +1,7 @@
-month <- function (x) {sapply(x, function (x) as.numeric(substr(x, 6, 7)))}
-year <- function (x) {sapply(x, function (x) as.numeric(substr(x, 1, 4)))}
-
 transform_data <- function (run_date, output_directory) {
+  month <- function (x) {sapply(x, function (x) as.numeric(substr(x, 6, 7)))}
+  year <- function (x) {sapply(x, function (x) as.numeric(substr(x, 1, 4)))}  
+  
   catalog <- read_csv(paste0(helper_directory,"catalog.csv"), col_types=cols())
   data <- read_csv(paste0(output_directory, run_date, "_database.csv"))
   
