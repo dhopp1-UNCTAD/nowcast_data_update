@@ -58,9 +58,13 @@ transform_data <- function (run_date, output_directory) {
       step = 1
     }
     if (cati$transformation == "linear") {
-      next
+      temp <- data_tf[,i] / 100
     } else if (cati$transformation == "growthr") {
       temp <- datai[, 2] / lag(datai[, 2], step) - 1
+      # max decrease of -0.99
+      #for (x in 1:nrow(datai)) {
+      #  temp[x] <- max(temp[x], -0.99)
+      #}
     } else if (cati$transformation == "growthr-yoy") {
       temp <- datai[, 2] / lag(datai[, 2], 12) - 1
     } else if (cati$transformation == "chg") {
