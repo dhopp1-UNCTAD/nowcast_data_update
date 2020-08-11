@@ -16,6 +16,8 @@ suppressPackageStartupMessages({
 })
 options(warn=-1)
 
+# uncomment below line if running from Windows and set to location of this file, e.g. setwd("C:/Users/Daniel/Downloads/nowcast_data_update/")
+# setwd()
 args <- commandArgs(trailingOnly=TRUE)
 helper_directory <- "helper/"
 output_directory <- "output/"
