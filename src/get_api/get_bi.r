@@ -3,8 +3,9 @@ get_bi <- function (url, catalog, g, start_date, end_date) {
   tmp <- gen_tmp(vars, start_date, end_date) %>% select(date)
   
   status <- tryCatch({
+    uastring <- "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Ubuntu Chromium/25.0.1364.160 Chrome/25.0.1364.160 Safari/537.22"
     tmps <- tempfile()
-    download.file(url,tmps, method="wget", extra='--user-agent "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Ubuntu Chromium/25.0.1364.160 Chrome/25.0.1364.160 Safari/537.22"')
+    withr::with_options(list(HTTPUserAgent=uastring), download.file(url, tmps))
     unzip(tmps)
     data <- read_excel("SK.xlsx")
     unlink(tmps)

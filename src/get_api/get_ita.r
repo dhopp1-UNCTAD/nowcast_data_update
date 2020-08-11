@@ -3,7 +3,7 @@ get_ita <- function (url, catalog, g, start_date, end_date) {
   tmp <- gen_tmp(vars, start_date, end_date) %>% select(date)
   
   tmps <- tempfile()
-  download.file(url,tmps)
+  download.file(url,tmps, mode="wb")
   
   years <- c(2006:as.numeric(substr(end_date, 1, 4)))
   complete_string <- " COR Month-QTR Volume"
