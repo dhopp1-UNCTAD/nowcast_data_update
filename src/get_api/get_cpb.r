@@ -4,7 +4,8 @@ get_cpb <- function (url, catalog, g, countries, start_date, end_date) {
   
   status <- tryCatch({
     tmps <- tempfile()
-    download.file("https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx", tmps, quiet = T, mode = "wb")
+    # non linux: download.file("https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx", tmps, quiet = T, mode = "wb")
+    download.file("https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx", tmps, method="wget", quiet = T, mode = "wb", extra="--no-check-certificate")
     rawdata <- read_excel(path = tmps, skip = 3, col_names = F)
     unlink(tmps)
     TRUE },
