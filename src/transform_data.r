@@ -3,7 +3,8 @@ transform_data <- function (run_date, output_directory) {
   year <- function (x) {sapply(x, function (x) as.numeric(substr(x, 1, 4)))}  
   
   catalog <- read_csv(paste0(helper_directory,"catalog.csv"), col_types=cols())
-  data <- read_csv(paste0(output_directory, run_date, "_database.csv"))
+  data <- read_csv(paste0(output_directory, run_date, "_database.csv")) %>% 
+    select(-tmp)
   
   # For data expressed in cumulative terms, transform to current period data
   for (i in 2:ncol(data)){

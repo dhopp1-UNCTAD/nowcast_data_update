@@ -32,6 +32,7 @@ get_pa_canal <- function (url, catalog, g, start_date, end_date, historical) {
       month_start <- str_locate(pattern="–", raw_month)[[1]][1]
       month_end <- str_locate(pattern="\n", raw_month)[[1]][1]
       month <- substr(raw_month, month_start+2, month_end-1)
+      month <- str_replace(month, " \\(CORRECTION\\)", "")
       
       year <- str_sub(month, -4) %>% as.numeric
       month <- which(str_sub(month, 1, nchar(month)-5) == months)

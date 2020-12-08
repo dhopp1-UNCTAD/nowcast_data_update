@@ -5,24 +5,28 @@ get_shipfix <- function (url, catalog, g, start_date, end_date) {
     header <- "content-type:application/json"
     pword <- Sys.getenv("SHIPFIXPASS")
     data <- str_interp("'{\"email\":\"daniel.hopp@unctad.org\",\"password\":\"${pword}\"}'")
-    url <- "https://unctad.shipfix.com/api/rest/1.0/auth/login"
-    token <- fromJSON(system(str_interp("curl --request POST -k --url ${url} --header 'content-type:application/json' --data ${data}"), intern=T))$token
+    auth_url <- "https://unctad.shipfix.com/api/rest/1.0/auth/login"
+    token <- fromJSON(system(str_interp("curl --request POST -k --url ${auth_url} --header 'content-type:application/json' --data ${data}"), intern=T))$token
     
     
     # getting data
-    url <- "https://unctad.shipfix.com/api/rest/1.0/insights/files"
+    # url <- "https://unctad.shipfix.com/api/rest/1.0/insights/files"
     header <- str_interp("authorization: Bearer ${token}")
     subdirectory <- "shipfix/"
     filename <- "data"
     system(str_interp("mkdir ${subdirectory}"))
     
-    response <- fromJSON(getURL(url=url, .opts = list(httpheader = header)))
+    api_url <- "https://unctad.shipfix.com/api/rest/1.0/insights/files"
+    response <- fromJSON(getURL(url=api_url, .opts = list(httpheader = header)))
+    
+    
     # has many days, take the latest
     file_url <- response$url[length(response$url)]
     
     system(str_interp("curl --request GET -k --url '${file_url}' --output ${paste0(subdirectory, filename)}.tar.gz"))
     system(str_interp("tar -C ${subdirectory} -zxvf ${paste0(subdirectory, filename)}.tar.gz"))
-    system(str_interp("rm ${paste0(subdirectory, filename)}.tar.gz"))
+    system(str_interp("rm -r ${subdirectory}"))
+    #system(str_interp("rm ${paste0(subdirectory, filename)}.tar.gz"))
     TRUE
   },
   error = function(e) {FALSE}
@@ -57,5 +61,7 @@ get_shipfix <- function (url, catalog, g, start_date, end_date) {
     system(str_interp("rm -r ${subdirectory}"))
     
     return (tmp %>% select(-1))
+  } else {
+    system(str_interp("rm -r ${subdirectory}"))
   }
 }

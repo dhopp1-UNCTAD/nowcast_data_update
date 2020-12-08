@@ -19,6 +19,11 @@ All files relating to the UNCTAD nowcast data update. This repo only hosts the c
 	- `src/get_data.r`: this will update data sources via API and web scraping. The console will output which group is being gotten, and at the end will display which groups failed to update. Refer to the `catalog.csv` in the `helper` directory for which data sources are updated. Outputs `output/YYYY-mm-dd_database.csv` and `output/YYYY-mm-dd_log.csv`, which tells which data sources were succesfully updated and how long they took.
 	- `src/transform_data.r`: seasonally adjusts data where relevant, and transforms cumulative numbers to non-cumulative where relevant. Outputs `output/YYYY-mm-dd_database_sa.csv` and `output/YYYY-mm-dd_database_tf.csv`.
 - Some groups may fail, the script output will tell you which groups, you can then refer to the catalog to see which these are. Chinese data sometimes fails due to their website, they can be tried again the next day. Shipfix will fail on Windows, this is ok as it is not used in any models. UNCTAD data will fail on Windows, this is ok as the data is updated only once a quarter. Panama canal may fail on Windows, this is ok. Other groups may fail as sites are updated, but disregard as this doesn't prevent the rest from updating correctly and they will be repaired later.
+	- **_Known broken data sources_**:  
+		- **groups 23:32, nbs**: China frequently changes permissions and APIs for accessing their data, not a reliable data source, ok if not working.
+		- **group 33, hk_nso**: Hong Kong merchandise trade. API url for some reason returning error. Not used in any models, ok if not working.
+		- **group 47: nso_tr**: Turkish departing visitors, they changed their data format in their files. Not used in any models, ok if not working.
+		- **group 67, shipfix**: permissions on the API changed, not used in any models so ok. To fix write [Philippe Pagnotta](philippe@shipfix.com) at shipfix.
 - When the update is complete, upload the `output` directory to OneDrive, replacing all that is there. You may have to delete the whole folder then reupload.
 - Data update process complete, disregard below unless you're working with it.
 
