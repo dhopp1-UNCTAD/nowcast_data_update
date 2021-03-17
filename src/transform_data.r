@@ -3,8 +3,11 @@ transform_data <- function (run_date, output_directory) {
   year <- function (x) {sapply(x, function (x) as.numeric(substr(x, 1, 4)))}  
   
   catalog <- read_csv(paste0(helper_directory,"catalog.csv"), col_types=cols())
-  data <- read_csv(paste0(output_directory, run_date, "_database.csv")) %>% 
-    select(-tmp)
+  data <- read_csv(paste0(output_directory, run_date, "_database.csv"))
+  if ("tmp" %in% colnames(data)) {
+    data <- data %>% 
+      select(-tmp)
+  }  
   
   # For data expressed in cumulative terms, transform to current period data
   for (i in 2:ncol(data)){
@@ -37,9 +40,15 @@ transform_data <- function (run_date, output_directory) {
       datai.ts <- datai[datai$date >= starti & datai$date <= endi, 2]
       datai.ts <- datai.ts[seq(from = 1, to = length(datai.ts), by = 3)]
       datai.ts <- ts(datai.ts, frequency = 4, start = c(year(starti), month(starti)/3), end = c(year(endi), month(endi)/3))
-      datai.sa <- seas(datai.ts, na.action = na.x13)
+      # x11 for unctad global services, x13 for everything else
       datai[, varname.sa] <- NA
-      datai[datai$obs == 1, varname.sa] <- datai.sa$series$s11
+      if (varname.sa == "x_servs_world"){
+        datai.sa <- seas(datai.ts, regression.aictest="easter", x11="", na.action = na.x13)
+        datai[datai$obs == 1, varname.sa] <- datai.sa$series$d11
+      } else {
+        datai.sa <- seas(datai.ts, na.action = na.x13)
+        datai[datai$obs == 1, varname.sa] <- datai.sa$series$s11
+      }
     }
     data_sa[, i] <- datai[, varname.sa]
     colnames(data_sa)[i] <- varname.sa
