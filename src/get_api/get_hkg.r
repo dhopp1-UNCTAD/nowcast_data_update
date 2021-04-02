@@ -18,11 +18,8 @@ get_hkg <- function (url, catalog, g, start_date, end_date) {
       data[i, "Year"] <- data[i - 1, "Year"]
     }
     data <- data %>%
-      filter(!is.na(Month) & Month != "*" & Month != "# ?") %>%
+      filter(Month %in% months) %>% 
       rowwise() %>%
-      # drop the first row that's not a dat
-      slice(2:n()) %>% 
-      filter(!is.na(Month)) %>% 
       mutate(date = as.Date(paste(Year, which(months == Month), "01", sep = "-"))) %>%
       filter(date >= start_date) %>%
       select(date, value = "Total...14") %>%
