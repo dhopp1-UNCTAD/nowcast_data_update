@@ -6,7 +6,7 @@ get_hkg <- function (url, catalog, g, start_date, end_date) {
   status <- tryCatch({
     tmps <- tempfile()
     download.file(url, tmps, quiet = T, mode = "wb")
-    rawdata <- read_excel(path = tmps, skip = 7, col_names = T, n_max=304)
+    rawdata <- read_excel(path = tmps, skip = 7, col_names = T)
     unlink(tmps)
     TRUE },
     error = function(e) {
