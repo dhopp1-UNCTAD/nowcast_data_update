@@ -2,12 +2,44 @@ get_cpb <- function (url, catalog, g, countries, start_date, end_date) {
   vars <- gen_vars(catalog, g)
   tmp <- gen_tmp(vars, start_date, end_date)
   
+  month_key <- list()
+  month_key[[1]] <- "january"
+  month_key[[2]] <- "february"
+  month_key[[3]] <- "march"
+  month_key[[4]] <- "april"
+  month_key[[5]] <- "may"
+  month_key[[6]] <- "june"
+  month_key[[7]] <- "july"
+  month_key[[8]] <- "august"
+  month_key[[9]] <- "september"
+  month_key[[10]] <- "october"
+  month_key[[11]] <- "november"
+  month_key[[12]] <- "december"
+  
   status <- tryCatch({
-    tmps <- tempfile()
     # non linux: download.file("https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx", tmps, quiet = T, mode = "wb")
     # formerly https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx
-    download.file("https://www.cpb.nl/sites/default/files/omnidownload/CPB-World-Trade-Monitor-January-2022.xlsx", tmps, method="wget", quiet = T, mode = "wb", extra="--no-check-certificate")
-    #download.file("https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx", tmps, method="wget", quiet = T, mode = "wb", extra="--no-check-certificate")
+    year <- as.numeric(substr(end_date, 1,4))
+    stop_year <- year - 1
+    month_num <- 12
+    success <- FALSE
+    while (!success & year >= year) { # keep looping while no success, but only try this year and last
+      tmps <- tempfile()
+      interp_url <- str_replace(url, "MONTH", month_key[[month_num]]) %>%
+        str_replace("YEAR", as.character(year))
+      success <- tryCatch({
+        download.file(interp_url, tmps, method="wget", quiet = T, mode = "wb", extra="--no-check-certificate")
+      TRUE}, error = function(e) {FALSE})
+      if (month_num == 1) {
+        month_num <- 12
+      } else {
+        month_num <- month_num - 1
+      }
+      if (month_num == 1) {
+        year <- year - 1
+      }
+    }
+    
     rawdata <- read_excel(path = tmps, skip = 3, col_names = F)
     unlink(tmps)
     TRUE },
