@@ -28,7 +28,7 @@ get_data <- function (start_date, end_date, run_date, helper_directory, output_d
   # function to generate the table of a g
   get_group <- function (g) {
     print(paste("Fetching group", g))
-    url <-data_hash[[as.character(g)]][1]
+    url <- data_hash[[as.character(g)]][1]
     which_time <-data_hash[[as.character(g)]][2]
     data_source <- data_hash[[as.character(g)]][3]
     
