@@ -31,10 +31,10 @@ get_api <- function (url, catalog, g, countries, which_time, data_source, start_
     orig_value_col <- "obsValue"
   } else if (data_source == "eurostat") {
     # Maritime freight, source = Eurostat (quarterly) has a different matching key
-    if (vars$name[1] == "Goods volume transported by main ports, Germany") {orig_country_col <- "REP_MAR"} else {orig_country_col <- "GEO"}
+    if (vars$name[1] == "Goods volume transported by main ports, Germany") {orig_country_col <- "rep_mar"} else {orig_country_col <- "geo"}
     match_country_col <- "eurostat"
-    orig_time_col <- "obsTime"
-    orig_value_col <- "obsValue"
+    orig_time_col <- "TIME_PERIOD"
+    orig_value_col <- "OBS_VALUE"
   } else if (data_source == "imf") {
     orig_country_col <- "X.REF_AREA"
     match_country_col <- "imf"
@@ -71,11 +71,13 @@ get_api <- function (url, catalog, g, countries, which_time, data_source, start_
     for (i in 1:nrow(vars)) {
       datai <- data %>% 
         filter(country == as.character(vars[i, "country"]))
-      starti <- which(grepl(datai[1, orig_time_col], tmp$date))
-      if (which_time == "q") {
-        tmp[seq(from = starti, to = starti + nrow(datai)*3 - 1, by = 3), i + 1] <- datai[, orig_value_col]
-      } else if (which_time == "m") {
-        tmp[starti:(starti + nrow(datai) - 1), i + 1] <- datai[, orig_value_col]
+      if (nrow(datai) > 0) {
+        starti <- which(grepl(datai[1, orig_time_col], tmp$date))
+        if (which_time == "q") {
+          tmp[seq(from = starti, to = starti + nrow(datai)*3 - 1, by = 3), i + 1] <- datai[, orig_value_col]
+        } else if (which_time == "m") {
+          tmp[starti:(starti + nrow(datai) - 1), i + 1] <- datai[, orig_value_col]
+        } 
       }
     }
     
