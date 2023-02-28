@@ -50,8 +50,11 @@ get_api <- function (url, catalog, g, countries, which_time, data_source, start_
   
   # try api call
   status <- tryCatch({
-    if (data_source %in% c("oecd", "eurostat")) {rawdata <- readSDMX(url)
-    } else if (data_source == "imf") {rawdata <- CompactDataMethod("IFS", list(CL_FREQ = "Q", CL_AREA_IFS = c("CN", "SG"),CL_INDICATORS_IFS = url), startdate = start_quarter, enddate = end_quarter, verbose = F, tidy = T)}
+    if (data_source %in% c("oecd")) {rawdata <- readSDMX(url)
+    } else if (data_source == "eurostat") {
+      rawdata <- read_csv(url, show_col_types=FALSE) %>% 
+        data.frame()
+    }else if (data_source == "imf") {rawdata <- CompactDataMethod("IFS", list(CL_FREQ = "Q", CL_AREA_IFS = c("CN", "SG"),CL_INDICATORS_IFS = url), startdate = start_quarter, enddate = end_quarter, verbose = F, tidy = T)}
     TRUE},
     error = function(e) {FALSE}
   )
