@@ -9,7 +9,10 @@ get_ibge <- function (url, catalog, g, start_date, end_date) {
   url <- str_replace(url,"MONTHS", months)
   
   status <- tryCatch({
-    rawdata <- fromJSON(url)
+    rawdata <- GET(url) %>% 
+      .$content %>% 
+      rawToChar() %>% 
+      fromJSON()
     TRUE },
     error = function(e) {
       FALSE })
