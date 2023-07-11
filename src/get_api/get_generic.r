@@ -31,10 +31,10 @@ get_api <- function (url, catalog, g, countries, which_time, data_source, start_
     orig_value_col <- "obsValue"
   } else if (data_source == "eurostat") {
     # Maritime freight, source = Eurostat (quarterly) has a different matching key
-    if (vars$name[1] == "Goods volume transported by main ports, Germany") {orig_country_col <- "rep_mar"} else {orig_country_col <- "geo"}
+    if (vars$name[1] == "Goods volume transported by main ports, Germany") {orig_country_col <- "REP_MAR"} else {orig_country_col <- "GEO"}
     match_country_col <- "eurostat"
-    orig_time_col <- "TIME_PERIOD"
-    orig_value_col <- "OBS_VALUE"
+    orig_time_col <- "obsTime"
+    orig_value_col <- "obsValue"
   } else if (data_source == "imf") {
     orig_country_col <- "X.REF_AREA"
     match_country_col <- "imf"
@@ -50,11 +50,8 @@ get_api <- function (url, catalog, g, countries, which_time, data_source, start_
   
   # try api call
   status <- tryCatch({
-    if (data_source %in% c("oecd")) {rawdata <- readSDMX(url)
-    } else if (data_source == "eurostat") {
-      rawdata <- read_csv(url, show_col_types=FALSE) %>% 
-        data.frame()
-    }else if (data_source == "imf") {rawdata <- CompactDataMethod("IFS", list(CL_FREQ = "Q", CL_AREA_IFS = c("CN", "SG"),CL_INDICATORS_IFS = url), startdate = start_quarter, enddate = end_quarter, verbose = F, tidy = T)}
+    if (data_source %in% c("oecd", "eurostat")) {rawdata <- readSDMX(url)
+    } else if (data_source == "imf") {rawdata <- CompactDataMethod("IFS", list(CL_FREQ = "Q", CL_AREA_IFS = c("CN", "SG"),CL_INDICATORS_IFS = url), startdate = start_quarter, enddate = end_quarter, verbose = F, tidy = T)}
     TRUE},
     error = function(e) {FALSE}
   )
@@ -71,20 +68,31 @@ get_api <- function (url, catalog, g, countries, which_time, data_source, start_
     data <- data[order(data[,orig_time_col], data$country),]
     
     # transform api data to database format
+    bad_vars <- c()
     for (i in 1:nrow(vars)) {
       datai <- data %>% 
         filter(country == as.character(vars[i, "country"]))
-      if (nrow(datai) > 0) {
-        starti <- which(grepl(datai[1, orig_time_col], tmp$date))
+      starti <- which(grepl(datai[1, orig_time_col], tmp$date))
+      
+      # delete variable if no data
+      if (nrow(datai) == 0) {
+        bad_vars <- c(bad_vars, vars$code[i])
+      } else {
         if (which_time == "q") {
-          tmp[seq(from = starti, to = starti + nrow(datai)*3 - 1, by = 3), i + 1] <- datai[, orig_value_col]
+          tmp[seq(from = starti, to = starti + nrow(datai)*3 - 1, by = 3), i + 1] <- datai[, orig_value_col] 
         } else if (which_time == "m") {
-          tmp[starti:(starti + nrow(datai) - 1), i + 1] <- datai[, orig_value_col]
-        } 
+          tmp[starti:(starti + nrow(datai) - 1), i + 1] <- datai[, orig_value_col] 
+        }  
       }
     }
     
     tmp <- tmp %>% filter(date <= end_date)
+    
+    # remove bad variables
+    for (bad_var in bad_vars) {
+      tmp <- tmp %>% 
+        select(-!!bad_var)
+    }
     
     return(tmp %>% select(-1))
   }
