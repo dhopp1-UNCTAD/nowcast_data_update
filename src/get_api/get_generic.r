@@ -31,10 +31,10 @@ get_api <- function (url, catalog, g, countries, which_time, data_source, start_
     orig_value_col <- "obsValue"
   } else if (data_source == "eurostat") {
     # Maritime freight, source = Eurostat (quarterly) has a different matching key
-    if (vars$name[1] == "Goods volume transported by main ports, Germany") {orig_country_col <- "REP_MAR"} else {orig_country_col <- "GEO"}
+    if (vars$name[1] == "Goods volume transported by main ports, Germany") {orig_country_col <- "rep_mar"} else {orig_country_col <- "geo"}
     match_country_col <- "eurostat"
-    orig_time_col <- "obsTime"
-    orig_value_col <- "obsValue"
+    orig_time_col <- "TIME_PERIOD"
+    orig_value_col <- "OBS_VALUE"
   } else if (data_source == "imf") {
     orig_country_col <- "X.REF_AREA"
     match_country_col <- "imf"
@@ -50,7 +50,9 @@ get_api <- function (url, catalog, g, countries, which_time, data_source, start_
   
   # try api call
   status <- tryCatch({
-    if (data_source %in% c("oecd", "eurostat")) {rawdata <- readSDMX(url)
+    if (data_source %in% c("oecd")) {rawdata <- readSDMX(url)
+    } else if (data_source %in% c("eurostat")) {
+      rawdata <- read_csv(url)
     } else if (data_source == "imf") {rawdata <- CompactDataMethod("IFS", list(CL_FREQ = "Q", CL_AREA_IFS = c("CN", "SG"),CL_INDICATORS_IFS = url), startdate = start_quarter, enddate = end_quarter, verbose = F, tidy = T)}
     TRUE},
     error = function(e) {FALSE}
