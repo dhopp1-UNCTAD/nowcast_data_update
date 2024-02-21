@@ -1,4 +1,6 @@
 get_ibge <- function (url, catalog, g, start_date, end_date) {
+  # services info: , https://sidra.ibge.gov.br/pesquisa/pms/tabelas
+  # ipi info: https://sidra.ibge.gov.br/pesquisa/pim-pf-brasil/tabelas
   vars <- gen_vars(catalog, g)
   tmp <- gen_tmp(vars, start_date, end_date)
   
@@ -17,17 +19,11 @@ get_ibge <- function (url, catalog, g, start_date, end_date) {
     error = function(e) {
       FALSE })
   if (status) {
-    data <- rawdata$resultados[[1]][[2]] %>% 
-      data.frame() %>%
-      select(starts_with("serie")) %>%
-      t() %>%
-      data.frame()
-    data$date <- rownames(data)
-    rownames(data) <- 1:nrow(data)
-    data <- data %>%
-      mutate(date = as.Date(paste0(substr(date, 7, 10), "-", substr(date, 11, 12), "-01"))) %>%
-      select(date, X1) %>%
-      rename(!!vars$code[1] := X1)
+    data <- rawdata %>% 
+      slice(2:n()) %>% 
+      mutate(date = as.Date(paste0(substr(D3C, 1, 4), "-", substr(D3C, 5, 6), "-01"))) %>% 
+      select(date, V) %>% 
+      rename(!!vars$code[1] := V)
     
     tmp <- tmp %>%
       select(date) %>%
