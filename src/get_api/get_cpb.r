@@ -19,25 +19,22 @@ get_cpb <- function (url, catalog, g, countries, start_date, end_date) {
   status <- tryCatch({
     # non linux: download.file("https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx", tmps, quiet = T, mode = "wb")
     # formerly https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx
-    year <- as.numeric(substr(end_date, 1,4))
+    try_date <- end_date
     stop_year <- year - 1
-    month_num <- 12
+    
     success <- FALSE
-    while (!success & year >= year) { # keep looping while no success, but only try this year and last
+    while (!success & year >= stop_year) { # keep looping while no success, but only try this year and last
+      year <- as.numeric(substr(try_date, 1,4))
+      month_num <- as.numeric(substr(try_date, 6, 7))
+      
       tmps <- tempfile()
       interp_url <- str_replace(url, "MONTH", month_key[[month_num]]) %>%
         str_replace("YEAR", as.character(year))
       success <- tryCatch({
         download.file(interp_url, tmps, method="wget", quiet = T, mode = "wb", extra="--no-check-certificate")
       TRUE}, error = function(e) {FALSE})
-      if (month_num == 1) {
-        month_num <- 12
-      } else {
-        month_num <- month_num - 1
-      }
-      if (month_num == 1) {
-        year <- year - 1
-      }
+      
+      try_date <- seq(try_date, length = 2, by = "-1 month")[2]
     }
     
     rawdata <- read_excel(path = tmps, skip = 3, col_names = F)
