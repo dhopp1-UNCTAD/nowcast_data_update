@@ -20,6 +20,7 @@ get_cpb <- function (url, catalog, g, countries, start_date, end_date) {
     # non linux: download.file("https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx", tmps, quiet = T, mode = "wb")
     # formerly https://www.cpb.nl/sites/default/files/wtmonitor/cpb-data-wtm.xlsx
     try_date <- end_date
+    year <- as.numeric(substr(try_date, 1,4))
     stop_year <- year - 1
     
     success <- FALSE

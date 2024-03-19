@@ -1,5 +1,20 @@
-# function to read a csv from a 7z file on linux
-open_7z <- function (url, file_name_like) {
+open_7z <- function (series_name) {
+  version <- str_interp("https://unctadstat-api.unctad.org/api/reportMetadata/${series_name}/bulkfile/") %>% 
+    GET() %>% 
+    .$content %>% 
+    rawToChar() %>% 
+    fromJSON() %>% 
+    .$version
+  file_id <- str_interp("https://unctadstat-api.unctad.org/api/reportMetadata/${series_name}/${version}/bulkfiles/en") %>% 
+    GET() %>% 
+    .$content %>% 
+    rawToChar() %>% 
+    fromJSON() %>% 
+    .$fileId
+  url <- str_interp("https://unctadstat-api.unctad.org/api/reportMetadata/${series_name}/${version}/bulkfile/${file_id}/en")
+  
+  file_name_like <- str_replace(series_name, "\\." , "_")
+  
   tmps <- tempfile(fileext = ".7z")
   download.file(url, tmps, quiet = T, mode = "wb")
   tmps_path <- str_split(tmps, "/")
@@ -20,7 +35,7 @@ open_7z <- function (url, file_name_like) {
 get_unctad <- function (url, catalog, g, which_time, start_date, end_date) {
   vars <- gen_vars(catalog, g)
   tmp <- gen_tmp(vars, start_date, end_date)
-  file_name_like <- regmatches(url, regexec("7zip/(.*?).csv", url))[[1]][2]
+  file_name_like <- url
   
   if (which_time == "m") {
     date_transform <- function (x) { as.Date(paste(substr(x, 1, 4), substr(x, 6, 7), "01", sep = "-"), format = "%Y-%m-%d") }
@@ -36,7 +51,7 @@ get_unctad <- function (url, catalog, g, which_time, start_date, end_date) {
       rawdata <- read.csv(archive_read(tmps), header = T, stringsAsFactors = F)
       unlink(tmps) 
     } else {
-      rawdata <- open_7z(url, file_name_like)
+      rawdata <- open_7z(file_name_like)
     }
     TRUE },
     error = function(e) { FALSE })
@@ -54,7 +69,7 @@ get_unctad <- function (url, catalog, g, which_time, start_date, end_date) {
     } else {
       data <- rawdata %>%
         as_tibble() %>%
-        select(Period = Quarter, country = Economy.Label, flow = Flow.Label, value = Volume.Index..2005.100.) %>%
+        select(Period = Quarter, country = Economy.Label, flow = Flow.Label, value = Volume.Index..seasonally.adjusted..2005.100.) %>%
         filter(country == "World" & flow == "Exports") %>%
         mutate(date = date_transform(Period)) %>%
         filter(date >= start_date) %>%
